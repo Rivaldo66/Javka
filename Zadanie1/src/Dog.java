@@ -1,8 +1,8 @@
 
-public class Dog extends Animals{
+public class Dog extends Animal{
 
-	public Dog(String name, float age, float weight, float experience, float hp, float levelOfHunger) {
-		super(name, age, weight, experience, hp, levelOfHunger);
+	public Dog(String name) {
+		super(name);
 		
 		this.food.add("karma");
 		this.food.add("miêso");
@@ -15,5 +15,7 @@ public class Dog extends Animals{
 		this.treatment.add("szczepienie");
 		this.treatment.add("odrobaczanie");
 		this.treatment.add("czesanie");
+		
+		this.weight = 7.82;
 	}
 }

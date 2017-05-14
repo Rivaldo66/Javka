@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Animals {
+public class Animal {
 	
 	String name;
 	float age;
-	float weight;
+	double weight;
 	float experience;
 	float hp;
 	float levelOfHunger;
@@ -15,13 +15,12 @@ public class Animals {
 	ArrayList<String> play;
 	ArrayList<String> treatment;
 
-	public Animals(String name, float age, float weight, float experience, float hp, float levelOfHunger) {
+	public Animal(String name) {
 		super();
 		this.name = name;
-		this.age = age;
-		this.weight = weight;
-		this.experience = experience;
-		this.hp = hp;
-		this.levelOfHunger = levelOfHunger;
+		this.age = 1;
+		this.experience = 0;
+		this.hp = 100;
+		this.levelOfHunger = 100;
 	}	
 }

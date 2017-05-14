@@ -1,8 +1,8 @@
 
-public class Mouse extends Animals{
+public class Mouse extends Animal{
 
-	public Mouse(String name, float age, float weight, float experience, float hp, float levelOfHunger) {
-		super(name, age, weight, experience, hp, levelOfHunger);
+	public Mouse(String name) {
+		super(name);
 		
 		this.food.add("karma");
 		this.food.add("ser");
@@ -15,5 +15,7 @@ public class Mouse extends Animals{
 		this.treatment.add("szczepienie");
 		this.treatment.add("mycie zêbów");
 		this.treatment.add("czesanie");
+		
+		this.weight = 0.58;
 	}
 }

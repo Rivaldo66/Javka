@@ -1,8 +1,8 @@
 
-public class Cat extends Animals{
+public class Cat extends Animal{
 
-	public Cat(String name, float age, float weight, float experience, float hp, float levelOfHunger) {
-		super(name, age, weight, experience, hp, levelOfHunger);
+	public Cat(String name) {
+		super(name);
 		
 		this.food.add("karma");
 		this.food.add("mleko");
@@ -15,5 +15,7 @@ public class Cat extends Animals{
 		this.treatment.add("szczepienie");
 		this.treatment.add("odrobaczanie");
 		this.treatment.add("czesanie");
+		
+		this.weight = 5.38;
 	}
 }
