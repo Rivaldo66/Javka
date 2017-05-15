@@ -6,7 +6,7 @@ public class Cat extends Animal{
 		
 		this.food.add("karma");
 		this.food.add("mleko");
-		this.food.add("kryba");
+		this.food.add("ryba");
 		
 		this.play.add("g³askanie");
 		this.play.add("³apanie myszy");
