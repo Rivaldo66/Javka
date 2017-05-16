@@ -8,6 +8,10 @@ public class Program {
 		SQL connServer = new SQL();
 	      connServer.dbConnect("jdbc:sqlserver://localhost:1433", "Pawel",
 	               "mama");
+	      
+	    DataContext mama2 = new DataContext();
+	    
+	    System.out.println(mama2.dictionary.get("Pies").get("Pokarm").get(0));
 	}
 
 }
