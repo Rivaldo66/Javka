@@ -3,7 +3,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		System.out.println("Jebaæ biede, elo");
+		System.out.println("Jebaæ biede, elo, elo2");
 		
 		SQL connServer = new SQL();
 	      connServer.dbConnect("jdbc:sqlserver://localhost:1433", "Damian",
