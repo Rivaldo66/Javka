@@ -6,8 +6,10 @@ public class Program {
 		System.out.println("Jebaæ biede, elo");
 		
 		SQL connServer = new SQL();
-	      connServer.dbConnect("jdbc:sqlserver://localhost:1433", "Pawel",
-	               "mama");
+	      connServer.dbConnect("jdbc:sqlserver://localhost:1433", "Damian",
+	               "Worrior");
+	      //connServer.dbConnect("jdbc:sqlserver://localhost:1433", "Pawel",
+	               //"mama");
 	      
 	    DataContext mama2 = new DataContext();
 	    

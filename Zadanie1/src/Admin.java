@@ -1,11 +1,11 @@
 
 public class Admin extends User{
-
-	String permissionLevel;
+	
 	
 	public Admin(String login, String password, String permissionLevel) {
-		super(login, password);
+		super(login, password, permissionLevel);
 		
-		this.permissionLevel = permissionLevel;
 	}	
+	
+	
 }
