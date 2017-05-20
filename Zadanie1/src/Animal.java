@@ -8,6 +8,7 @@ public class Animal {
 	float experience;
 	float hp;
 	float levelOfHunger;
+	float levelOfFunNeeded;
 	Date dateAdded = new Date();
 
 	public Animal(String name, String type) {
@@ -18,5 +19,6 @@ public class Animal {
 		this.experience = 0;
 		this.hp = 100;
 		this.levelOfHunger = 100;
+		this.levelOfFunNeeded = 1;
 	}	
 }
