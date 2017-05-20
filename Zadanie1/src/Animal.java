@@ -19,7 +19,7 @@ public class Animal {
 		this.experience = 0;
 		this.hp = 100;
 		this.levelOfHunger = 100;
-		this.levelOfFunNeeded = 1;
+		this.levelOfFunNeeded = 100;
 	}	
 	
 	public String getName() {
