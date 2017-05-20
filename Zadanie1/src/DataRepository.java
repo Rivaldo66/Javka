@@ -39,12 +39,12 @@ public class DataRepository {
 
 		database.dictionary.get(gatunek).get("Pokarm").add(nowyPokarm);
 	}
-	
+
 	public void AddNewZabawa(String gatunek, String nowaZabawa) {
 
 		database.dictionary.get(gatunek).get("Zabawy").add(nowaZabawa);
 	}
-	
+
 	public void AddNewZabieg(String gatunek, String nowyZabieg) {
 
 		database.dictionary.get(gatunek).get("Zabiegi").add(nowyZabieg);

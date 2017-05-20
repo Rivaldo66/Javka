@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class Animal {
-	
+
 	String name;
 	String type;
 	float age;
@@ -20,8 +20,8 @@ public class Animal {
 		this.hp = 100;
 		this.levelOfHunger = 100;
 		this.levelOfFunNeeded = 100;
-	}	
-	
+	}
+
 	public String getName() {
 		return name;
 	}

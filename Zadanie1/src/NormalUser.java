@@ -6,7 +6,7 @@ public class NormalUser extends User {
 
 	public NormalUser(String login, String password, String permissionLevel) {
 		super(login, password, permissionLevel);
-		
+
 		this.animals = new ArrayList<Animal>();
-	}		
+	}
 }
