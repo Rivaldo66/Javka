@@ -10,17 +10,17 @@ public class DataService {
 
 	public void BawSie(Animal animal, String typZabawy) {
 
-		animal.setLevelOfFunNeeded(100);
+		repository.BawSie(animal, typZabawy);
 	}
 
 	public void Zabieg(Animal animal, String typZabiegu) {
 
-		animal.setHp(100);
+		repository.Zabieg(animal, typZabiegu);
 	}
 
-	public void Karm(Animal animal, String typZabawy) {
+	public void Nakarm(Animal animal, String typZabawy) {
 
-		animal.setLevelOfHunger(100);
+		repository.Nakarm(animal, typZabawy);
 	}
 
 }
