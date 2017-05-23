@@ -49,17 +49,17 @@ public class DataRepository {
 
 		database.dictionary.get(gatunek).get("Zabiegi").add(nowyZabieg);
 	}
-	
+
 	public void Nakarm(Animal animal, String typZabawy) {
 
 		animal.setLevelOfHunger(100);
 	}
-	
+
 	public void Zabieg(Animal animal, String typZabiegu) {
 
 		animal.setHp(100);
 	}
-	
+
 	public void BawSie(Animal animal, String typZabawy) {
 
 		animal.setLevelOfFunNeeded(100);
