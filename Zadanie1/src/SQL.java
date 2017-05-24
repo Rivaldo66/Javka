@@ -1,26 +1,31 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
 
 public class SQL {
-	 public void dbConnect(String db_connect_string,
-	            String db_userid,
-	            String db_password)
-	   {
-	      try {
-	         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	         Connection conn = DriverManager.getConnection(db_connect_string,
-	                  db_userid, db_password);
-	         System.out.println("connected");
-	         Statement statement = conn.createStatement();
-	         String queryString = "select * from sysobjects where type='u'";
-	         ResultSet rs = statement.executeQuery(queryString);
-	         while (rs.next()) {
-	            System.out.println(rs.getString(1));
-	         }
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      }
-	   }
+
+	public void dbConnect(String connection) {
+
+		ConnectionSource conn = null;
+		Dao<Animal, String> nazwa = null;
+
+		try {
+			conn = new JdbcConnectionSource(connection);
+		} catch (Exception e) {
+			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
+		}
+		try {
+			nazwa = DaoManager.createDao(conn, Animal.class);
+			TableUtils.createTableIfNotExists(conn, Animal.class);
+		} catch (Exception e) {
+			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
+		}
+		try {
+			nazwa.create(new Animal("Wiesiek", "Pies"));
+		} catch (Exception e) {
+			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
+		}
+	}
 }

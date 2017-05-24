@@ -1,15 +1,33 @@
 import java.util.Date;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+@DatabaseTable(tableName = "Animals")
 public class Animal {
 
+	@DatabaseField(generatedId = true)
+	int IdAnimal;
+
+	@DatabaseField(canBeNull = false)
 	String name;
+
+	@DatabaseField(canBeNull = false)
 	String type;
+
 	float age;
+
+	@DatabaseField(canBeNull = false)
 	float experience;
+
+	@DatabaseField(canBeNull = false)
+	Date dateAdded = new Date();
 	float hp;
 	float levelOfHunger;
 	float levelOfFunNeeded;
-	Date dateAdded = new Date();
+
+	public Animal() {
+	}
 
 	public Animal(String name, String type) {
 		super();
