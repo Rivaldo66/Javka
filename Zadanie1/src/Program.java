@@ -10,6 +10,10 @@ public class Program {
 		DataContext mama2 = new DataContext();
 		DataRepository tata2 = new DataRepository(mama2);
 		DataService dziadek2 = new DataService(tata2);
+		GUI gra = new GUI();
+		gra.runLogFrame();
+		
+		gra.runGameFrame();
 
 		// System.out.println(mama2.dictionary.get("Pies").get("Pokarm").get(0));
 

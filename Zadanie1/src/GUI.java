@@ -1,18 +1,23 @@
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
-public class GUI extends JFrame {
-	
-	public GUI() {
-		
-		setResizable(false);
-		JFrame jfrm = new JFrame("Prosta aplikacja Swing");
-		jfrm.setSize(1800,800);
-		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JLabel jlab = new JLabel("Swing w Javie.");
-		jfrm.add(jlab);
-		jfrm.setVisible(true);
-		setLocationRelativeTo(null);
+public class GUI {
+
+	public void runLogFrame() {
+		// ODPALA NASZE SUPI OKIENKO GRAFICZNE
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				new LOG();
+			}
+		});
+	}
+
+	public void runGameFrame() {
+		// ODPALA NASZE SUPI OKIENKO GRAFICZNE
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				new GAME();
+			}
+		});
 		
 	}
 }

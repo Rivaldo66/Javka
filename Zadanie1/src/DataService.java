@@ -1,4 +1,3 @@
-import javax.swing.SwingUtilities;
 
 public class DataService {
 
@@ -7,13 +6,6 @@ public class DataService {
 	public DataService(DataRepository repository) {
 
 		this.repository = repository;
-
-		// ODPALA NASZE SUPI OKIENKO GRAFICZNE
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new GUI();
-			}
-		});
 	}
 
 	public void BawSie(Animal animal, String typZabawy) {
@@ -29,10 +21,6 @@ public class DataService {
 	public void Nakarm(Animal animal, String typZabawy) {
 
 		repository.Nakarm(animal, typZabawy);
-	}
-
-	public void runFrame() {
-
 	}
 
 }
