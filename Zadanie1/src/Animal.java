@@ -3,7 +3,7 @@ import java.util.Date;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "Animals")
+@DatabaseTable(tableName = "Animal")
 public class Animal {
 
 	@DatabaseField(generatedId = true)

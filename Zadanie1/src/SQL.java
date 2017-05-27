@@ -5,11 +5,12 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 public class SQL {
+	
+	ConnectionSource conn = null;
+	Dao<User, String> nazwa = null;
+	Dao<Animal, String> nazwa1 = null;
 
 	public void dbConnect(String connection) {
-
-		ConnectionSource conn = null;
-		Dao<Animal, String> nazwa = null;
 
 		try {
 			conn = new JdbcConnectionSource(connection);
@@ -17,15 +18,28 @@ public class SQL {
 			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
 		}
 		try {
-			nazwa = DaoManager.createDao(conn, Animal.class);
+			nazwa = DaoManager.createDao(conn, User.class);
+			TableUtils.createTableIfNotExists(conn, User.class);
+		} catch (Exception e) {
+			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
+		}
+		try {
+			nazwa1 = DaoManager.createDao(conn, Animal.class);
 			TableUtils.createTableIfNotExists(conn, Animal.class);
 		} catch (Exception e) {
 			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
 		}
 		try {
-			nazwa.create(new Animal("Wiesiek", "Pies"));
+			nazwa.create(new User("Wiesi", "Pies", "dupa"));
+		} catch (Exception e) {
+			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
+		}
+		try {
+			nazwa1.create(new Animal("Wiesi", "Pies"));
 		} catch (Exception e) {
 			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
 		}
 	}
+	
+	
 }

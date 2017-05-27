@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 
 public class Program {
 
@@ -5,11 +6,19 @@ public class Program {
 
 		SQL connServer = new SQL();
 		connServer.dbConnect(
-				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
+				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Pawel; password=mama");
 
 		DataContext mama2 = new DataContext();
 		DataRepository tata2 = new DataRepository(mama2);
 		DataService dziadek2 = new DataService(tata2);
+		
+		try {
+			connServer.nazwa1.create(new Animal("Wiesiek123", "Pies"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		GUI gra = new GUI();
 		gra.runLogFrame();
 		
