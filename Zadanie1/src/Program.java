@@ -12,13 +12,6 @@ public class Program {
 		DataRepository tata2 = new DataRepository(mama2);
 		DataService dziadek2 = new DataService(tata2);
 		
-		try {
-			connServer.nazwa1.create(new Animal("Wiesiek123", "Pies"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		GUI gra = new GUI();
 		gra.runLogFrame();
 		

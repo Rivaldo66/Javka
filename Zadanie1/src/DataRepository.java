@@ -10,6 +10,7 @@ public class DataRepository {
 
 	// ---------------------------------------------User---------------------------------------------//
 
+	/*
 	public void AddNewNormalUser(User u, String login, String password, String permissionLevel) {
 
 		if (u.getPermissionLevel() == "admin") {
@@ -23,7 +24,8 @@ public class DataRepository {
 			database.users.remove(normalUser);
 		}
 	}
-
+	*/
+	
 	public User GetUser(int index) {
 
 		return database.users.get(index);

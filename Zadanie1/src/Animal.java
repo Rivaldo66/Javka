@@ -12,9 +12,13 @@ public class Animal {
 	@DatabaseField(canBeNull = false)
 	String name;
 
-	@DatabaseField(canBeNull = false)
-	String type;
+	@DatabaseField(canBeNull = false, foreign = true)
+	Dictionary type;
+	
+	@DatabaseField(canBeNull = false, foreign = true)
+	User user;
 
+	@DatabaseField(canBeNull = false)
 	float age;
 
 	@DatabaseField(canBeNull = false)
@@ -22,17 +26,24 @@ public class Animal {
 
 	@DatabaseField(canBeNull = false)
 	Date dateAdded = new Date();
+	
+	@DatabaseField(canBeNull = false)
 	float hp;
+	
+	@DatabaseField(canBeNull = false)
 	float levelOfHunger;
+	
+	@DatabaseField(canBeNull = false)
 	float levelOfFunNeeded;
 
 	public Animal() {
 	}
 
-	public Animal(String name, String type) {
+	public Animal(String name, Dictionary type, User user) {
 		super();
 		this.name = name;
 		this.type = type;
+		this.user = user;
 		this.age = 1;
 		this.experience = 0;
 		this.hp = 100;
@@ -48,11 +59,11 @@ public class Animal {
 		this.name = name;
 	}
 
-	public String getType() {
+	public Dictionary getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(Dictionary type) {
 		this.type = type;
 	}
 
@@ -104,4 +115,13 @@ public class Animal {
 		this.dateAdded = dateAdded;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	
 }

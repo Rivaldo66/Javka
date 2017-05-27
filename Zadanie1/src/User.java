@@ -1,5 +1,6 @@
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 
 @DatabaseTable(tableName = "User")
@@ -12,12 +13,12 @@ public class User {
 	String password;
 	
 	@DatabaseField(canBeNull = false)
-	String permissionLevel;
+	Boolean admin;
 
-	public User(String login, String password, String permissionLevel) {
+	public User(String login, String password, Boolean admin) {
 		this.login = login;
 		this.password = password;
-		this.permissionLevel = permissionLevel;
+		this.admin = admin;
 	}
 
 	public User(){
@@ -40,12 +41,11 @@ public class User {
 		this.password = password;
 	}
 
-	public String getPermissionLevel() {
-		return permissionLevel;
+	public Boolean getAdmin() {
+		return admin;
 	}
 
-	public void setPermissionLevel(String permissionLevel) {
-		this.permissionLevel = permissionLevel;
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
 	}
-
 }
