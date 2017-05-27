@@ -8,9 +8,7 @@ public class Program {
 		connServer.dbConnect(
 				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Pawel; password=mama");
 
-		DataContext mama2 = new DataContext();
-		DataRepository tata2 = new DataRepository(mama2);
-		DataService dziadek2 = new DataService(tata2);
+		DataRepository tata2 = new DataRepository(connServer);
 		
 		GUI gra = new GUI();
 		gra.runLogFrame();

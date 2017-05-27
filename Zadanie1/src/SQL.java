@@ -10,11 +10,13 @@ public class SQL {
 	Dao<User, String> userDao = null;
 	Dao<Animal, String> animalDao = null;
 	Dao<Dictionary, String> dictionaryDao = null;
+	Dao<Action, String> actionDao = null;
 
 	public void dbConnect(String connection) {
 		
 		Dictionary dictionary1 = new Dictionary("Pies", "karma", "miêso", "kie³basa", "spacer", "aportowanie", "gumowa koœæ", "szczepienie", "odrobaczanie", "czesanie");
 		User user1 = new User("Pawe³", "Tomaszewski", false);
+		Animal animal1 = new Animal("Rex", dictionary1, user1);
 
 		try {
 			conn = new JdbcConnectionSource(connection);
@@ -40,6 +42,12 @@ public class SQL {
 			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
 		}
 		try {
+			actionDao = DaoManager.createDao(conn, Action.class);
+			TableUtils.createTableIfNotExists(conn, Action.class);
+		} catch (Exception e) {
+			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
+		}
+		try {
 			dictionaryDao.create(dictionary1);
 			dictionaryDao.create(new Dictionary("Kot", "karma", "mleko", "ryba", "g³askanie", "³apanie myszy", "drapak", "szczepienie", "odrobaczanie", "czesanie"));
 			dictionaryDao.create(new Dictionary("Królik", "karma", "siano", "marchewka", "g³askanie", "zabawa w ogródku", "zabawa w chowanego", "szczepienie", "mycie zêbów", "czesanie"));
@@ -53,11 +61,15 @@ public class SQL {
 			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
 		}
 		try {
-			animalDao.create(new Animal("Rex", dictionary1, user1));
+			animalDao.create(animal1);
 		} catch (Exception e) {
 			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
 		}
-		
+		try {
+			actionDao.create(new Action(user1, animal1, "karmienie", "karma"));
+		} catch (Exception e) {
+			// jakas tam obs³uga wyj¹tku kurwa lol chyban nie
+		}
 	}
 	
 	
