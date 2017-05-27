@@ -1,7 +1,7 @@
+package Data_Layer;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 
 @DatabaseTable(tableName = "User")
 public class User {

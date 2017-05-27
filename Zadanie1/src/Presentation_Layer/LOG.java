@@ -1,6 +1,7 @@
+package Presentation_Layer;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
 
 public class LOG extends JFrame {
 
