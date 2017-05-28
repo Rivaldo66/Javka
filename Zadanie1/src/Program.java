@@ -1,7 +1,6 @@
-import Data_Layer.Animal;
 import Data_Layer.SQL;
-import Data_Layer.User;
 import Logical_Layer.DataRepository;
+import Logical_Layer.DataService;
 import Presentation_Layer.GUI;
 
 public class Program {
@@ -13,12 +12,7 @@ public class Program {
 				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Pawel; password=mama");
 
 		DataRepository tata2 = new DataRepository(connServer);
-		
-		Animal animal = null;
-		
-		animal = tata2.GetAnimal(4);
-		
-		System.out.println(animal.getName());
+		DataService mama2 = new DataService(tata2);
 		
 		GUI gra = new GUI();
 		gra.runLogFrame();

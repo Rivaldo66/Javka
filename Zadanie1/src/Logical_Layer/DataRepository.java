@@ -48,8 +48,7 @@ public class DataRepository {
 		try {
 			users = database.getUserDao().queryForAll();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			users = null;
 		}
 		
 		return users;
@@ -64,7 +63,7 @@ public class DataRepository {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public User GetUser(String login){
 		
 		User user = null;
@@ -72,9 +71,9 @@ public class DataRepository {
 		try {
 			database.getUserBuilder().where().like("login", login);
 			user = database.getUserDao().query(database.getUserBuilder().prepare()).get(0);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		} catch (Exception e) {
+			user = null;
 		}
 		
 		return user;
@@ -109,8 +108,7 @@ public class DataRepository {
 		try {
 			animals = database.getAnimalDao().queryForAll();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			animals = null;
 		}
 		
 		return animals;
@@ -134,8 +132,7 @@ public class DataRepository {
 			database.getAnimalBuilder().where().like("idAnimal", idAnimal);
 			animal = database.getAnimalDao().query(database.getAnimalBuilder().prepare()).get(0);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			animal = null;
 		}
 		
 		return animal;
@@ -170,8 +167,7 @@ public class DataRepository {
 		try {
 			dictionaries = database.getDictionaryDao().queryForAll();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			dictionaries = null;
 		}
 		
 		return dictionaries;
@@ -195,8 +191,7 @@ public class DataRepository {
 			database.getDictionaryBuilder().where().like("name", name);
 			dictionary = database.getDictionaryDao().query(database.getDictionaryBuilder().prepare()).get(0);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			dictionary = null;
 		}
 		
 		return dictionary;
@@ -221,8 +216,7 @@ public class DataRepository {
 		try {
 			actions = database.getActionDao().queryForAll();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			actions = null;
 		}
 		
 		return actions;
@@ -246,8 +240,7 @@ public class DataRepository {
 			database.getActionBuilder().where().like("idAction", idAction);
 			action = database.getActionDao().query(database.getActionBuilder().prepare()).get(0);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			action = null;
 		}
 		
 		return action;
