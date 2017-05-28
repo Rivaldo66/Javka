@@ -8,7 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Action {
 
 	@DatabaseField(generatedId = true)
-	int IdAction;
+	int idAction;
 	
 	@DatabaseField(canBeNull = false, foreign = true)
 	User user;
