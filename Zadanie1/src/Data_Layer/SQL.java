@@ -14,10 +14,21 @@ public class SQL {
 	Dao<Animal, String> animalDao = null;
 	Dao<Dictionary, String> dictionaryDao = null;
 	Dao<Action, String> actionDao = null;
+	Dao<Food, String> foodDao = null;
+	Dao<Play, String> playDao = null;
+	Dao<Treatment, String> treatmentDao = null;
 	QueryBuilder<User, String> userBuilder = null;
 	QueryBuilder<Animal, String> animalBuilder = null;
 	QueryBuilder<Dictionary, String> dictionaryBuilder = null;
 	QueryBuilder<Action, String> actionBuilder = null;
+	QueryBuilder<Food, String> foodBuilder = null;
+	QueryBuilder<Play, String> playBuilder = null;
+	QueryBuilder<Treatment, String> treatmentBuilder = null;
+	
+	Dictionary dictionary1 = new Dictionary("Pies");
+	Dictionary dictionary2 = new Dictionary("Kot");
+	Dictionary dictionary3 = new Dictionary("Królik");
+	Dictionary dictionary4 = new Dictionary("Mysz");
 
 	public void dbConnect(String connection) {
 		
@@ -51,6 +62,24 @@ public class SQL {
 
 		}
 		try {
+			foodDao = DaoManager.createDao(conn, Food.class);
+			TableUtils.createTableIfNotExists(conn, Food.class);
+		} catch (Exception e) {
+
+		}
+		try {
+			playDao = DaoManager.createDao(conn, Play.class);
+			TableUtils.createTableIfNotExists(conn, Play.class);
+		} catch (Exception e) {
+
+		}
+		try {
+			treatmentDao = DaoManager.createDao(conn, Treatment.class);
+			TableUtils.createTableIfNotExists(conn, Treatment.class);
+		} catch (Exception e) {
+
+		}
+		try {
 			userBuilder = userDao.queryBuilder();
 		} catch (Exception e) {
 
@@ -71,10 +100,67 @@ public class SQL {
 
 		}
 		try {
-			dictionaryDao.create(new Dictionary("Pies", "karma", "miêso", "kie³basa", "spacer", "aportowanie", "gumowa koœæ", "szczepienie", "odrobaczanie", "czesanie"));
-			dictionaryDao.create(new Dictionary("Kot", "karma", "mleko", "ryba", "g³askanie", "³apanie myszy", "drapak", "szczepienie", "odrobaczanie", "czesanie"));
-			dictionaryDao.create(new Dictionary("Królik", "karma", "siano", "marchewka", "g³askanie", "zabawa w ogródku", "zabawa w chowanego", "szczepienie", "mycie zêbów", "czesanie"));
-			dictionaryDao.create(new Dictionary("Mysz", "karma", "siano", "ser", "g³askanie", "ko³owrotek", "zabawa w chowanego", "szczepienie", "mycie zêbów", "czesanie"));
+			foodBuilder = foodDao.queryBuilder();
+		} catch (Exception e) {
+
+		}
+		try {
+			playBuilder = playDao.queryBuilder();
+		} catch (Exception e) {
+
+		}
+		try {
+			treatmentBuilder = treatmentDao.queryBuilder();
+		} catch (Exception e) {
+
+		}
+		try {
+			dictionaryDao.create(dictionary1);
+			dictionaryDao.create(dictionary2);
+			dictionaryDao.create(dictionary3);
+			dictionaryDao.create(dictionary4);
+		} catch (Exception e) {
+
+		}
+		try {
+			foodDao.create(new Food(dictionary1, "karma"));
+			foodDao.create(new Food(dictionary1, "miêso"));
+			foodDao.create(new Food(dictionary1, "kie³basa"));
+			foodDao.create(new Food(dictionary2, "karma"));
+			foodDao.create(new Food(dictionary2, "mleko"));
+			foodDao.create(new Food(dictionary2, "ryba"));
+			foodDao.create(new Food(dictionary3, "karma"));
+			foodDao.create(new Food(dictionary3, "siano"));
+			foodDao.create(new Food(dictionary3, "marchewka"));
+			foodDao.create(new Food(dictionary4, "karma"));
+			foodDao.create(new Food(dictionary4, "siano"));
+			foodDao.create(new Food(dictionary4, "ser"));
+			
+			playDao.create(new Play(dictionary1, "spacer"));
+			playDao.create(new Play(dictionary1, "aportowanie"));
+			playDao.create(new Play(dictionary1, "guma koœæ"));
+			playDao.create(new Play(dictionary2, "g³askanie"));
+			playDao.create(new Play(dictionary2, "³apanie myszy"));
+			playDao.create(new Play(dictionary2, "drapak"));
+			playDao.create(new Play(dictionary3, "g³askanie"));
+			playDao.create(new Play(dictionary3, "zabawa w ogródku"));
+			playDao.create(new Play(dictionary3, "zabawa w chowanego"));
+			playDao.create(new Play(dictionary4, "g³askanie"));
+			playDao.create(new Play(dictionary4, "ko³owrotek"));
+			playDao.create(new Play(dictionary4, "zabawa w chowanego"));
+			
+			treatmentDao.create(new Treatment(dictionary1, "szczepenie"));
+			treatmentDao.create(new Treatment(dictionary1, "odrobaczanie"));
+			treatmentDao.create(new Treatment(dictionary1, "czesanie"));
+			treatmentDao.create(new Treatment(dictionary2, "szczepenie"));
+			treatmentDao.create(new Treatment(dictionary2, "odrobaczanie"));
+			treatmentDao.create(new Treatment(dictionary2, "czesanie"));
+			treatmentDao.create(new Treatment(dictionary3, "szczepenie"));
+			treatmentDao.create(new Treatment(dictionary3, "mycie zêbów"));
+			treatmentDao.create(new Treatment(dictionary3, "czesanie"));
+			treatmentDao.create(new Treatment(dictionary4, "szczepenie"));
+			treatmentDao.create(new Treatment(dictionary4, "mycie zêbów"));
+			treatmentDao.create(new Treatment(dictionary4, "czesanie"));
 		} catch (Exception e) {
 
 		}
@@ -150,5 +236,55 @@ public class SQL {
 
 	public void setActionBuilder(QueryBuilder<Action, String> actionBuilder) {
 		this.actionBuilder = actionBuilder;
+	}
+
+	public Dao<Food, String> getFoodDao() {
+		return foodDao;
+	}
+
+	public void setFoodDao(Dao<Food, String> foodDao) {
+		this.foodDao = foodDao;
+	}
+
+	public Dao<Play, String> getPlayDao() {
+		return playDao;
+	}
+
+	public void setPlayDao(Dao<Play, String> playDao) {
+		this.playDao = playDao;
+	}
+
+	public Dao<Treatment, String> getTreatmentDao() {
+		return treatmentDao;
+	}
+
+	public void setTreatmentDao(Dao<Treatment, String> treatmentDao) {
+		this.treatmentDao = treatmentDao;
+	}
+
+	public QueryBuilder<Food, String> getFoodBuilder() {
+		return foodBuilder;
+	}
+
+	public void setFoodBuilder(QueryBuilder<Food, String> foodBuilder) {
+		this.foodBuilder = foodBuilder;
+	}
+
+	public QueryBuilder<Play, String> getPlayBuilder() {
+		return playBuilder;
+	}
+
+	public void setPlayBuilder(QueryBuilder<Play, String> playBuilder) {
+		this.playBuilder = playBuilder;
+	}
+
+	public QueryBuilder<Treatment, String> getTreatmentBuilder() {
+		return treatmentBuilder;
+	}
+
+	public void setTreatmentBuilder(QueryBuilder<Treatment, String> treatmentBuilder) {
+		this.treatmentBuilder = treatmentBuilder;
 	}	
+	
+	
 }

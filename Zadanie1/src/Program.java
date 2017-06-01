@@ -8,10 +8,10 @@ public class Program {
 	public static void main(String[] args) {
 
 		SQL connServer = new SQL();
-		//connServer.dbConnect(
-				//"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Pawel; password=mama");
 		connServer.dbConnect(
-				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
+				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Pawel; password=mama");
+		//connServer.dbConnect(
+				//"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
 
 		DataRepository tata2 = new DataRepository(connServer);
 		DataService mama2 = new DataService(tata2);
