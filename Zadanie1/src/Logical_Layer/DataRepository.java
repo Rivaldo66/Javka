@@ -7,6 +7,7 @@ import java.util.List;
 import Data_Layer.Action;
 import Data_Layer.Animal;
 import Data_Layer.Dictionary;
+import Data_Layer.DictionaryStaff;
 import Data_Layer.SQL;
 import Data_Layer.User;
 
@@ -20,9 +21,6 @@ public class DataRepository {
 	}
 
 	// ---------------------------------------------User---------------------------------------------//
-
-	public DataRepository() {
-	}
 
 	public void AddUser(User user){
 		
@@ -127,12 +125,12 @@ public class DataRepository {
 		}
 	}
 	
-	public Animal GetAnimal(int idAnimal){
+	public Animal GetAnimal(int animalID){
 		
 		Animal animal = null;
 		
 		try {
-			database.getAnimalBuilder().where().like("idAnimal", idAnimal);
+			database.getAnimalBuilder().where().like("animalID", animalID);
 			animal = database.getAnimalDao().query(database.getAnimalBuilder().prepare()).get(0);
 		} catch (SQLException e) {
 			animal = null;
@@ -235,12 +233,12 @@ public class DataRepository {
 		}
 	}
 	
-	public Action GetAction(int idAction){
+	public Action GetAction(int actionID){
 		
 		Action action = null;
 		
 		try {
-			database.getActionBuilder().where().like("idAction", idAction);
+			database.getActionBuilder().where().like("idAction", actionID);
 			action = database.getActionDao().query(database.getActionBuilder().prepare()).get(0);
 		} catch (SQLException e) {
 			action = null;
@@ -248,4 +246,64 @@ public class DataRepository {
 		
 		return action;
 	}
+	
+	// ----------------------------------------DictionaryStaff-----------------------------------------//
+
+		public void AddDictionaryStaff(DictionaryStaff dictionaryStaff){
+			
+			try {
+				database.getDictionaryStaffDao().create(dictionaryStaff);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		public void UpdateDictionaryStaff(DictionaryStaff dictionaryStaff){
+			
+			try {
+				database.getDictionaryStaffDao().update(dictionaryStaff);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		public List<DictionaryStaff> GetAllDictionaryStaffs(){
+			
+			List<DictionaryStaff> dictionaryStaffs = new ArrayList<DictionaryStaff>();
+			
+			try {
+				dictionaryStaffs = database.getDictionaryStaffDao().queryForAll();
+			} catch (SQLException e) {
+				dictionaryStaffs = null;
+			}
+			
+			return dictionaryStaffs;
+		}
+		
+		public void DeleteDictionaryStaff(DictionaryStaff dictionaryStaff){
+			
+			try {
+				database.getDictionaryStaffDao().delete(dictionaryStaff);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		public DictionaryStaff GetDictionaryStaff(int dictionaryStaffID){
+			
+			DictionaryStaff dictionaryStaff = null;
+			
+			try {
+				database.getDictionaryStaffBuilder().where().like("dictionaryStaffID", dictionaryStaffID);
+				dictionaryStaff = database.getDictionaryStaffDao().query(database.getDictionaryStaffBuilder().prepare()).get(0);
+
+			} catch (Exception e) {
+				dictionaryStaff = null;
+			}
+			
+			return dictionaryStaff;
+		}
 }
