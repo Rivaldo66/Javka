@@ -3,6 +3,10 @@ package Presentation_Layer;
 import javax.swing.SwingUtilities;
 
 public class GUI {
+	
+	public GUI(){
+		
+	}
 
 	public void runLogFrame() {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -15,7 +19,7 @@ public class GUI {
 	public void runRejestrFrame() {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new REJESTR();
+				//new REJESTR();
 			}
 		});
 	}
@@ -23,7 +27,7 @@ public class GUI {
 	public void runGameFrame() {
 			SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
-					new GAME();
+					//new GAME();
 				}
 		});
 		

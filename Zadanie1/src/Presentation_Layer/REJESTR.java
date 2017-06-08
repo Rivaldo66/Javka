@@ -65,6 +65,5 @@ public class REJESTR {
 				
 			
 			frame1.add(panel1);			
-
 	}
 }
