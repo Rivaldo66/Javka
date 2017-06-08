@@ -8,7 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Action {
 
 	@DatabaseField(generatedId = true)
-	int idAction;
+	int actionID;
 	
 	@DatabaseField(canBeNull = false, foreign = true)
 	User user;
@@ -16,21 +16,17 @@ public class Action {
 	@DatabaseField(canBeNull = false, foreign = true)
 	Animal animal;
 	
-	@DatabaseField(canBeNull = false)
-	String typeOfAction;
-	
-	@DatabaseField(canBeNull = false)
-	String action;
+	@DatabaseField(canBeNull = false, foreign = true)
+	DictionaryStaff dictionaryStaff;
 	
 	@DatabaseField(canBeNull = false)
 	Date dateAdded = new Date();
 
-	public Action(User user, Animal animal, String typeOfAction, String action) {
+	public Action(User user, Animal animal, DictionaryStaff dictionaryStaff) {
 		super();
 		this.user = user;
 		this.animal = animal;
-		this.action = action;
-		this.typeOfAction = typeOfAction;
+		this.dictionaryStaff = dictionaryStaff;
 	}
 
 	public Action(){
@@ -52,13 +48,14 @@ public class Action {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
+	
 
-	public String getAkcja() {
-		return action;
+	public DictionaryStaff getDictionaryStaff() {
+		return dictionaryStaff;
 	}
 
-	public void setAkcja(String akcja) {
-		this.action = akcja;
+	public void setDictionaryStaff(DictionaryStaff dictionaryStaff) {
+		this.dictionaryStaff = dictionaryStaff;
 	}
 
 	public Date getDateAdded() {

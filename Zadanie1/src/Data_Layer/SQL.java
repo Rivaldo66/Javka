@@ -14,16 +14,12 @@ public class SQL {
 	Dao<Animal, String> animalDao = null;
 	Dao<Dictionary, String> dictionaryDao = null;
 	Dao<Action, String> actionDao = null;
-	Dao<Food, String> foodDao = null;
-	Dao<Play, String> playDao = null;
-	Dao<Treatment, String> treatmentDao = null;
+	Dao<DictionaryStaff, String> dictionaryStaffDao = null;
 	QueryBuilder<User, String> userBuilder = null;
 	QueryBuilder<Animal, String> animalBuilder = null;
 	QueryBuilder<Dictionary, String> dictionaryBuilder = null;
 	QueryBuilder<Action, String> actionBuilder = null;
-	QueryBuilder<Food, String> foodBuilder = null;
-	QueryBuilder<Play, String> playBuilder = null;
-	QueryBuilder<Treatment, String> treatmentBuilder = null;
+	QueryBuilder<DictionaryStaff, String> dictionaryStaffBuilder = null;
 	
 	Dictionary dictionary1 = new Dictionary("Pies");
 	Dictionary dictionary2 = new Dictionary("Kot");
@@ -62,20 +58,8 @@ public class SQL {
 
 		}
 		try {
-			foodDao = DaoManager.createDao(conn, Food.class);
-			TableUtils.createTableIfNotExists(conn, Food.class);
-		} catch (Exception e) {
-
-		}
-		try {
-			playDao = DaoManager.createDao(conn, Play.class);
-			TableUtils.createTableIfNotExists(conn, Play.class);
-		} catch (Exception e) {
-
-		}
-		try {
-			treatmentDao = DaoManager.createDao(conn, Treatment.class);
-			TableUtils.createTableIfNotExists(conn, Treatment.class);
+			dictionaryStaffDao = DaoManager.createDao(conn, DictionaryStaff.class);
+			TableUtils.createTableIfNotExists(conn, DictionaryStaff.class);
 		} catch (Exception e) {
 
 		}
@@ -100,17 +84,7 @@ public class SQL {
 
 		}
 		try {
-			foodBuilder = foodDao.queryBuilder();
-		} catch (Exception e) {
-
-		}
-		try {
-			playBuilder = playDao.queryBuilder();
-		} catch (Exception e) {
-
-		}
-		try {
-			treatmentBuilder = treatmentDao.queryBuilder();
+			dictionaryStaffBuilder = dictionaryStaffDao.queryBuilder();
 		} catch (Exception e) {
 
 		}
@@ -123,44 +97,44 @@ public class SQL {
 
 		}
 		try {
-			foodDao.create(new Food(dictionary1, "karma"));
-			foodDao.create(new Food(dictionary1, "miêso"));
-			foodDao.create(new Food(dictionary1, "kie³basa"));
-			foodDao.create(new Food(dictionary2, "karma"));
-			foodDao.create(new Food(dictionary2, "mleko"));
-			foodDao.create(new Food(dictionary2, "ryba"));
-			foodDao.create(new Food(dictionary3, "karma"));
-			foodDao.create(new Food(dictionary3, "siano"));
-			foodDao.create(new Food(dictionary3, "marchewka"));
-			foodDao.create(new Food(dictionary4, "karma"));
-			foodDao.create(new Food(dictionary4, "siano"));
-			foodDao.create(new Food(dictionary4, "ser"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Food", "karma"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Food", "miêso"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Food", "kie³basa"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Food", "karma"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Food", "mleko"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Food", "ryba"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Food", "karma"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Food", "siano"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Food", "marchewka"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Food", "karma"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Food", "siano"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Food", "ser"));
 			
-			playDao.create(new Play(dictionary1, "spacer"));
-			playDao.create(new Play(dictionary1, "aportowanie"));
-			playDao.create(new Play(dictionary1, "guma koœæ"));
-			playDao.create(new Play(dictionary2, "g³askanie"));
-			playDao.create(new Play(dictionary2, "³apanie myszy"));
-			playDao.create(new Play(dictionary2, "drapak"));
-			playDao.create(new Play(dictionary3, "g³askanie"));
-			playDao.create(new Play(dictionary3, "zabawa w ogródku"));
-			playDao.create(new Play(dictionary3, "zabawa w chowanego"));
-			playDao.create(new Play(dictionary4, "g³askanie"));
-			playDao.create(new Play(dictionary4, "ko³owrotek"));
-			playDao.create(new Play(dictionary4, "zabawa w chowanego"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Play", "spacer"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Play", "aportowanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Play", "guma koœæ"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Play", "g³askanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Play", "³apanie myszy"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Play", "drapak"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Play", "g³askanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Play", "zabawa w ogródku"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Play", "zabawa w chowanego"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Play", "g³askanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Play", "ko³owrotek"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Play", "zabawa w chowanego"));
 			
-			treatmentDao.create(new Treatment(dictionary1, "szczepenie"));
-			treatmentDao.create(new Treatment(dictionary1, "odrobaczanie"));
-			treatmentDao.create(new Treatment(dictionary1, "czesanie"));
-			treatmentDao.create(new Treatment(dictionary2, "szczepenie"));
-			treatmentDao.create(new Treatment(dictionary2, "odrobaczanie"));
-			treatmentDao.create(new Treatment(dictionary2, "czesanie"));
-			treatmentDao.create(new Treatment(dictionary3, "szczepenie"));
-			treatmentDao.create(new Treatment(dictionary3, "mycie zêbów"));
-			treatmentDao.create(new Treatment(dictionary3, "czesanie"));
-			treatmentDao.create(new Treatment(dictionary4, "szczepenie"));
-			treatmentDao.create(new Treatment(dictionary4, "mycie zêbów"));
-			treatmentDao.create(new Treatment(dictionary4, "czesanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Treatment", "szczepenie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Treatment", "odrobaczanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Treatment", "czesanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Treatment", "szczepenie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Treatment", "odrobaczanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary2, "Treatment", "czesanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Treatment", "szczepenie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Treatment", "mycie zêbów"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary3, "Treatment", "czesanie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Treatment", "szczepenie"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Treatment", "mycie zêbów"));
+			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Treatment", "czesanie"));
 		} catch (Exception e) {
 
 		}
@@ -238,53 +212,20 @@ public class SQL {
 		this.actionBuilder = actionBuilder;
 	}
 
-	public Dao<Food, String> getFoodDao() {
-		return foodDao;
+	public Dao<DictionaryStaff, String> getDictionaryStaffDao() {
+		return dictionaryStaffDao;
 	}
 
-	public void setFoodDao(Dao<Food, String> foodDao) {
-		this.foodDao = foodDao;
+	public void setDictionaryStaffDao(Dao<DictionaryStaff, String> dictionaryStaffDao) {
+		this.dictionaryStaffDao = dictionaryStaffDao;
 	}
 
-	public Dao<Play, String> getPlayDao() {
-		return playDao;
+	public QueryBuilder<DictionaryStaff, String> getDictionaryStaffBuilder() {
+		return dictionaryStaffBuilder;
 	}
 
-	public void setPlayDao(Dao<Play, String> playDao) {
-		this.playDao = playDao;
+	public void setDictionaryStaffBuilder(QueryBuilder<DictionaryStaff, String> dictionaryStaffBuilder) {
+		this.dictionaryStaffBuilder = dictionaryStaffBuilder;
 	}
-
-	public Dao<Treatment, String> getTreatmentDao() {
-		return treatmentDao;
-	}
-
-	public void setTreatmentDao(Dao<Treatment, String> treatmentDao) {
-		this.treatmentDao = treatmentDao;
-	}
-
-	public QueryBuilder<Food, String> getFoodBuilder() {
-		return foodBuilder;
-	}
-
-	public void setFoodBuilder(QueryBuilder<Food, String> foodBuilder) {
-		this.foodBuilder = foodBuilder;
-	}
-
-	public QueryBuilder<Play, String> getPlayBuilder() {
-		return playBuilder;
-	}
-
-	public void setPlayBuilder(QueryBuilder<Play, String> playBuilder) {
-		this.playBuilder = playBuilder;
-	}
-
-	public QueryBuilder<Treatment, String> getTreatmentBuilder() {
-		return treatmentBuilder;
-	}
-
-	public void setTreatmentBuilder(QueryBuilder<Treatment, String> treatmentBuilder) {
-		this.treatmentBuilder = treatmentBuilder;
-	}	
-	
-	
+		
 }

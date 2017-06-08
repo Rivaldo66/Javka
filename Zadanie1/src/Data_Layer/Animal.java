@@ -8,7 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Animal {
 
 	@DatabaseField(generatedId = true)
-	int IdAnimal;
+	int animalID;
 
 	@DatabaseField(canBeNull = false)
 	String name;
