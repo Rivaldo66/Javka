@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Logical_Layer.LogControler;
+
 public class LOG {
 
 	private JFrame frame1;
@@ -63,6 +65,8 @@ public class LOG {
 		c.gridwidth = 2;
 		c.insets = new Insets(20, 0, 0, 0);
 		button1 = new JButton("Zaloguj");
+		
+
 		
 		panel1.add(button1, c);
 

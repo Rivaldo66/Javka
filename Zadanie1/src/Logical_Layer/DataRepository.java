@@ -21,6 +21,9 @@ public class DataRepository {
 
 	// ---------------------------------------------User---------------------------------------------//
 
+	public DataRepository() {
+	}
+
 	public void AddUser(User user){
 		
 		try {

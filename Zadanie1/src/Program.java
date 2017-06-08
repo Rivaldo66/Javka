@@ -16,16 +16,13 @@ public class Program {
 		connServer.dbConnect(
 				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
 
+		GUI gra = new GUI();
 		DataRepository tata2 = new DataRepository(connServer);
 		DataService mama2 = new DataService(tata2);
-		LogControler checkLog = new LogControler(tata2, new LOG(), new GAME());
 		
-		GUI gra = new GUI();
 		gra.runLogFrame();
+		LogControler checkLog = new LogControler(tata2,gra);
 		
-		gra.runRejestrFrame();
-		
-		gra.runGameFrame();
 	}
 
 }
