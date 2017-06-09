@@ -5,6 +5,9 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,9 +15,36 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Logical_Layer.LogControler;
+import com.sun.glass.ui.Application;
+import com.sun.glass.ui.CommonDialogs.ExtensionFilter;
+import com.sun.glass.ui.CommonDialogs.FileChooserResult;
+import com.sun.glass.ui.Cursor;
+import com.sun.glass.ui.Pixels;
+import com.sun.glass.ui.Robot;
+import com.sun.glass.ui.Screen;
+import com.sun.glass.ui.Size;
+import com.sun.glass.ui.Timer;
+import com.sun.glass.ui.View;
+import com.sun.glass.ui.Window;
 
-public class LOG {
+import Logical_Layer.LogControler;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class LOG extends Application {
 
 	private JFrame frame1;
 	private JPanel panel1;
@@ -72,6 +102,9 @@ public class LOG {
 
 		frame1.add(panel1);
 	}
+	
+
+
 
 	public JFrame getFrame1() {
 		return frame1;
@@ -127,6 +160,187 @@ public class LOG {
 
 	public void setText2(String string) {
 		this.text2.setText(string);
+	}
+
+	@Override
+	protected Object _enterNestedEventLoop() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected int _getKeyCodeForChar(char arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected void _invokeAndWait(Runnable arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void _invokeLater(Runnable arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void _leaveNestedEventLoop(Object arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected boolean _supportsTransparentWindows() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	protected boolean _supportsUnifiedWindows() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Cursor createCursor(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Cursor createCursor(int arg0, int arg1, Pixels arg2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pixels createPixels(int arg0, int arg1, ByteBuffer arg2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pixels createPixels(int arg0, int arg1, IntBuffer arg2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pixels createPixels(int arg0, int arg1, IntBuffer arg2, float arg3) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Robot createRobot() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Timer createTimer(Runnable arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public View createView() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Window createWindow(long arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Window createWindow(Window arg0, Screen arg1, int arg2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void runLoop(Runnable arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected FileChooserResult staticCommonDialogs_showFileChooser(Window arg0, String arg1, String arg2, String arg3,
+			int arg4, boolean arg5, ExtensionFilter[] arg6, int arg7) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected File staticCommonDialogs_showFolderChooser(Window arg0, String arg1, String arg2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Size staticCursor_getBestSize(int arg0, int arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void staticCursor_setVisible(boolean arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected int staticPixels_getNativeFormat() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected Screen[] staticScreen_getScreens() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected double staticScreen_getVideoRefreshPeriod() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected int staticTimer_getMaxPeriod() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected int staticTimer_getMinPeriod() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected int staticView_getMultiClickMaxX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected int staticView_getMultiClickMaxY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected long staticView_getMultiClickTime() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
