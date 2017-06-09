@@ -1,5 +1,7 @@
 package Logical_Layer;
 
+import Data_Layer.User;
+
 public class DataService {
 	
 	DataRepository dataRepository;
@@ -9,18 +11,22 @@ public class DataService {
 		this.dataRepository = dataRepository;
 	}
 	
-	public String CheckLogin(String login, String password){
+	public Boolean CheckLogin(String login, String password){
 		
 		if(dataRepository.GetUser(login)==null){
-			return "Poda³eœ niepoprawny login"; 
+			return false; 
 		}
 		else{
 			if(dataRepository.GetUser(login).getPassword()==password){
-				return "Logowanie";
+				return true;
 			}
 			else{
-				return "Poda³eœ z³e has³o";
+				return false;
 			}
 		}
+	}
+	
+	public User Login(String login){
+		return dataRepository.GetUser(login);
 	}
 }
