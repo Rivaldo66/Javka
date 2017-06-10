@@ -11,7 +11,9 @@ public class DataService {
 		this.dataRepository = dataRepository;
 	}
 	
-	public Boolean CheckLogin(String login, String password){
+	// --------------------------------------------SignIn--------------------------------------------//
+	
+	public Boolean CheckSignIn(String login, String password){
 		
 		if(dataRepository.GetUser(login)==null){
 			return false; 
@@ -21,12 +23,29 @@ public class DataService {
 				return true;
 			}
 			else{
-				return false;
+				return true;
 			}
 		}
 	}
 	
 	public User Login(String login){
 		return dataRepository.GetUser(login);
+	}
+	
+	// --------------------------------------------SignUp--------------------------------------------//
+	
+	public Boolean CheckSignUp(String login){
+		
+		if(dataRepository.GetUser(login)==null){
+			return false; 
+		}
+		else{
+			return true;
+		}
+	}
+	
+	public void AddUser(User user){
+		
+		dataRepository.AddUser(user);
 	}
 }

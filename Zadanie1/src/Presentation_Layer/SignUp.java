@@ -1,14 +1,10 @@
 package Presentation_Layer;
 
-import Data_Layer.SQL;
 import Data_Layer.User;
-import Logical_Layer.DataRepository;
 import Logical_Layer.DataService;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
-import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,8 +24,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class LOG extends Application {
-
+public class SignUp {
+	
 	private DataService dataService;
 	@FXML
 	private Text scenetitle;
@@ -43,31 +39,27 @@ public class LOG extends Application {
 	private PasswordField pwBox;
 	@FXML
 	private Button btn;
-	private Button signUpButton;
+	private Button backButton;
 	private Scene scene;
 
-	public LOG() {
-		SQL sql = new SQL();
-		sql.dbConnect("jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Pawel; password=mama");
-		// sql.dbConnect(
-		// "jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi;
-		// user=Damian; password=Worrior");
-		DataRepository dataRepository = new DataRepository(sql);
-		dataService = new DataService(dataRepository);
-	}
+	
+	SignUp(DataService dataService){
+		this.dataService = dataService;
 
-	@Override
-	public void start(Stage primaryStage) {
-		primaryStage.setTitle("LOGIN PANEL");
+	}
+	
+	public void SignUpWindow(Stage stage){
+		
+		stage.setTitle("Sign up panel");
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
 		grid.setStyle(
 				"-fx-background-image: url('https://s-media-cache-ak0.pinimg.com/736x/78/b1/96/78b1965dbb8d754bbeb6f9a1addf0d4f.jpg')");
-
+		
 		grid.setHgap(10);
 		grid.setVgap(10);
 
-		scenetitle = new Text("Welcome");
+		scenetitle = new Text("Sign up");
 		scenetitle.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 55));
 		scenetitle.setFill(Color.WHITE);
 		grid.add(scenetitle, 0, 0, 2, 1);
@@ -88,40 +80,39 @@ public class LOG extends Application {
 		pwBox = new PasswordField();
 		grid.add(pwBox, 1, 2);
 
-		btn = new Button("Sign in");
-		signUpButton = new Button("Sign up");
+		btn = new Button("Sign up");
+		backButton = new Button("<<<<");
 
 		final Text actiontarget = new Text();
-		grid.add(actiontarget, 1, 3);
+		grid.add(actiontarget, 1, 2);
 
 		btn.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent e) {
 
-				if (dataService.CheckSignIn(userTextField.getText(), pwBox.getText())) {
-					actiontarget.setFill(Color.WHITE);
-					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
-					actiontarget.setText("Witaj "+userTextField.getText());
-					
-				} else {
+				if (dataService.CheckSignUp(userTextField.getText())) {
 					actiontarget.setFill(Color.WHITE);
 					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
 					userTextField.setText(null);
 					pwBox.setText(null);
-					actiontarget.setText("Poda³eœ niepoprawny login lub has³o :/");
+					actiontarget.setText("Ten login jest ju¿ zajêty");
+					
+				} else {
+					actiontarget.setFill(Color.WHITE);
+					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
+					User user = new User(userTextField.getText(), pwBox.getText(), false);
+					dataService.AddUser(user);
+					actiontarget.setText("rejestracja zakoñczona");
 				}
 			}
 		});
-
-		signUpButton.setOnAction(new EventHandler<ActionEvent>() {
+		
+		backButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent e) {
 
-				actiontarget.setFill(Color.WHITE);
-				actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 15));
-				SignUp signUp = new SignUp(dataService);
-				signUp.SignUpWindow(primaryStage);
-
+				LOG log = new LOG();
+				log.start(stage);
 			}
 		});
 
@@ -133,7 +124,7 @@ public class LOG extends Application {
 
 		HBox hbb = new HBox(10);
 		hbb.setAlignment(Pos.BOTTOM_LEFT);
-		hbb.getChildren().add(signUpButton);
+		hbb.getChildren().add(backButton);
 		hbb.setBlendMode(BlendMode.HARD_LIGHT);
 		grid.add(hbb, 1, 4);
 
@@ -147,9 +138,9 @@ public class LOG extends Application {
 
 		TranslateTransition t11 = new TranslateTransition();
 		t11.setDuration(Duration.seconds(5));
-		t11.setNode(signUpButton);
+		t11.setNode(backButton);
 		t11.setToY(-100);
-		FadeTransition f11 = new FadeTransition(Duration.seconds(5), signUpButton);
+		FadeTransition f11 = new FadeTransition(Duration.seconds(5), backButton);
 		f11.setFromValue(0.0);
 		f11.setToValue(1.0);
 
@@ -197,8 +188,9 @@ public class LOG extends Application {
 		p.play();
 
 		scene = new Scene(grid, 500, 733);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		stage.setScene(scene);
+		stage.show();
+		
 	}
 
 	public Text getScenetitle() {
@@ -257,6 +249,14 @@ public class LOG extends Application {
 		this.dataService = dataService;
 	}
 
+	public Button getBackButton() {
+		return backButton;
+	}
+
+	public void setBackButton(Button backButton) {
+		this.backButton = backButton;
+	}
+
 	public Scene getScene() {
 		return scene;
 	}
@@ -264,13 +264,4 @@ public class LOG extends Application {
 	public void setScene(Scene scene) {
 		this.scene = scene;
 	}
-
-	public Button getSignUpButton() {
-		return signUpButton;
-	}
-
-	public void setSignUpButton(Button signUpButton) {
-		this.signUpButton = signUpButton;
-	}
-
 }
