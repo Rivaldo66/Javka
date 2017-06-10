@@ -1,7 +1,4 @@
-import java.sql.SQLException;
 import Data_Layer.SQL;
-import Data_Layer.User;
-import Presentation_Layer.GUI;
 import Presentation_Layer.LOG;
 import javafx.application.Application;
 

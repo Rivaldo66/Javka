@@ -4,6 +4,7 @@ import Data_Layer.SQL;
 import Data_Layer.User;
 import Logical_Layer.DataRepository;
 import Logical_Layer.DataService;
+import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
@@ -114,33 +115,51 @@ public class LOG extends Application{
 		t1.setDuration(Duration.seconds(5));
 		t1.setNode(btn);	
 		t1.setToY(-100);
+		FadeTransition f1 = new FadeTransition(Duration.seconds(5),btn);
+		f1.setFromValue(0.0);
+		f1.setToValue(1.0);
 
 		TranslateTransition t2 = new TranslateTransition();
 		t2.setDuration(Duration.seconds(4));
 		t2.setNode(pw);	
 		t2.setToY(-100);
+		FadeTransition f2 = new FadeTransition(Duration.seconds(4),pw);
+		f2.setFromValue(0.0);
+		f2.setToValue(1.0);
 		
 		TranslateTransition t3 = new TranslateTransition();
 		t3.setDuration(Duration.seconds(3));
 		t3.setNode(userTextField);	
 		t3.setToY(-100);
+		FadeTransition f3 = new FadeTransition(Duration.seconds(3),userTextField);
+		f3.setFromValue(0.0);
+		f3.setToValue(1.0);
 		
 		TranslateTransition t4 = new TranslateTransition();
 		t4.setDuration(Duration.seconds(4));
 		t4.setNode(pwBox);	
 		t4.setToY(-100);
+		FadeTransition f4 = new FadeTransition(Duration.seconds(4),pwBox);
+		f4.setFromValue(0.0);
+		f4.setToValue(1.0);
 
 		TranslateTransition t5 = new TranslateTransition();
 		t5.setDuration(Duration.seconds(2));
 		t5.setNode(scenetitle);	
 		t5.setToY(-100);
+		FadeTransition f5 = new FadeTransition(Duration.seconds(3),scenetitle);
+		f5.setFromValue(0.0);
+		f5.setToValue(1.0);
 		
 		TranslateTransition t6 = new TranslateTransition();
 		t6.setDuration(Duration.seconds(3));
 		t6.setNode(userName);	
 		t6.setToY(-100);
+		FadeTransition f6 = new FadeTransition(Duration.seconds(3),userName);
+		f6.setFromValue(0.0);
+		f6.setToValue(1.0);
 		
-		ParallelTransition p = new ParallelTransition(t1,t2,t3,t4,t5,t6);
+		ParallelTransition p = new ParallelTransition(t1,f1,t2,f2,t3,f3,t4,f4,t5,f5,t6,f6);
 		p.play();
 
 
