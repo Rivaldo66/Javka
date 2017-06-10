@@ -30,6 +30,54 @@ import javafx.util.Duration;
 
 public class LOG extends Application{
 
+	public Text getScenetitle() {
+		return scenetitle;
+	}
+
+	public void setScenetitle(Text scenetitle) {
+		this.scenetitle = scenetitle;
+	}
+
+	public Label getUserName() {
+		return userName;
+	}
+
+	public void setUserName(Label userName) {
+		this.userName = userName;
+	}
+
+	public TextField getUserTextField() {
+		return userTextField;
+	}
+
+	public void setUserTextField(TextField userTextField) {
+		this.userTextField = userTextField;
+	}
+
+	public Label getPw() {
+		return pw;
+	}
+
+	public void setPw(Label pw) {
+		this.pw = pw;
+	}
+
+	public PasswordField getPwBox() {
+		return pwBox;
+	}
+
+	public void setPwBox(PasswordField pwBox) {
+		this.pwBox = pwBox;
+	}
+
+	public Button getBtn() {
+		return btn;
+	}
+
+	public void setBtn(Button btn) {
+		this.btn = btn;
+	}
+
 	DataService dataService;
 	@FXML
 	private Text scenetitle;
@@ -45,9 +93,6 @@ public class LOG extends Application{
 	private Button btn;
 	
 	public LOG() {
-		SQL sql = new SQL();
-		DataRepository dataRepository = new DataRepository(sql);
-		dataService = new DataService(dataRepository);
 	}
 
 	@Override
