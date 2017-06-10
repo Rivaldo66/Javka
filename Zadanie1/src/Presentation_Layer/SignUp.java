@@ -39,7 +39,9 @@ public class SignUp {
 	private PasswordField pwBox;
 	@FXML
 	private Button btn;
+	@FXML
 	private Button backButton;
+	@FXML
 	private Scene scene;
 
 	
@@ -120,13 +122,8 @@ public class SignUp {
 		hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
 		hbBtn.getChildren().add(btn);
 		hbBtn.setBlendMode(BlendMode.HARD_LIGHT);
+		hbBtn.getChildren().add(backButton);
 		grid.add(hbBtn, 1, 4);
-
-		HBox hbb = new HBox(10);
-		hbb.setAlignment(Pos.BOTTOM_LEFT);
-		hbb.getChildren().add(backButton);
-		hbb.setBlendMode(BlendMode.HARD_LIGHT);
-		grid.add(hbb, 1, 4);
 
 		TranslateTransition t1 = new TranslateTransition();
 		t1.setDuration(Duration.seconds(5));

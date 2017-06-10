@@ -43,15 +43,17 @@ public class LOG extends Application {
 	private PasswordField pwBox;
 	@FXML
 	private Button btn;
+	@FXML
 	private Button signUpButton;
+	@FXML
 	private Scene scene;
 
 	public LOG() {
 		SQL sql = new SQL();
-		sql.dbConnect("jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Pawel; password=mama");
-		// sql.dbConnect(
-		// "jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi;
-		// user=Damian; password=Worrior");
+		// sql.dbConnect("jdbc:sqlserver://localhost\\sqlexpress:1433;
+		// database=Tamagotchi; user=Pawel; password=mama");
+		sql.dbConnect(
+				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
 		DataRepository dataRepository = new DataRepository(sql);
 		dataService = new DataService(dataRepository);
 	}
@@ -63,7 +65,6 @@ public class LOG extends Application {
 		grid.setAlignment(Pos.CENTER);
 		grid.setStyle(
 				"-fx-background-image: url('https://s-media-cache-ak0.pinimg.com/736x/78/b1/96/78b1965dbb8d754bbeb6f9a1addf0d4f.jpg')");
-
 		grid.setHgap(10);
 		grid.setVgap(10);
 
@@ -101,8 +102,11 @@ public class LOG extends Application {
 				if (dataService.CheckSignIn(userTextField.getText(), pwBox.getText())) {
 					actiontarget.setFill(Color.WHITE);
 					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
-					actiontarget.setText("Witaj "+userTextField.getText());
+					actiontarget.setText("Witaj " + userTextField.getText());
 					
+					GAME game = new GAME(dataService);
+					game.start(primaryStage);
+
 				} else {
 					actiontarget.setFill(Color.WHITE);
 					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
@@ -121,7 +125,6 @@ public class LOG extends Application {
 				actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 15));
 				SignUp signUp = new SignUp(dataService);
 				signUp.SignUpWindow(primaryStage);
-
 			}
 		});
 
@@ -129,13 +132,8 @@ public class LOG extends Application {
 		hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
 		hbBtn.getChildren().add(btn);
 		hbBtn.setBlendMode(BlendMode.HARD_LIGHT);
+		hbBtn.getChildren().add(signUpButton);
 		grid.add(hbBtn, 1, 4);
-
-		HBox hbb = new HBox(10);
-		hbb.setAlignment(Pos.BOTTOM_LEFT);
-		hbb.getChildren().add(signUpButton);
-		hbb.setBlendMode(BlendMode.HARD_LIGHT);
-		grid.add(hbb, 1, 4);
 
 		TranslateTransition t1 = new TranslateTransition();
 		t1.setDuration(Duration.seconds(5));
