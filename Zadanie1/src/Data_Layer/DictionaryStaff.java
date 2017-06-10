@@ -5,8 +5,8 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "DictionaryStaff")
 public class DictionaryStaff {
-	@DatabaseField(generatedId = true)
-	int dictionaryStaffID;
+	@DatabaseField(id = true)
+	String dictionaryStaffID;
 	
 	@DatabaseField(canBeNull = false, foreign = true)
 	Dictionary dictionary;
@@ -22,6 +22,7 @@ public class DictionaryStaff {
 		this.dictionary = dictionary;
 		this.type = type;
 		this.name = name;
+		this.dictionaryStaffID = dictionary.getName()+"_"+name;
 	}
 	
 	public DictionaryStaff(){

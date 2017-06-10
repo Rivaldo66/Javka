@@ -139,6 +139,20 @@ public class DataRepository {
 		return animal;
 	}
 	
+	public List<Animal> GetAnimalByUser(User user){
+		
+		List<Animal> animals = new ArrayList<Animal>();
+		
+		try {
+			database.getAnimalBuilder().where().like("user", user);
+			animals = database.getAnimalDao().query(database.getAnimalBuilder().prepare());
+		} catch (SQLException e) {
+			animals = null;
+		}
+		
+		return animals;
+	}
+	
 	// ------------------------------------------Dictionary------------------------------------------//
 
 	public void AddNewAnimal(Dictionary dictionary){
@@ -247,9 +261,23 @@ public class DataRepository {
 		return action;
 	}
 	
+	public List<Action> GetActionsByAnimal(Animal animal){
+		
+		List<Action> actions = new ArrayList<Action>();
+		
+		try {
+			database.getActionBuilder().where().like("animal", animal);
+			actions = database.getActionDao().query(database.getActionBuilder().prepare());
+		} catch (SQLException e) {
+			actions = null;
+		}
+		
+		return actions;
+	}
+	
 	// ----------------------------------------DictionaryStaff-----------------------------------------//
 
-		public void AddDictionaryStaff(DictionaryStaff dictionaryStaff){
+	public void AddDictionaryStaff(DictionaryStaff dictionaryStaff){
 			
 			try {
 				database.getDictionaryStaffDao().create(dictionaryStaff);
@@ -259,7 +287,7 @@ public class DataRepository {
 			}
 		}
 		
-		public void UpdateDictionaryStaff(DictionaryStaff dictionaryStaff){
+	public void UpdateDictionaryStaff(DictionaryStaff dictionaryStaff){
 			
 			try {
 				database.getDictionaryStaffDao().update(dictionaryStaff);
@@ -269,7 +297,7 @@ public class DataRepository {
 			}
 		}
 		
-		public List<DictionaryStaff> GetAllDictionaryStaffs(){
+	public List<DictionaryStaff> GetAllDictionaryStaffs(){
 			
 			List<DictionaryStaff> dictionaryStaffs = new ArrayList<DictionaryStaff>();
 			
@@ -282,7 +310,7 @@ public class DataRepository {
 			return dictionaryStaffs;
 		}
 		
-		public void DeleteDictionaryStaff(DictionaryStaff dictionaryStaff){
+	public void DeleteDictionaryStaff(DictionaryStaff dictionaryStaff){
 			
 			try {
 				database.getDictionaryStaffDao().delete(dictionaryStaff);
@@ -292,7 +320,7 @@ public class DataRepository {
 			}
 		}
 
-		public DictionaryStaff GetDictionaryStaff(int dictionaryStaffID){
+	public DictionaryStaff GetDictionaryStaff(int dictionaryStaffID){
 			
 			DictionaryStaff dictionaryStaff = null;
 			
@@ -305,5 +333,19 @@ public class DataRepository {
 			}
 			
 			return dictionaryStaff;
+		}
+		
+	public List<DictionaryStaff> GetDictionaryStaffByDictionary(Dictionary dictionary){
+			
+			List<DictionaryStaff> dictionaryStaffs = new ArrayList<DictionaryStaff>();
+			
+			try {
+				database.getDictionaryStaffBuilder().where().like("dictionary", dictionary);
+				dictionaryStaffs = database.getDictionaryStaffDao().query(database.getDictionaryStaffBuilder().prepare());
+			} catch (SQLException e) {
+				dictionaryStaffs = null;
+			}
+			
+			return dictionaryStaffs;
 		}
 }
