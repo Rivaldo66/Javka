@@ -1,12 +1,10 @@
 package Presentation_Layer;
 
 import Data_Layer.SQL;
-import Data_Layer.User;
 import Logical_Layer.DataRepository;
 import Logical_Layer.DataService;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
-import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;

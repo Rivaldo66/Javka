@@ -167,6 +167,7 @@ public class DataRepository {
 		}
 	}
 
+	@SuppressWarnings("finally")
 	public List<String> GetAllSpecies() {
 
 		List<String> list = new ArrayList<String>();

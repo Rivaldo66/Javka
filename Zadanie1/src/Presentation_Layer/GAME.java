@@ -1,12 +1,12 @@
 package Presentation_Layer;
 
+import java.util.ArrayList;
+import java.util.List;
 import Data_Layer.Animal;
 import Data_Layer.Dictionary;
 import Data_Layer.User;
 import Logical_Layer.DataService;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -31,7 +30,18 @@ public class GAME extends Application {
 
 	private DataService dataService;
 	private User currentUser;
-	
+	private List<Animal> animalList = new ArrayList<Animal>();
+	private Button currentAnimalBtn;
+	private int currentAnimalId;
+
+	@FXML
+	private BorderPane border;
+	@FXML
+	private GridPane gridRight;
+	@FXML
+	private BorderPane gridCenter;
+	@FXML
+	private Label petSpecies;
 	@FXML
 	private Text scenetitle;
 	@FXML
@@ -41,6 +51,12 @@ public class GAME extends Application {
 	@FXML
 	private Button btn;
 	@FXML
+	private Button food;
+	@FXML
+	private Button treatment;
+	@FXML
+	private Button play;
+	@FXML
 	private Scene scene;
 	@FXML
 	private ChoiceBox<String> species;
@@ -48,38 +64,103 @@ public class GAME extends Application {
 	public GAME(DataService dataService, User user) {
 		this.dataService = dataService;
 		this.currentUser = user;
+		this.animalList = dataService.getDataRepository().GetAllAnimals();
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("LOGIN PANEL");
-		BorderPane border = new BorderPane();
-		border.setStyle(
-				"-fx-background-image: url('https://s-media-cache-ak0.pinimg.com/736x/5f/74/e6/5f74e63976b7657a209488ee7a200ded.jpg')");
+		border = new BorderPane();
+		border.setStyle("-fx-background-color: #336699;");
 
 		// HBox hbox = addHBox();
 		// border.setTop(hbox);
 
-		// border.setCenter(addGridPane());
-		border.setRight(addGridPane());
+		border.setCenter(addBorderPaneCenter());
+		border.setRight(addGridPaneRight());
 
 		scene = new Scene(border, 900, 552);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 
-	public HBox addHBox() {
+	public HBox addAnimals() {
 		HBox hbox = new HBox();
 		hbox.setPadding(new Insets(15, 12, 15, 12));
 		hbox.setSpacing(10);
-		hbox.setStyle("-fx-background-color: #336699;");
 
-		Button AddNewBtn = new Button("Add new Animal");
-		AddNewBtn.setPrefSize(200, 20);
+		List<Button> animalsBtn = new ArrayList<Button>();
 
-		// Button buttonProjected = new Button("Projected");
-		// buttonProjected.setPrefSize(100, 20);
-		hbox.getChildren().addAll(AddNewBtn);
+		for (Animal i : animalList) {
+			animalsBtn.add(new Button(Integer.toString(i.getAnimalID())));
+		}
+		for (Button i : animalsBtn) {
+			i.setPrefSize(200, 200);
+
+			// TUTAJ JAKIES POBIERANKO Z BAZKI LINKU DO OBRAZKA ZWIERZAKA
+			i.setStyle(
+					"-fx-background-image: url('http://img2.wikia.nocookie.net/__cb20120822021748/howrse/images/3/36/Compagnon-gazelle.png')");
+
+			i.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					setCurrentAnimalBtn(i);
+					setCurrentAnimalId(i.getText());
+					gridCenter.setCenter(addAnimalsTools());
+				}
+			});
+		}
+		hbox.getChildren().addAll(animalsBtn);
+
+		return hbox;
+	}
+
+	public HBox addAnimalsTools() {
+
+		HBox hbox = new HBox();
+		hbox.setPadding(new Insets(15, 12, 15, 12));
+		hbox.setSpacing(10);
+
+		play = new Button("Play");
+		play.setPrefSize(100, 20);
+		play.setStyle("-fx-background-color: #336699;");
+
+		play.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				Animal current = dataService.getDataRepository().GetAnimal(currentAnimalId);
+				current.setLevelOfFunNeeded(-10);
+				dataService.getDataRepository().UpdateAnimal(current);
+			}
+		});
+
+		treatment = new Button("Treatment");
+		treatment.setPrefSize(100, 20);
+		treatment.setStyle("-fx-background-color: #336699;");
+
+		treatment.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				Animal current = dataService.getDataRepository().GetAnimal(currentAnimalId);
+				current.setHp(10);
+				dataService.getDataRepository().UpdateAnimal(current);
+			}
+		});
+
+		food = new Button("Food");
+		food.setPrefSize(100, 20);
+		food.setStyle("-fx-background-color: #336699;");
+
+		food.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				Animal current = dataService.getDataRepository().GetAnimal(currentAnimalId);
+				current.setLevelOfHunger(-10);
+				dataService.getDataRepository().UpdateAnimal(current);
+			}
+		});
+
+		hbox.getChildren().addAll(play, food, treatment);
 
 		return hbox;
 	}
@@ -103,32 +184,52 @@ public class GAME extends Application {
 		return flow;
 	}
 
-	public GridPane addGridPane() {
-		GridPane grid = new GridPane();
-		grid.setHgap(10);
-		grid.setVgap(10);
-		grid.setPadding(new Insets(0, 10, 0, 10));
-		grid.setStyle("-fx-background-color: #336699;");
+	public BorderPane addBorderPaneCenter() {
+		gridCenter = new BorderPane();
+		gridCenter.setStyle(
+				"-fx-background-image: url('https://s-media-cache-ak0.pinimg.com/736x/5f/74/e6/5f74e63976b7657a209488ee7a200ded.jpg')");
+
+		gridCenter.setBottom(addAnimals());
+
+		return gridCenter;
+	}
+
+	public GridPane addGridPaneRight() {
+		gridRight = new GridPane();
+		gridRight.setHgap(10);
+		gridRight.setVgap(10);
+		gridRight.setPadding(new Insets(0, 10, 0, 10));
+		gridRight.setStyle("-fx-background-color: #336699;");
 
 		scenetitle = new Text("Add new pet");
 		scenetitle.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		scenetitle.setFill(Color.WHITE);
-		grid.add(scenetitle, 0, 0, 2, 1);
+		gridRight.add(scenetitle, 0, 0, 2, 1);
 
 		petName = new Label("Name:");
+		petName.setPrefSize(100, 20);
 		petName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petName.setTextFill(Color.WHITE);
-		grid.add(petName, 0, 1);
+		gridRight.add(petName, 0, 1);
 
 		userTextField = new TextField();
-		grid.add(userTextField, 1, 1);
+		userTextField.setPrefSize(100, 20);
+		gridRight.add(userTextField, 1, 1);
+
+		petSpecies = new Label("Species:");
+		petSpecies.setPrefSize(100, 20);
+		petSpecies.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
+		petSpecies.setTextFill(Color.WHITE);
+		gridRight.add(petSpecies, 0, 2);
 
 		species = new ChoiceBox<String>();
+		species.setPrefSize(100, 20);
 		species.getItems().addAll(dataService.getDataRepository().GetAllSpecies());
-		grid.add(species, 1, 2);
+		gridRight.add(species, 1, 2);
 
 		btn = new Button("Add");
-		grid.add(btn, 1, 3);
+		btn.setPrefSize(100, 20);
+		gridRight.add(btn, 1, 3);
 
 		btn.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -136,35 +237,16 @@ public class GAME extends Application {
 
 				if (!species.getValue().isEmpty()) {
 					Dictionary dic = new Dictionary(species.getValue());
-					Animal newAnimal = new Animal(userTextField.getText(),dic,currentUser);
-				
+					Animal newAnimal = new Animal(userTextField.getText(), dic, currentUser);
+
 					dataService.getDataRepository().AddAnimal(newAnimal);
-				} 
+					animalList.add(newAnimal);
+					border.setCenter(addBorderPaneCenter());
+				}
 			}
 		});
-		// House icon in column 1, rows 1-2
-		// ImageView imageHouse = new ImageView(
-		// new
-		// Image(LayoutSample.class.getResourceAsStream("graphics/house.png")));
-		// grid.add(imageHouse, 0, 0, 1, 2);
 
-		// Left label in column 1 (bottom), row 3
-		// Text goodsPercent = new Text("Goods\n80%");
-		// GridPane.setValignment(goodsPercent, VPos.BOTTOM);
-		// grid.add(goodsPercent, 0, 2);
-
-		// Chart in columns 2-3, row 3
-		// ImageView imageChart = new ImageView(
-		// new
-		// Image(LayoutSample.class.getResourceAsStream("graphics/piechart.png")));
-		// grid.add(imageChart, 1, 2, 2, 1);
-
-		// Right label in column 4 (top), row 3
-		// Text servicesPercent = new Text("Services\n20%");
-		// GridPane.setValignment(servicesPercent, VPos.TOP);
-		// grid.add(servicesPercent, 3, 2);
-
-		return grid;
+		return gridRight;
 	}
 
 	public Text getScenetitle() {
@@ -205,6 +287,30 @@ public class GAME extends Application {
 
 	public void setScene(Scene scene) {
 		this.scene = scene;
+	}
+
+	public List<Animal> getAnimalList() {
+		return animalList;
+	}
+
+	public void setAnimalList(List<Animal> animalList) {
+		this.animalList = animalList;
+	}
+
+	public int getCurrentAnimalId() {
+		return currentAnimalId;
+	}
+
+	public void setCurrentAnimalId(String string) {
+		this.currentAnimalId = Integer.parseInt(string);
+	}
+
+	public Button getCurrentAnimalBtn() {
+		return currentAnimalBtn;
+	}
+
+	public void setCurrentAnimalBtn(Button currentAnimalBtn) {
+		this.currentAnimalBtn = currentAnimalBtn;
 	}
 
 }

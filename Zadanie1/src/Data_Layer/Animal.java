@@ -48,8 +48,8 @@ public class Animal {
 		this.age = 1;
 		this.experience = 0;
 		this.hp = 100;
-		this.levelOfHunger = 100;
-		this.levelOfFunNeeded = 100;
+		this.levelOfHunger = 50;			//przedzia³ 0-100 gdzie 0-na¿arty a 100-koniec gry
+		this.levelOfFunNeeded = 50;			//przedzia³ 0-100 gdzie 0-zabawiony a 100-koniec gry
 	}
 
 	public String getName() {
@@ -89,7 +89,7 @@ public class Animal {
 	}
 
 	public void setHp(float hp) {
-		this.hp = hp;
+		this.hp = this.hp + hp;
 	}
 
 	public float getLevelOfHunger() {
@@ -97,7 +97,7 @@ public class Animal {
 	}
 
 	public void setLevelOfHunger(float levelOfHunger) {
-		this.levelOfHunger = levelOfHunger;
+		this.levelOfHunger = this.levelOfHunger + levelOfHunger;
 	}
 
 	public float getLevelOfFunNeeded() {
@@ -105,7 +105,7 @@ public class Animal {
 	}
 
 	public void setLevelOfFunNeeded(float levelOfFunNeeded) {
-		this.levelOfFunNeeded = levelOfFunNeeded;
+		this.levelOfFunNeeded = this.levelOfFunNeeded + levelOfFunNeeded;
 	}
 
 	public Date getDateAdded() {
@@ -124,5 +124,8 @@ public class Animal {
 		this.user = user;
 	}
 
+	public int getAnimalID() {
+		return animalID;
+	}
 	
 }
