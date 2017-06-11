@@ -104,7 +104,7 @@ public class LOG extends Application {
 					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
 					actiontarget.setText("Witaj " + userTextField.getText());
 					
-					GAME game = new GAME(dataService);
+					GAME game = new GAME(dataService,dataService.getDataRepository().GetUser(userTextField.getText()));
 					game.start(primaryStage);
 
 				} else {
