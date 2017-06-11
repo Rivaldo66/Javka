@@ -7,6 +7,10 @@ import Data_Layer.User;
 
 public class DataService {
 	
+	public DataRepository getDataRepository() {
+		return dataRepository;
+	}
+
 	DataRepository dataRepository;
 
 	public DataService(DataRepository dataRepository) {

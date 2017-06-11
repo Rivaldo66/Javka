@@ -10,6 +10,8 @@ import Data_Layer.Dictionary;
 import Data_Layer.DictionaryStaff;
 import Data_Layer.SQL;
 import Data_Layer.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class DataRepository {
 
@@ -162,6 +164,23 @@ public class DataRepository {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	public List<Dictionary> GetAllSpecies(){
+		
+		List<Dictionary> list = new ArrayList<Dictionary>();
+		
+		try {
+			list = database.getDictionaryDao().queryForAll();
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			list = null;
+		}
+		finally{
+			return list;
 		}
 	}
 	

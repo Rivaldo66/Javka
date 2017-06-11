@@ -1,11 +1,15 @@
 package Presentation_Layer;
 
+import Data_Layer.Dictionary;
 import Logical_Layer.DataService;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -13,6 +17,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -24,7 +29,7 @@ public class GAME extends Application{
 	@FXML
 	private Text scenetitle;
 	@FXML
-	private Label userName;
+	private Label petName;
 	@FXML
 	private TextField userTextField;
 	@FXML
@@ -53,7 +58,7 @@ public class GAME extends Application{
 		//border.setTop(hbox);
 
 		//border.setCenter(addGridPane());
-		border.setRight(addHBox());
+		border.setRight(addGridPane());
 		
 		scene = new Scene(border, 900, 552);
 		primaryStage.setScene(scene);
@@ -81,7 +86,7 @@ public class GAME extends Application{
 	    flow.setPadding(new Insets(5, 0, 5, 0));
 	    flow.setVgap(4);
 	    flow.setHgap(4);
-	    flow.setPrefWrapLength(170); // preferred width allows for two columns
+	    flow.setPrefWrapLength(200); // preferred width allows for two columns
 	    flow.setStyle("-fx-background-color: DAE6F3;");
 
 	    //ImageView pages[] = new ImageView[8];
@@ -100,20 +105,27 @@ public class GAME extends Application{
 	    grid.setHgap(10);
 	    grid.setVgap(10);
 	    grid.setPadding(new Insets(0, 10, 0, 10));
+	    grid.setStyle("-fx-background-color: #336699;");
 
-	    // Category in column 2, row 1
-	    Text category = new Text("Sales:");
-	    category.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-	    grid.add(category, 1, 0); 
+		scenetitle = new Text("Add new pet");
+		scenetitle.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
+		scenetitle.setFill(Color.WHITE);
+		grid.add(scenetitle, 0, 0, 2, 1);
 
-	    // Title in column 3, row 1
-	    Text chartTitle = new Text("Current Year");
-	    chartTitle.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-	    grid.add(chartTitle, 2, 0);
+		petName = new Label("Name:");
+		petName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
+		petName.setTextFill(Color.WHITE);
+		grid.add(petName, 0, 1);
 
-	    // Subtitle in columns 2-3, row 2
-	    Text chartSubtitle = new Text("Goods and Services");
-	    grid.add(chartSubtitle, 1, 1, 2, 1);
+		userTextField = new TextField();
+		grid.add(userTextField, 1, 1);
+
+		ChoiceBox<Dictionary> species = new ChoiceBox<Dictionary>();
+		species.getItems().addAll(dataService.getDataRepository().GetAllSpecies());
+		grid.add(species, 1, 2);
+
+		btn = new Button("Add");
+		grid.add(btn, 1, 3);
 
 	    // House icon in column 1, rows 1-2
 	    //ImageView imageHouse = new ImageView(
@@ -146,12 +158,12 @@ public class GAME extends Application{
 		this.scenetitle = scenetitle;
 	}
 
-	public Label getUserName() {
-		return userName;
+	public Label getPetName() {
+		return petName;
 	}
 
-	public void setUserName(Label userName) {
-		this.userName = userName;
+	public void setPetName(Label userName) {
+		this.petName = userName;
 	}
 
 	public TextField getUserTextField() {
