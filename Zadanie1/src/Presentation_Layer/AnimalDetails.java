@@ -118,60 +118,59 @@ public class AnimalDetails extends Application {
 		grid.setPadding(new Insets(0, 10, 0, 10));
 		grid.setStyle("-fx-background-color: #336659;");
 
-		int licznik = 0;
+		int licznikfood = 0;
+		int licznikplay = 0;
+		int liczniktreat = 0;
+		
+		for (Action i : dataService.getDataRepository().GetActionsByAnimal(currentAnimalId)) {
 
-		for (Animal i : animalList) {
-			Button b = new Button();
-			b.setPrefSize(sizeX / 2, 20);
-			grid.add(b, 0, licznik);
+			if (i.getDictionaryStaff().getType().equals("Food")) {
+				Button b = new Button();
+				b.setPrefSize(sizeX / 2, 20);
+				grid.add(b, 0, licznikfood);
 
-			b.setOnAction(new EventHandler<ActionEvent>() {
+				b.setOnAction(new EventHandler<ActionEvent>() {
 
-				public void handle(ActionEvent e) {
-					// dataService.Playing(animal, dictionaryStaff);
-				}
-			});
+					public void handle(ActionEvent e) {
+						
+					}
+				});
+				licznikfood = licznikfood + 1;
+			}
+			
+			if (i.getDictionaryStaff().getType().equals("Play")) {
+				Button b = new Button();
+				b.setPrefSize(sizeX / 2, 20);
+				grid.add(b, 1, licznikplay);
 
-			licznik = licznik + 1;
-		}
+				b.setOnAction(new EventHandler<ActionEvent>() {
 
-		licznik = 0;
+					public void handle(ActionEvent e) {
 
-		for (Animal i : animalList) {
-			Button b = new Button();
-			b.setPrefSize(sizeX / 2, 20);
-			grid.add(b, 1, licznik);
+					}
+				});
+				licznikplay = licznikplay + 1;
+			}
+			
+			if (i.getDictionaryStaff().getType().equals("Treatment")) {
+				Button b = new Button();
+				b.setPrefSize(sizeX / 2, 20);
+				grid.add(b, 2, liczniktreat);
 
-			b.setOnAction(new EventHandler<ActionEvent>() {
+				b.setOnAction(new EventHandler<ActionEvent>() {
 
-				public void handle(ActionEvent e) {
-					// dataService.Playing(animal, dictionaryStaff);
-				}
-			});
+					public void handle(ActionEvent e) {
 
-			licznik = licznik + 1;
-		}
-
-		licznik = 0;
-
-		for (Animal i : animalList) {
-			Button b = new Button();
-			b.setPrefSize(sizeX / 2, 20);
-			grid.add(b, 2, licznik);
-
-			b.setOnAction(new EventHandler<ActionEvent>() {
-
-				public void handle(ActionEvent e) {
-					// dataService.Playing(animal, dictionaryStaff);
-				}
-			});
-
-			licznik = licznik + 1;
+					}
+				});
+				liczniktreat = liczniktreat + 1;
+			}
+			
 		}
 
 		Button btn = new Button("Back");
 		btn.setPrefSize(sizeX / 2, 20);
-		grid.add(btn, 0, 1);
+		grid.add(btn, 3, 0);
 
 		btn.setOnAction(new EventHandler<ActionEvent>() {
 

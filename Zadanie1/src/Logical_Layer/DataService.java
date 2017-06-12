@@ -92,6 +92,8 @@ public class DataService {
 		return dataRepository.GetDictionary(dataRepository.GetAnimal(Integer.valueOf(animal_txt)).getType().getName()).getImage();
 	}
 	
+	// -------------------------------------------Eating--------------------------------------------//
+	
 	public void Eating(Animal animal, DictionaryStaff dictionaryStaff){
 		
 		float hunger=animal.getLevelOfHunger();
