@@ -64,7 +64,7 @@ public class GAME extends Application {
 	public GAME(DataService dataService, User user) {
 		this.dataService = dataService;
 		this.currentUser = user;
-		this.animalList = dataService.getDataRepository().GetAllAnimals();
+		this.animalList = dataService.GetAnimalsByUser(user);
 	}
 
 	@Override
@@ -95,12 +95,13 @@ public class GAME extends Application {
 			animalsBtn.add(new Button(Integer.toString(i.getAnimalID())));
 		}
 		for (Button i : animalsBtn) {
-			i.setPrefSize(200, 200);
+			i.setPrefSize(150, 150);
 
 			// TUTAJ JAKIES POBIERANKO Z BAZKI LINKU DO OBRAZKA ZWIERZAKA
 			i.setStyle(
-					"-fx-background-image: url('http://img2.wikia.nocookie.net/__cb20120822021748/howrse/images/3/36/Compagnon-gazelle.png')");
-
+					"-fx-background-image: url('"+dataService.getDataRepository().GetAnimal(Integer.valueOf(i.getText())).getType().getImage()+"');-fx-background-size: cover;");
+			
+			
 			i.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {

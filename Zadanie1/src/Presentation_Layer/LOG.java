@@ -1,6 +1,7 @@
 package Presentation_Layer;
 
 import Data_Layer.SQL;
+import Data_Layer.User;
 import Logical_Layer.DataRepository;
 import Logical_Layer.DataService;
 import javafx.animation.FadeTransition;
@@ -48,10 +49,10 @@ public class LOG extends Application {
 
 	public LOG() {
 		SQL sql = new SQL();
-		 //sql.dbConnect(
-				 //"jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
 		sql.dbConnect(
-				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
+				 "jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
+		//sql.dbConnect(
+				//"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
 		DataRepository dataRepository = new DataRepository(sql);
 		dataService = new DataService(dataRepository);
 	}
@@ -102,7 +103,7 @@ public class LOG extends Application {
 					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
 					actiontarget.setText("Witaj " + userTextField.getText());
 					
-					GAME game = new GAME(dataService,dataService.getDataRepository().GetUser(userTextField.getText()));
+					GAME game = new GAME(dataService, dataService.Login(userTextField.getText()));
 					game.start(primaryStage);
 
 				} else {
@@ -119,8 +120,6 @@ public class LOG extends Application {
 
 			public void handle(ActionEvent e) {
 
-				actiontarget.setFill(Color.WHITE);
-				actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 15));
 				SignUp signUp = new SignUp(dataService);
 				signUp.SignUpWindow(primaryStage);
 			}

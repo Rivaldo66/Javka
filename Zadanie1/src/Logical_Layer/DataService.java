@@ -1,8 +1,11 @@
 package Logical_Layer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Data_Layer.Animal;
+import Data_Layer.Dictionary;
+import Data_Layer.DictionaryStaff;
 import Data_Layer.User;
 
 public class DataService {
@@ -64,4 +67,20 @@ public class DataService {
 	}
 	
 	// -----------------------------------------ShowingFood------------------------------------------//
+	
+	public List<DictionaryStaff> GetFoodByDictionary(Dictionary dictionary){
+		
+		List<DictionaryStaff> list = new ArrayList<DictionaryStaff>();
+		List<DictionaryStaff> list1 = new ArrayList<DictionaryStaff>();
+		
+		list = dataRepository.GetDictionaryStaffByDictionary(dictionary);
+		
+		for(DictionaryStaff i : list){
+			if(i.getType()=="Food"){
+				list1.add(i);
+			}
+		}
+		
+		return list1;	
+	}
 }

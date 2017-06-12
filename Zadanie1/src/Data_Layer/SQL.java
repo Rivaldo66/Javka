@@ -89,6 +89,10 @@ public class SQL {
 
 		}
 		try {
+			dictionary1.setImage("https://www.cbdzoe.pl/img/artykuly/mowa-ciala-pies.png");
+			dictionary2.setImage("http://skr.org.pl/UserFiles/site/kotek.png");
+			dictionary3.setImage("http://lh4.ggpht.com/hwM2DwntUQX6Zq2hxNA1ts_YAoVNvQpnbs3q-odjYxQ-v_Mc4h1slGgyLULdeEmeTqc=w300");
+			dictionary4.setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_MsuP7Rz_YgF78ij-eJY5DmnhpKKs-JSfqp8wJm2K3VBFP9Jk");
 			dictionaryDao.create(dictionary1);
 			dictionaryDao.create(dictionary2);
 			dictionaryDao.create(dictionary3);

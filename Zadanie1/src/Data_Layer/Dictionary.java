@@ -8,10 +8,14 @@ public class Dictionary {
 	
 	@DatabaseField(id = true)
 	String name;
+	
+	@DatabaseField(canBeNull = false)
+	String image;
 
 	public Dictionary(String name) {
 		super();
 		this.name = name;
+		this.image="https://www.cbdzoe.pl/img/artykuly/mowa-ciala-pies.png";
 	}
 	
 	public Dictionary(){
@@ -24,5 +28,13 @@ public class Dictionary {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

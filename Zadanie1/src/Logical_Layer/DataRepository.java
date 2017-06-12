@@ -146,7 +146,7 @@ public class DataRepository {
 		List<Animal> animals = new ArrayList<Animal>();
 
 		try {
-			database.getAnimalBuilder().where().like("user", user);
+			database.getAnimalBuilder().where().like("user_id", user);
 			animals = database.getAnimalDao().query(database.getAnimalBuilder().prepare());
 		} catch (SQLException e) {
 			animals = null;
@@ -363,7 +363,7 @@ public class DataRepository {
 		List<DictionaryStaff> dictionaryStaffs = new ArrayList<DictionaryStaff>();
 
 		try {
-			database.getDictionaryStaffBuilder().where().like("dictionary", dictionary);
+			database.getDictionaryStaffBuilder().where().like("dictionary_id", dictionary);
 			dictionaryStaffs = database.getDictionaryStaffDao().query(database.getDictionaryStaffBuilder().prepare());
 		} catch (SQLException e) {
 			dictionaryStaffs = null;
