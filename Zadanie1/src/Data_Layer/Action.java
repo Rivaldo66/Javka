@@ -53,6 +53,11 @@ public class Action {
 	public void setDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
 	}
+
+	@Override
+	public String toString() {
+		return "[" + dateAdded + "  " + dictionaryStaff.getName()+"]";
+	}
 	
 	
 }

@@ -238,7 +238,7 @@ public class GAME extends Application {
 				public void handle(ActionEvent e) {
 					for(Animal a : animalList){
 						if(a.getType().getName().matches(dictionary.getName())){
-							dataService.Eating(a, null);
+							dataService.Eating(a, dataService.GetDictionaryStaffByName(i.getText(), list));
 						}
 					}
 				}
@@ -270,7 +270,7 @@ public class GAME extends Application {
 				public void handle(ActionEvent e) {
 					for(Animal a : animalList){
 						if(a.getType().getName().matches(dictionary.getName())){
-							dataService.Playing(a, null);
+							dataService.Playing(a, dataService.GetDictionaryStaffByName(i.getText(), list));
 						}
 					}
 				}
@@ -302,7 +302,7 @@ public class GAME extends Application {
 				public void handle(ActionEvent e) {
 					for(Animal a : animalList){
 						if(a.getType().getName().matches(dictionary.getName())){
-							dataService.Curing(a, null);
+							dataService.Curing(a, dataService.GetDictionaryStaffByName(i.getText(), list));
 						}
 					}
 				}

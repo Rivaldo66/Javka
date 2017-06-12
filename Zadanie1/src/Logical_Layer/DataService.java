@@ -169,4 +169,17 @@ public class DataService {
 
 		return dataRepository.GetAllDictionaries();
 	}
+	
+	public DictionaryStaff GetDictionaryStaffByName(String name, List<DictionaryStaff> list){
+		
+		DictionaryStaff dictionaryStaff = null;
+		
+		for(DictionaryStaff d : list){
+			if(d.getName().matches(name)){
+				dictionaryStaff=d;
+			}
+		}
+		
+		return dictionaryStaff;
+	}
 }
