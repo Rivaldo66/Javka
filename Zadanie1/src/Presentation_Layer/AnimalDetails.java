@@ -117,20 +117,60 @@ public class AnimalDetails extends Application {
 		grid.setVgap(10);
 		grid.setPadding(new Insets(0, 10, 0, 10));
 		grid.setStyle("-fx-background-color: #336659;");
-		
-		Button play = new Button("Play");
-		play.setPrefSize(sizeX/2, 20);
-		grid.add(play, 0, 0);
 
-		play.setOnAction(new EventHandler<ActionEvent>() {
+		int licznik = 0;
 
-			public void handle(ActionEvent e) {
-				//dataService.Playing(animal, dictionaryStaff);
-			}
-		});
+		for (Animal i : animalList) {
+			Button b = new Button();
+			b.setPrefSize(sizeX / 2, 20);
+			grid.add(b, 0, licznik);
+
+			b.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					// dataService.Playing(animal, dictionaryStaff);
+				}
+			});
+
+			licznik = licznik + 1;
+		}
+
+		licznik = 0;
+
+		for (Animal i : animalList) {
+			Button b = new Button();
+			b.setPrefSize(sizeX / 2, 20);
+			grid.add(b, 1, licznik);
+
+			b.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					// dataService.Playing(animal, dictionaryStaff);
+				}
+			});
+
+			licznik = licznik + 1;
+		}
+
+		licznik = 0;
+
+		for (Animal i : animalList) {
+			Button b = new Button();
+			b.setPrefSize(sizeX / 2, 20);
+			grid.add(b, 2, licznik);
+
+			b.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					// dataService.Playing(animal, dictionaryStaff);
+				}
+			});
+
+			licznik = licznik + 1;
+		}
 
 		Button btn = new Button("Back");
-		btn.setPrefSize(sizeX/2, 20);
+		btn.setPrefSize(sizeX / 2, 20);
 		grid.add(btn, 0, 1);
 
 		btn.setOnAction(new EventHandler<ActionEvent>() {

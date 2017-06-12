@@ -69,16 +69,16 @@ public class DataService {
 	
 	// ------------------------------------ShowingDictionaryStaff------------------------------------//
 	
-	public List<String> GetTypeOfDictionaryStaffByDictionary(Dictionary dictionary, String type){
+	public List<DictionaryStaff> GetTypeOfDictionaryStaffByDictionary(Dictionary dictionary, String type){
 		
 		List<DictionaryStaff> list = new ArrayList<DictionaryStaff>();
-		List<String> list1 = new ArrayList<String>();
+		List<DictionaryStaff> list1 = new ArrayList<DictionaryStaff>();
 		
 		list = dataRepository.GetDictionaryStaffByDictionary(dictionary);
 		
 		for(DictionaryStaff i : list){
 			if(i.getType().matches(type)){
-				list1.add(i.getName());
+				list1.add(i);
 			}
 		}
 		
