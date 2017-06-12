@@ -66,13 +66,11 @@ public class GAME extends Application {
 		this.dataService = dataService;
 		this.currentUser = user;
 		this.animalList = dataService.GetAnimalsByUser(user);
-		Thread t1 = new Thread(new Timer(this.dataService, this.currentUser, this.animalList));
-		t1.start();
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
-		primaryStage.setTitle("LOGIN PANEL");
+		primaryStage.setTitle("GAME PANEL");
 		border = new BorderPane();
 		border.setStyle("-fx-background-color: #336699;");
 
@@ -82,9 +80,22 @@ public class GAME extends Application {
 		border.setCenter(addBorderPaneCenter(primaryStage));
 		border.setRight(addGridPaneRight(primaryStage));
 
+		Thread t1 = new Thread(new Timer(this.dataService, this.currentUser, this.animalList, this.currentAnimalBtn,
+				this.currentAnimalId, this, this.gridCenter));
+		t1.setDaemon(true);
+		t1.start();
+
 		scene = new Scene(border, 900, 552);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+	}
+
+	public BorderPane getGridCenter() {
+		return gridCenter;
+	}
+
+	public void setGridCenter(BorderPane gridCenter) {
+		this.gridCenter = gridCenter;
 	}
 
 	public HBox addAnimals(Stage primaryStage) {
@@ -95,7 +106,9 @@ public class GAME extends Application {
 		List<Button> animalsBtn = new ArrayList<Button>();
 
 		for (Animal i : animalList) {
-			animalsBtn.add(new Button(Integer.toString(i.getAnimalID())));
+			if ((i.getHp()) >= 5 || (i.getLevelOfFunNeeded()) >= 5 || (i.getLevelOfHunger()) >= 5) {
+				animalsBtn.add(new Button(Integer.toString(i.getAnimalID())));
+			}
 		}
 		for (Button i : animalsBtn) {
 			i.setPrefSize(150, 150);

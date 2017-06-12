@@ -5,21 +5,32 @@ import java.util.List;
 
 import Data_Layer.Animal;
 import Data_Layer.User;
+import Presentation_Layer.GAME;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class Timer extends Thread {
 
 	private DataService dataService;
 	private User currentUser;
 	private List<Animal> animalList = new ArrayList<Animal>();
+	private Button currentAnimalBtn;
+	private int currentAnimalId;
 	private int licznik;
+	private GAME game;
+	private BorderPane gridCenter;
 
 	public void run() {
 		while (true) {
 			try {
 				for (Animal i : animalList) {
-					i.setHp(-5);
-					i.setLevelOfFunNeeded(5);
-					i.setLevelOfHunger(5);
+					if ((i.getHp()) >= 5)
+						i.setHp(-5);
+					if ((i.getLevelOfFunNeeded()) >= 5)
+						i.setLevelOfFunNeeded(-5);
+					if ((i.getLevelOfHunger()) >= 5)
+						i.setLevelOfHunger(-5);
 					if ((licznik % 5) == 0) {
 						i.setAge(1);
 					}
@@ -33,11 +44,16 @@ public class Timer extends Thread {
 		}
 	}
 
-	public Timer(DataService dataService, User currentUser, List<Animal> animalList) {
+	public Timer(DataService dataService, User currentUser, List<Animal> animalList, Button currentAnimalBtn,
+			int currentAnimalId, GAME game, BorderPane gridCenter) {
 		super();
 		this.dataService = dataService;
 		this.currentUser = currentUser;
 		this.animalList = animalList;
+		this.currentAnimalBtn = currentAnimalBtn;
+		this.currentAnimalId = currentAnimalId;
+		this.gridCenter = gridCenter;
+		this.game = game;
 		this.licznik = 0;
 	}
 
@@ -71,5 +87,37 @@ public class Timer extends Thread {
 
 	public void setLicznik(int licznik) {
 		this.licznik = licznik;
+	}
+
+	public Button getCurrentAnimalBtn() {
+		return currentAnimalBtn;
+	}
+
+	public void setCurrentAnimalBtn(Button currentAnimalBtn) {
+		this.currentAnimalBtn = currentAnimalBtn;
+	}
+
+	public int getCurrentAnimalId() {
+		return currentAnimalId;
+	}
+
+	public void setCurrentAnimalId(int currentAnimalId) {
+		this.currentAnimalId = currentAnimalId;
+	}
+
+	public BorderPane getGridCenter() {
+		return gridCenter;
+	}
+
+	public void setGridCenter(BorderPane gridCenter) {
+		this.gridCenter = gridCenter;
+	}
+
+	public GAME getGame() {
+		return game;
+	}
+
+	public void setGame(GAME game) {
+		this.game = game;
 	}
 }
