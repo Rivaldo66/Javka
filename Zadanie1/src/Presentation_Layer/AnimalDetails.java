@@ -34,6 +34,7 @@ public class AnimalDetails extends Application {
 	private List<Animal> animalList = new ArrayList<Animal>();
 	private Button currentAnimalBtn;
 	private int currentAnimalId;
+	private Animal currentAnimal;
 	private int sizeX = 170;
 
 	@Override
@@ -116,10 +117,21 @@ public class AnimalDetails extends Application {
 		grid.setVgap(10);
 		grid.setPadding(new Insets(0, 10, 0, 10));
 		grid.setStyle("-fx-background-color: #336659;");
+		
+		Button play = new Button("Play");
+		play.setPrefSize(sizeX/2, 20);
+		grid.add(play, 0, 0);
+
+		play.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				//dataService.Playing(animal, dictionaryStaff);
+			}
+		});
 
 		Button btn = new Button("Back");
-		btn.setPrefSize(sizeX, 20);
-		grid.add(btn, 0, 0);
+		btn.setPrefSize(sizeX/2, 20);
+		grid.add(btn, 0, 1);
 
 		btn.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -331,6 +343,7 @@ public class AnimalDetails extends Application {
 		this.animalList = animalList;
 		this.currentAnimalBtn = currentAnimalBtn;
 		this.currentAnimalId = currentAnimalId;
+		this.currentAnimal = dataService.getDataRepository().GetAnimal(currentAnimalId);
 	}
 
 	public int getButtonsSize() {
@@ -339,6 +352,14 @@ public class AnimalDetails extends Application {
 
 	public void setButtonsSize(int buttonsSize) {
 		this.sizeX = buttonsSize;
+	}
+
+	public Animal getCurrentAnimal() {
+		return currentAnimal;
+	}
+
+	public void setCurrentAnimal(Animal currentAnimal) {
+		this.currentAnimal = currentAnimal;
 	}
 
 }
