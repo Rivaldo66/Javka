@@ -122,45 +122,47 @@ public class AnimalDetails extends Application {
 		int licznikplay = 0;
 		int liczniktreat = 0;
 		
+		Button b;
+		
 		for (Action i : dataService.getDataRepository().GetActionsByAnimal(currentAnimalId)) {
 
-			if (i.getDictionaryStaff().getType().equals("Food")) {
-				Button b = new Button();
+			if (i.getDictionaryStaff().getType().matches("Food")) {
+				b = new Button(i.getDictionaryStaff().getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 0, licznikfood);
 
 				b.setOnAction(new EventHandler<ActionEvent>() {
 
 					public void handle(ActionEvent e) {
-						
+						dataService.Eating(currentAnimal, i.getDictionaryStaff());
 					}
 				});
 				licznikfood = licznikfood + 1;
 			}
 			
-			if (i.getDictionaryStaff().getType().equals("Play")) {
-				Button b = new Button();
+			if (i.getDictionaryStaff().getType().matches("Play")) {
+				b = new Button(i.getDictionaryStaff().getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 1, licznikplay);
 
 				b.setOnAction(new EventHandler<ActionEvent>() {
 
 					public void handle(ActionEvent e) {
-
+						dataService.Eating(currentAnimal, i.getDictionaryStaff());
 					}
 				});
 				licznikplay = licznikplay + 1;
 			}
 			
-			if (i.getDictionaryStaff().getType().equals("Treatment")) {
-				Button b = new Button();
+			if (i.getDictionaryStaff().getType().matches("Treatment")) {
+				b = new Button(i.getDictionaryStaff().getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 2, liczniktreat);
 
 				b.setOnAction(new EventHandler<ActionEvent>() {
 
 					public void handle(ActionEvent e) {
-
+						dataService.Eating(currentAnimal, i.getDictionaryStaff());
 					}
 				});
 				liczniktreat = liczniktreat + 1;
