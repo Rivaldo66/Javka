@@ -159,11 +159,12 @@ public class AnimalDetails extends Application {
 		grid.add(petHgry, 2, 6);
 
 		Button picture = new Button();
+		picture.setPrefSize(150, 150);
 		picture.setStyle("-fx-background-color: transparent;" + "-fx-border: false;" + "-fx-background-image: url('"
 				+ dataService.ShowImageByAnimalID(String.valueOf(currentAnimalId)) + "');"
 				+ "-fx-background-size: cover;");
-		grid.add(picture,  1, 9);
-		
+		grid.add(picture, 0, 9);
+
 		TranslateTransition t1 = new TranslateTransition();
 		t1.setDuration(Duration.seconds(1));
 		t1.setNode(petN);
@@ -175,7 +176,7 @@ public class AnimalDetails extends Application {
 		TranslateTransition t2 = new TranslateTransition();
 		t2.setDuration(Duration.seconds(1));
 		t2.setNode(petS);
-		t1.setToX(-10);
+		t2.setToX(-10);
 		FadeTransition f2 = new FadeTransition(Duration.seconds(1), petS);
 		f2.setFromValue(0.0);
 		f2.setToValue(1.0);
@@ -211,13 +212,17 @@ public class AnimalDetails extends Application {
 		FadeTransition f6 = new FadeTransition(Duration.seconds(1), petHgry);
 		f6.setFromValue(0.0);
 		f6.setToValue(1.0);
+		
+		FadeTransition f7 = new FadeTransition(Duration.seconds(1), picture);
+		f7.setFromValue(0.0);
+		f7.setToValue(1.0);
 
-		ParallelTransition p = new ParallelTransition(t1, f1, t2, f2, t3, f3, t4, f4, t5, f5, t6, f6);
+		ParallelTransition p = new ParallelTransition(t1, f1, t2, f2, t3, f3, t4, f4, t5, f5, t6, f6, f7);
 		p.play();
 
 		return grid;
 	}
-	
+
 	public DataService getDataService() {
 		return dataService;
 	}
