@@ -59,50 +59,54 @@ public class AnimalDetails extends Application {
 		gridRight.setVgap(10);
 		gridRight.setPadding(new Insets(0, 10, 0, 10));
 		gridRight.setStyle("-fx-background-color: #336699;");
-		
 
 		Text scenetitle = new Text("Recent actions");
 		scenetitle.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		scenetitle.setFill(Color.WHITE);
 		gridRight.add(scenetitle, 0, 0, 2, 1);
-		
+
 		List<String> actionList = new ArrayList<String>();
-		for(Action i : dataService.getDataRepository().GetActionsByAnimal(currentAnimalId)){
+		for (Action i : dataService.getDataRepository().GetActionsByAnimal(currentAnimalId)) {
 			actionList.add(i.toString());
 		}
-		
-		if((actionList.size()) >= 5){
-			Label pet1 = new Label(actionList.get(actionList.size()-1));
+
+		if ((actionList.size()) >= 1) {
+			Label pet1 = new Label(actionList.get(actionList.size() - 1));
 			pet1.setPrefSize(sizeX, 20);
 			pet1.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 			pet1.setTextFill(Color.WHITE);
 			gridRight.add(pet1, 0, 1);
-			
-			Label pet2 = new Label(actionList.get(actionList.size()-2));
+		}
+		if ((actionList.size()) >= 2) {
+
+			Label pet2 = new Label(actionList.get(actionList.size() - 2));
 			pet2.setPrefSize(sizeX, 20);
 			pet2.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 			pet2.setTextFill(Color.WHITE);
 			gridRight.add(pet2, 0, 2);
-			
-			Label pet3 = new Label(actionList.get(actionList.size()-3));
+		}
+		if ((actionList.size()) >= 3) {
+			Label pet3 = new Label(actionList.get(actionList.size() - 3));
 			pet3.setPrefSize(sizeX, 20);
 			pet3.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 			pet3.setTextFill(Color.WHITE);
 			gridRight.add(pet3, 0, 3);
-			
-			Label pet4 = new Label(actionList.get(actionList.size()-4));
+		}
+		if ((actionList.size()) >= 4) {
+			Label pet4 = new Label(actionList.get(actionList.size() - 4));
 			pet4.setPrefSize(sizeX, 20);
 			pet4.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 			pet4.setTextFill(Color.WHITE);
 			gridRight.add(pet4, 0, 4);
-			
-			Label pet5 = new Label(actionList.get(actionList.size()-5));
+		}
+		if ((actionList.size()) >= 5) {
+			Label pet5 = new Label(actionList.get(actionList.size() - 5));
 			pet5.setPrefSize(sizeX, 20);
 			pet5.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 			pet5.setTextFill(Color.WHITE);
 			gridRight.add(pet5, 0, 5);
 		}
-		
+
 		return gridRight;
 	}
 
@@ -213,8 +217,6 @@ public class AnimalDetails extends Application {
 		petHgry.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petHgry.setTextFill(Color.WHITE);
 		grid.add(petHgry, 2, 6);
-		
-		
 
 		Button picture = new Button();
 		picture.setPrefSize(150, 150);
@@ -270,7 +272,7 @@ public class AnimalDetails extends Application {
 		FadeTransition f6 = new FadeTransition(Duration.seconds(1), petHgry);
 		f6.setFromValue(0.0);
 		f6.setToValue(1.0);
-		
+
 		FadeTransition f7 = new FadeTransition(Duration.seconds(1), picture);
 		f7.setFromValue(0.0);
 		f7.setToValue(1.0);
