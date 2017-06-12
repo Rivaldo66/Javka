@@ -97,9 +97,8 @@ public class GAME extends Application {
 		for (Button i : animalsBtn) {
 			i.setPrefSize(150, 150);
 
-			// TUTAJ JAKIES POBIERANKO Z BAZKI LINKU DO OBRAZKA ZWIERZAKA
 			i.setStyle(
-					"-fx-background-image: url('"+dataService.getDataRepository().GetAnimal(Integer.valueOf(i.getText())).getType().getImage()+"');-fx-background-size: cover;");
+					"-fx-background-image: url('"+dataService.ShowImageByAnimalID(i.getText())+"');-fx-background-size: cover;");
 			
 			
 			i.setOnAction(new EventHandler<ActionEvent>() {

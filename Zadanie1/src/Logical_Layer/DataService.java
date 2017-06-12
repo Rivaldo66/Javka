@@ -29,11 +29,11 @@ public class DataService {
 			return false; 
 		}
 		else{
-			if(dataRepository.GetUser(login).getPassword()==password){
+			if(dataRepository.GetUser(login).getPassword().matches(password)){
 				return true;
 			}
 			else{
-				return true;
+				return false;
 			}
 		}
 	}
@@ -66,21 +66,28 @@ public class DataService {
 		return dataRepository.GetAnimalByUser(user);
 	}
 	
-	// -----------------------------------------ShowingFood------------------------------------------//
+	// ------------------------------------ShowingDictionaryStaff------------------------------------//
 	
-	public List<DictionaryStaff> GetFoodByDictionary(Dictionary dictionary){
+	public List<String> GetTypeOfDictionaryStaffByDictionary(Dictionary dictionary, String type){
 		
 		List<DictionaryStaff> list = new ArrayList<DictionaryStaff>();
-		List<DictionaryStaff> list1 = new ArrayList<DictionaryStaff>();
+		List<String> list1 = new ArrayList<String>();
 		
 		list = dataRepository.GetDictionaryStaffByDictionary(dictionary);
 		
 		for(DictionaryStaff i : list){
-			if(i.getType()=="Food"){
-				list1.add(i);
+			if(i.getType().matches(type)){
+				list1.add(i.getName());
 			}
 		}
 		
 		return list1;	
+	}
+	
+	// ------------------------------------------ShowImage------------------------------------------//
+	
+	public String ShowImageByAnimalID(String animal_txt){
+		
+		return dataRepository.GetDictionary(dataRepository.GetAnimal(Integer.valueOf(animal_txt)).getType().getName()).getImage();
 	}
 }

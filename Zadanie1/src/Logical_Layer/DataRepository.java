@@ -369,4 +369,18 @@ public class DataRepository {
 
 		return dictionaryStaffs;
 	}
+	
+	public List<DictionaryStaff> GetFoodByDictionary(Dictionary dictionary) {
+
+		List<DictionaryStaff> dictionaryStaffs = new ArrayList<DictionaryStaff>();
+
+		try {
+			database.getDictionaryStaffBuilder().where().like("dictionary_id", dictionary);
+			dictionaryStaffs = database.getDictionaryStaffDao().query(database.getDictionaryStaffBuilder().prepare());
+		} catch (SQLException e) {
+			dictionaryStaffs = null;
+		}
+
+		return dictionaryStaffs;
+	} 
 }
