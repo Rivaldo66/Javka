@@ -6,6 +6,7 @@ import Data_Layer.Animal;
 import Data_Layer.Dictionary;
 import Data_Layer.User;
 import Logical_Layer.DataService;
+import Logical_Layer.Timer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -65,6 +66,8 @@ public class GAME extends Application {
 		this.dataService = dataService;
 		this.currentUser = user;
 		this.animalList = dataService.GetAnimalsByUser(user);
+		Thread t1 = new Thread(new Timer(this.dataService,this.currentUser,this.animalList));
+		t1.start();
 	}
 
 	@Override
