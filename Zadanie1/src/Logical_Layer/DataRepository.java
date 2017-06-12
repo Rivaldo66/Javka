@@ -281,12 +281,12 @@ public class DataRepository {
 		return action;
 	}
 
-	public List<Action> GetActionsByAnimal(Animal animal) {
+	public List<Action> GetActionsByAnimal(int animalId) {
 
 		List<Action> actions = new ArrayList<Action>();
 
 		try {
-			database.getActionBuilder().where().like("animal", animal);
+			database.getActionBuilder().where().like("animal_id", animalId);
 			actions = database.getActionDao().query(database.getActionBuilder().prepare());
 		} catch (SQLException e) {
 			actions = null;
