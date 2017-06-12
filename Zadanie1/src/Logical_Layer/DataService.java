@@ -3,6 +3,7 @@ package Logical_Layer;
 import java.util.ArrayList;
 import java.util.List;
 
+import Data_Layer.Action;
 import Data_Layer.Animal;
 import Data_Layer.Dictionary;
 import Data_Layer.DictionaryStaff;
@@ -91,10 +92,73 @@ public class DataService {
 		return dataRepository.GetDictionary(dataRepository.GetAnimal(Integer.valueOf(animal_txt)).getType().getName()).getImage();
 	}
 	
-	// --------------------------------------------Eating--------------------------------------------//
-	
-	public void Eating(Animal animal){
+	public void Eating(Animal animal, DictionaryStaff dictionaryStaff){
 		
+		float hunger=animal.getLevelOfHunger();
 		
+		if(hunger<=75){
+			animal.setLevelOfHunger(hunger-25);
+			animal.setExperience(animal.getExperience()+50);
+			dataRepository.AddAction(new Action(animal, dictionaryStaff));
+		}else{
+			if(hunger<=100){
+				animal.setLevelOfHunger(100);
+				animal.setExperience(animal.getExperience()+50);
+				dataRepository.AddAction(new Action(animal, dictionaryStaff));
+			}
+			else{
+				System.out.println("Twój zwiekrzak jest ju¿ wybawiony");
+			}
+		}
+		
+		dataRepository.UpdateAnimal(animal);
 	}
+	
+	// -------------------------------------------Playing--------------------------------------------//
+	
+	public void Playing(Animal animal, DictionaryStaff dictionaryStaff){
+		
+		float play=animal.getLevelOfFunNeeded();
+		
+		if(play<=75){
+			animal.setLevelOfFunNeeded(play-25);
+			animal.setExperience(animal.getExperience()+50);
+			dataRepository.AddAction(new Action(animal, dictionaryStaff));
+		}else{
+			if(play<=100){
+				animal.setLevelOfFunNeeded(100);
+				animal.setExperience(animal.getExperience()+50);
+				dataRepository.AddAction(new Action(animal, dictionaryStaff));
+			}
+			else{
+				System.out.println("Twój zwiekrzak jest ju¿ najedzony");
+			}
+		}
+		
+		dataRepository.UpdateAnimal(animal);
+	}
+	
+	// --------------------------------------------Curing--------------------------------------------//
+	
+	public void Curing(Animal animal, DictionaryStaff dictionaryStaff){
+			
+			float hp=animal.getHp();
+			
+			if(hp<=75){
+				animal.setHp(animal.getHp()-75);
+				animal.setExperience(animal.getExperience()+50);
+				dataRepository.AddAction(new Action(animal, dictionaryStaff));
+			}else{
+				if(hp<=100){
+					animal.setHp(100);
+					animal.setExperience(animal.getExperience()+50);
+					dataRepository.AddAction(new Action(animal, dictionaryStaff));
+				}
+				else{
+					System.out.println("Twój zwiekrzak jest ju¿ zdrowy");
+				}
+			}
+			
+			dataRepository.UpdateAnimal(animal);
+		}
 }

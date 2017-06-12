@@ -11,9 +11,6 @@ public class Action {
 	int actionID;
 	
 	@DatabaseField(canBeNull = false, foreign = true)
-	User user;
-	
-	@DatabaseField(canBeNull = false, foreign = true)
 	Animal animal;
 	
 	@DatabaseField(canBeNull = false, foreign = true)
@@ -22,23 +19,14 @@ public class Action {
 	@DatabaseField(canBeNull = false)
 	Date dateAdded = new Date();
 
-	public Action(User user, Animal animal, DictionaryStaff dictionaryStaff) {
+	public Action(Animal animal, DictionaryStaff dictionaryStaff) {
 		super();
-		this.user = user;
 		this.animal = animal;
 		this.dictionaryStaff = dictionaryStaff;
 	}
 
 	public Action(){
 		
-	}
-	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public Animal getAnimal() {
