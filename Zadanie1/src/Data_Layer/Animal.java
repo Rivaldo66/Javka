@@ -36,6 +36,9 @@ public class Animal {
 	
 	@DatabaseField(canBeNull = false)
 	float levelOfFunNeeded;
+	
+	@DatabaseField(canBeNull = false)
+	boolean status;
 
 	public Animal() {
 	}
@@ -49,7 +52,8 @@ public class Animal {
 		this.experience = 0;
 		this.hp = 100;
 		this.levelOfHunger = 50;			
-		this.levelOfFunNeeded = 50;			
+		this.levelOfFunNeeded = 50;	
+		this.status = true;
 	}
 
 	public String getName() {
@@ -70,6 +74,14 @@ public class Animal {
 
 	public float getAge() {
 		return age;
+	}
+
+	public boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public void setAge(float age) {

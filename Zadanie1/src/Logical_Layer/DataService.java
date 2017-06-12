@@ -1,5 +1,6 @@
 package Logical_Layer;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,14 +93,12 @@ public class DataService {
 		return dataRepository.GetDictionary(dataRepository.GetAnimal(Integer.valueOf(animal_txt)).getType().getName()).getImage();
 	}
 	
-	// -------------------------------------------Eating--------------------------------------------//
-	
 	public void Eating(Animal animal, DictionaryStaff dictionaryStaff){
 		
 		float hunger=animal.getLevelOfHunger();
 		
 		if(hunger<=75){
-			animal.setLevelOfHunger(hunger-25);
+			animal.setLevelOfHunger(25);
 			animal.setExperience(animal.getExperience()+50);
 			dataRepository.AddAction(new Action(animal, dictionaryStaff));
 		}else{
@@ -123,7 +122,7 @@ public class DataService {
 		float play=animal.getLevelOfFunNeeded();
 		
 		if(play<=75){
-			animal.setLevelOfFunNeeded(play-25);
+			animal.setLevelOfFunNeeded(25);
 			animal.setExperience(animal.getExperience()+50);
 			dataRepository.AddAction(new Action(animal, dictionaryStaff));
 		}else{
@@ -147,7 +146,7 @@ public class DataService {
 			float hp=animal.getHp();
 			
 			if(hp<=75){
-				animal.setHp(animal.getHp()-75);
+				animal.setHp(25);
 				animal.setExperience(animal.getExperience()+50);
 				dataRepository.AddAction(new Action(animal, dictionaryStaff));
 			}else{
@@ -163,4 +162,11 @@ public class DataService {
 			
 			dataRepository.UpdateAnimal(animal);
 		}
+	
+	//-------------
+	
+	public List<Dictionary> GetAllDictionaries() {
+
+		return dataRepository.GetAllDictionaries();
+	}
 }

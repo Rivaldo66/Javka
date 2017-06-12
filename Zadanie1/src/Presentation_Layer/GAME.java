@@ -2,8 +2,11 @@ package Presentation_Layer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import Data_Layer.Animal;
 import Data_Layer.Dictionary;
+import Data_Layer.DictionaryStaff;
 import Data_Layer.User;
 import Logical_Layer.DataService;
 import Logical_Layer.Timer;
@@ -108,7 +111,7 @@ public class GAME extends Application {
 		List<Button> animalsBtn = new ArrayList<Button>();
 
 		for (Animal i : animalList) {
-			if ((i.getHp()) >= 5 || (i.getLevelOfFunNeeded()) >= 5 || (i.getLevelOfHunger()) >= 5) {
+			if (i.getStatus()) {
 				animalsBtn.add(new Button(Integer.toString(i.getAnimalID())));
 			}
 		}
@@ -138,7 +141,178 @@ public class GAME extends Application {
 
 		return hbox;
 	}
+	
+	public HBox addAnimalButtons(Stage primaryStage) {
+		HBox hbox = new HBox();
+		hbox.setPadding(new Insets(15, 12, 15, 12));
+		hbox.setSpacing(10);
 
+		List<Button> animalsBtn = new ArrayList<Button>();
+		
+		for (Dictionary i : dataService.GetAllDictionaries()) {
+
+			animalsBtn.add(new Button(i.getName()));
+		}
+		for (Button i : animalsBtn) {
+			i.setPrefSize(100, 20);
+
+			i.setStyle("-fx-background-color: #336699;");
+
+			i.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					for(Animal a : animalList){
+						if(a.getType().getName().matches(i.getText())){
+							gridCenter.setCenter(addDictionaryStaffButtons(dataService.getDataRepository().GetDictionary(i.getText())));
+						}
+					}
+				}
+			});
+		}
+		hbox.getChildren().addAll(animalsBtn);
+
+		return hbox;
+	}
+	
+	public HBox addDictionaryStaffButtons(Dictionary dictionary) {
+		HBox hbox = new HBox();
+		hbox.setPadding(new Insets(15, 12, 15, 12));
+		hbox.setSpacing(10);
+
+		play = new Button("Play");
+		play.setPrefSize(100, 20);
+		play.setStyle("-fx-background-color: #336699;");
+
+		play.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				gridCenter.setCenter(addFoodButton(dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Play"), dictionary));
+			}
+		});
+
+		treatment = new Button("Treatment");
+		treatment.setPrefSize(100, 20);
+		treatment.setStyle("-fx-background-color: #336699;");
+
+		treatment.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				gridCenter.setCenter(addFoodButton(dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Treatment"), dictionary));
+			}
+		});
+
+		food = new Button("Food");
+		food.setPrefSize(100, 20);
+		food.setStyle("-fx-background-color: #336699;");
+
+		food.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				gridCenter.setCenter(addFoodButton(dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Food"), dictionary));
+			}
+		});
+
+		hbox.getChildren().addAll(play, food, treatment);
+		
+		return hbox;
+	}
+
+	public HBox addFoodButton(List<DictionaryStaff> list, Dictionary dictionary) {
+		HBox hbox = new HBox();
+		hbox.setPadding(new Insets(15, 12, 15, 12));
+		hbox.setSpacing(10);
+
+		List<Button> animalsBtn = new ArrayList<Button>();
+		
+		for (DictionaryStaff i : list) {
+
+			animalsBtn.add(new Button(i.getName()));
+		}
+		for (Button i : animalsBtn) {
+			i.setPrefSize(100, 20);
+
+			i.setStyle("-fx-background-color: #336699;");
+
+			i.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					for(Animal a : animalList){
+						if(a.getType().getName().matches(dictionary.getName())){
+							dataService.Eating(a, null);
+						}
+					}
+				}
+			});
+		}
+		hbox.getChildren().addAll(animalsBtn);
+
+		return hbox;
+	}
+	
+	public HBox addPlayButton(List<DictionaryStaff> list, Dictionary dictionary) {
+		HBox hbox = new HBox();
+		hbox.setPadding(new Insets(15, 12, 15, 12));
+		hbox.setSpacing(10);
+
+		List<Button> animalsBtn = new ArrayList<Button>();
+		
+		for (DictionaryStaff i : list) {
+
+			animalsBtn.add(new Button(i.getName()));
+		}
+		for (Button i : animalsBtn) {
+			i.setPrefSize(100, 20);
+
+			i.setStyle("-fx-background-color: #336699;");
+
+			i.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					for(Animal a : animalList){
+						if(a.getType().getName().matches(dictionary.getName())){
+							dataService.Playing(a, null);
+						}
+					}
+				}
+			});
+		}
+		hbox.getChildren().addAll(animalsBtn);
+
+		return hbox;
+	}
+	
+	public HBox addTreatmentButton(List<DictionaryStaff> list, Dictionary dictionary) {
+		HBox hbox = new HBox();
+		hbox.setPadding(new Insets(15, 12, 15, 12));
+		hbox.setSpacing(10);
+
+		List<Button> animalsBtn = new ArrayList<Button>();
+		
+		for (DictionaryStaff i : list) {
+
+			animalsBtn.add(new Button(i.getName()));
+		}
+		for (Button i : animalsBtn) {
+			i.setPrefSize(100, 20);
+
+			i.setStyle("-fx-background-color: #336699;");
+
+			i.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					for(Animal a : animalList){
+						if(a.getType().getName().matches(dictionary.getName())){
+							dataService.Curing(a, null);
+						}
+					}
+				}
+			});
+		}
+		hbox.getChildren().addAll(animalsBtn);
+
+		return hbox;
+	}
+	
 	public HBox addAnimalsTools() {
 
 		HBox hbox = new HBox();
@@ -214,6 +388,7 @@ public class GAME extends Application {
 				"-fx-background-image: url('https://s-media-cache-ak0.pinimg.com/736x/5f/74/e6/5f74e63976b7657a209488ee7a200ded.jpg')");
 
 		gridCenter.setBottom(addAnimals(primaryStage));
+		gridCenter.setTop(addAnimalButtons(primaryStage));
 
 		return gridCenter;
 	}
