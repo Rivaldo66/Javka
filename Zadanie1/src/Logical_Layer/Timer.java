@@ -11,6 +11,7 @@ public class Timer extends Thread {
 	private DataService dataService;
 	private User currentUser;
 	private List<Animal> animalList = new ArrayList<Animal>();
+	private int licznik;
 
 	public void run() {
 		while (true) {
@@ -19,7 +20,11 @@ public class Timer extends Thread {
 					i.setHp(-5);
 					i.setLevelOfFunNeeded(5);
 					i.setLevelOfHunger(5);
+					if ((licznik % 5) == 0) {
+						i.setAge(1);
+					}
 					dataService.getDataRepository().UpdateAnimal(i);
+					licznik = licznik + 1;
 				}
 				Timer.sleep(5000l);
 			} catch (InterruptedException e) {
@@ -33,6 +38,7 @@ public class Timer extends Thread {
 		this.dataService = dataService;
 		this.currentUser = currentUser;
 		this.animalList = animalList;
+		this.licznik = 0;
 	}
 
 	public DataService getDataService() {
@@ -57,5 +63,13 @@ public class Timer extends Thread {
 
 	public void setAnimalList(List<Animal> animalList) {
 		this.animalList = animalList;
+	}
+
+	public int getLicznik() {
+		return licznik;
+	}
+
+	public void setLicznik(int licznik) {
+		this.licznik = licznik;
 	}
 }

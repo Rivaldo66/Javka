@@ -73,7 +73,7 @@ public class Animal {
 	}
 
 	public void setAge(float age) {
-		this.age = age;
+		this.age = this.age + age;
 	}
 
 	public float getExperience() {
