@@ -181,7 +181,6 @@ public class DataRepository {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			list = null;
-			System.out.println("aaaaaaaaaaaaa");
 			return list;
 		} 
 	}
