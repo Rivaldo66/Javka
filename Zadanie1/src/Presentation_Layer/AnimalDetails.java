@@ -139,6 +139,12 @@ public class AnimalDetails extends Application {
 
 					public void handle(ActionEvent e) {
 						dataService.Eating(currentAnimal, i);
+						try {
+							start(primaryStage);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
 				});
 				licznikfood = licznikfood + 1;
@@ -152,7 +158,13 @@ public class AnimalDetails extends Application {
 				b.setOnAction(new EventHandler<ActionEvent>() {
 
 					public void handle(ActionEvent e) {
-						dataService.Eating(currentAnimal, i);
+						dataService.Playing(currentAnimal, i);
+						try {
+							start(primaryStage);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
 				});
 				licznikplay = licznikplay + 1;
@@ -166,7 +178,13 @@ public class AnimalDetails extends Application {
 				b.setOnAction(new EventHandler<ActionEvent>() {
 
 					public void handle(ActionEvent e) {
-						dataService.Eating(currentAnimal, i);
+						dataService.Curing(currentAnimal, i);
+						try {
+							start(primaryStage);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
 				});
 				liczniktreat = liczniktreat + 1;
