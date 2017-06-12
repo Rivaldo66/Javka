@@ -5,6 +5,7 @@ import java.util.List;
 
 import Data_Layer.Action;
 import Data_Layer.Animal;
+import Data_Layer.DictionaryStaff;
 import Data_Layer.User;
 import Logical_Layer.DataService;
 import javafx.animation.FadeTransition;
@@ -130,46 +131,45 @@ public class AnimalDetails extends Application {
 		
 		this.currentAnimal = dataService.getDataRepository().GetAnimal(currentAnimalId);
 		
-		for (Action i : dataService.getDataRepository().GetActionsByAnimal(currentAnimalId)) {
-
+		for (DictionaryStaff i : dataService.getDataRepository().GetAllDictionaryStaffs()) {
 			
-			if (i.getDictionaryStaff().getType().matches("Food")) {
-				b = new Button(i.getDictionaryStaff().getName());
+			if (i.getType().matches("Food") && i.getDictionary().getName().matches(currentAnimal.getType().toString())) {
+				b = new Button(i.getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 0, licznikfood);
 
 				b.setOnAction(new EventHandler<ActionEvent>() {
 
 					public void handle(ActionEvent e) {
-						dataService.Eating(currentAnimal, i.getDictionaryStaff());
+						dataService.Eating(currentAnimal, i);
 					}
 				});
 				licznikfood = licznikfood + 1;
 			}
 			
-			if (i.getDictionaryStaff().getType().matches("Play")) {
-				b = new Button(i.getDictionaryStaff().getName());
+			if (i.getType().matches("Play") && i.getDictionary().getName().matches(currentAnimal.getType().toString())) {
+				b = new Button(i.getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 1, licznikplay);
 
 				b.setOnAction(new EventHandler<ActionEvent>() {
 
 					public void handle(ActionEvent e) {
-						dataService.Eating(currentAnimal, i.getDictionaryStaff());
+						dataService.Eating(currentAnimal, i);
 					}
 				});
 				licznikplay = licznikplay + 1;
 			}
 			
-			if (i.getDictionaryStaff().getType().matches("Treatment")) {
-				b = new Button(i.getDictionaryStaff().getName());
+			if (i.getType().matches("Treatment") && i.getDictionary().getName().matches(currentAnimal.getType().toString())) {
+				b = new Button(i.getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 2, liczniktreat);
 
 				b.setOnAction(new EventHandler<ActionEvent>() {
 
 					public void handle(ActionEvent e) {
-						dataService.Eating(currentAnimal, i.getDictionaryStaff());
+						dataService.Eating(currentAnimal, i);
 					}
 				});
 				liczniktreat = liczniktreat + 1;
@@ -416,30 +416,6 @@ public class AnimalDetails extends Application {
 
 	public void setCurrentAnimal(Animal currentAnimal) {
 		this.currentAnimal = currentAnimal;
-	}
-
-	public Label getPetH() {
-		return petH;
-	}
-
-	public void setPetH(String name) {
-		this.petH.setText(name);
-	}
-
-	public Label getPetF() {
-		return petF;
-	}
-
-	public void setPetF(String name) {
-		this.petF.setText(name);
-	}
-
-	public Label getPetHgry() {
-		return petHgry;
-	}
-
-	public void setPetHgry(String name) {
-		this.petHgry.setText(name);
 	}
 
 }

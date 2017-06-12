@@ -83,7 +83,7 @@ public class GAME extends Application {
 		border.setRight(addGridPaneRight(primaryStage));
 
 		Thread t1 = new Thread(new Timer(this.dataService, this.currentUser, this.animalList, this.currentAnimalBtn,
-				this.currentAnimalId, this, this.gridCenter, this.animalDetails));
+				this.currentAnimalId, this, this.animalDetails));
 		t1.setDaemon(true);
 		t1.start();
 

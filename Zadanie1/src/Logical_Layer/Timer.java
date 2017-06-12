@@ -20,7 +20,6 @@ public class Timer extends Thread {
 	private int currentAnimalId;
 	private int licznik;
 	private GAME game;
-	private BorderPane gridCenter;
 	private AnimalDetails animalDetails;
 
 	public void run() {
@@ -37,10 +36,6 @@ public class Timer extends Thread {
 						i.setAge(1);
 					}
 					dataService.getDataRepository().UpdateAnimal(i);
-					animalDetails.setPetH(Float.toString(i.getHp()));
-					animalDetails.setPetHgry(Float.toString(i.getLevelOfHunger()));
-					animalDetails.setPetF(Float.toString(i.getLevelOfFunNeeded()));
-
 					licznik = licznik + 1;
 				}
 				Timer.sleep(5000l);
@@ -51,14 +46,13 @@ public class Timer extends Thread {
 	}
 
 	public Timer(DataService dataService, User currentUser, List<Animal> animalList, Button currentAnimalBtn,
-			int currentAnimalId, GAME game, BorderPane gridCenter, AnimalDetails animalDetails) {
+			int currentAnimalId, GAME game, AnimalDetails animalDetails) {
 		super();
 		this.dataService = dataService;
 		this.currentUser = currentUser;
 		this.animalList = animalList;
 		this.currentAnimalBtn = currentAnimalBtn;
 		this.currentAnimalId = currentAnimalId;
-		this.gridCenter = gridCenter;
 		this.game = game;
 		this.animalDetails = animalDetails;
 		this.licznik = 0;
@@ -110,14 +104,6 @@ public class Timer extends Thread {
 
 	public void setCurrentAnimalId(int currentAnimalId) {
 		this.currentAnimalId = currentAnimalId;
-	}
-
-	public BorderPane getGridCenter() {
-		return gridCenter;
-	}
-
-	public void setGridCenter(BorderPane gridCenter) {
-		this.gridCenter = gridCenter;
 	}
 
 	public GAME getGame() {
