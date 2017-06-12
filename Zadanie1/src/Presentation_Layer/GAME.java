@@ -244,6 +244,9 @@ public class GAME extends Application {
 					animalList.add(newAnimal);
 					border.setCenter(addBorderPaneCenter());
 				}
+				else{
+					
+				}
 			}
 		});
 

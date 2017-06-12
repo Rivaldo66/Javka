@@ -167,7 +167,6 @@ public class DataRepository {
 		}
 	}
 
-	@SuppressWarnings("finally")
 	public List<String> GetAllSpecies() {
 
 		List<String> list = new ArrayList<String>();
@@ -182,9 +181,9 @@ public class DataRepository {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			list = null;
-		} finally {
+			System.out.println("aaaaaaaaaaaaa");
 			return list;
-		}
+		} 
 	}
 
 	public void UpdateDictionary(Dictionary dictionary) {
