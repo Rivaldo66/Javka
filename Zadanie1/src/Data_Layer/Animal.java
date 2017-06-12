@@ -48,8 +48,8 @@ public class Animal {
 		this.age = 1;
 		this.experience = 0;
 		this.hp = 100;
-		this.levelOfHunger = 50;			//przedzia³ 0-100 gdzie 0-na¿arty a 100-koniec gry
-		this.levelOfFunNeeded = 50;			//przedzia³ 0-100 gdzie 0-zabawiony a 100-koniec gry
+		this.levelOfHunger = 50;			
+		this.levelOfFunNeeded = 50;			
 	}
 
 	public String getName() {

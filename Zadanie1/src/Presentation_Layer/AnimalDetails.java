@@ -38,9 +38,6 @@ public class AnimalDetails extends Application {
 	private Animal currentAnimal;
 	private BorderPane border;
 	private int sizeX = 170;
-	private Label petH;
-	private Label petF;
-	private Label petHgry;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -129,11 +126,11 @@ public class AnimalDetails extends Application {
 		
 		Button b;
 		
-		this.currentAnimal = dataService.getDataRepository().GetAnimal(currentAnimalId);
+		currentAnimal = dataService.getDataRepository().GetAnimal(currentAnimalId);
 		
 		for (DictionaryStaff i : dataService.getDataRepository().GetAllDictionaryStaffs()) {
 			
-			if (i.getType().matches("Food") && i.getDictionary().getName().matches(currentAnimal.getType().toString())) {
+			if (i.getType().matches("Food") && i.getDictionary().getName().matches(currentAnimal.getType().getName())) {
 				b = new Button(i.getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 0, licznikfood);
@@ -147,7 +144,7 @@ public class AnimalDetails extends Application {
 				licznikfood = licznikfood + 1;
 			}
 			
-			if (i.getType().matches("Play") && i.getDictionary().getName().matches(currentAnimal.getType().toString())) {
+			if (i.getType().matches("Play") && i.getDictionary().getName().matches(currentAnimal.getType().getName())) {
 				b = new Button(i.getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 1, licznikplay);
@@ -161,7 +158,7 @@ public class AnimalDetails extends Application {
 				licznikplay = licznikplay + 1;
 			}
 			
-			if (i.getType().matches("Treatment") && i.getDictionary().getName().matches(currentAnimal.getType().toString())) {
+			if (i.getType().matches("Treatment") && i.getDictionary().getName().matches(currentAnimal.getType().getName())) {
 				b = new Button(i.getName());
 				b.setPrefSize(sizeX / 2, 20);
 				grid.add(b, 2, liczniktreat);
