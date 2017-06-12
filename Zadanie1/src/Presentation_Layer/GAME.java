@@ -34,6 +34,7 @@ public class GAME extends Application {
 	private List<Animal> animalList = new ArrayList<Animal>();
 	private Button currentAnimalBtn;
 	private int currentAnimalId;
+	private AnimalDetails animalDetails;
 
 	@FXML
 	private BorderPane border;
@@ -66,6 +67,7 @@ public class GAME extends Application {
 		this.dataService = dataService;
 		this.currentUser = user;
 		this.animalList = dataService.GetAnimalsByUser(user);
+		this.animalDetails = new AnimalDetails(dataService, currentUser, animalList, currentAnimalBtn, currentAnimalId);
 	}
 
 	@Override
@@ -81,7 +83,7 @@ public class GAME extends Application {
 		border.setRight(addGridPaneRight(primaryStage));
 
 		Thread t1 = new Thread(new Timer(this.dataService, this.currentUser, this.animalList, this.currentAnimalBtn,
-				this.currentAnimalId, this, this.gridCenter));
+				this.currentAnimalId, this, this.gridCenter, this.animalDetails));
 		t1.setDaemon(true);
 		t1.start();
 

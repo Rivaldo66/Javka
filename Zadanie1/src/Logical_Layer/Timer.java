@@ -5,6 +5,7 @@ import java.util.List;
 
 import Data_Layer.Animal;
 import Data_Layer.User;
+import Presentation_Layer.AnimalDetails;
 import Presentation_Layer.GAME;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -20,6 +21,7 @@ public class Timer extends Thread {
 	private int licznik;
 	private GAME game;
 	private BorderPane gridCenter;
+	private AnimalDetails animalDetails;
 
 	public void run() {
 		while (true) {
@@ -35,6 +37,10 @@ public class Timer extends Thread {
 						i.setAge(1);
 					}
 					dataService.getDataRepository().UpdateAnimal(i);
+					animalDetails.setPetH(Float.toString(i.getHp()));
+					animalDetails.setPetHgry(Float.toString(i.getLevelOfHunger()));
+					animalDetails.setPetF(Float.toString(i.getLevelOfFunNeeded()));
+
 					licznik = licznik + 1;
 				}
 				Timer.sleep(5000l);
@@ -45,7 +51,7 @@ public class Timer extends Thread {
 	}
 
 	public Timer(DataService dataService, User currentUser, List<Animal> animalList, Button currentAnimalBtn,
-			int currentAnimalId, GAME game, BorderPane gridCenter) {
+			int currentAnimalId, GAME game, BorderPane gridCenter, AnimalDetails animalDetails) {
 		super();
 		this.dataService = dataService;
 		this.currentUser = currentUser;
@@ -54,6 +60,7 @@ public class Timer extends Thread {
 		this.currentAnimalId = currentAnimalId;
 		this.gridCenter = gridCenter;
 		this.game = game;
+		this.animalDetails = animalDetails;
 		this.licznik = 0;
 	}
 

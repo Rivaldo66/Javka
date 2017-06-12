@@ -35,13 +35,17 @@ public class AnimalDetails extends Application {
 	private Button currentAnimalBtn;
 	private int currentAnimalId;
 	private Animal currentAnimal;
+	private BorderPane border;
 	private int sizeX = 170;
+	private Label petH;
+	private Label petF;
+	private Label petHgry;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
 		primaryStage.setTitle("DETAILS PANEL");
-		BorderPane border = new BorderPane();
+		border = new BorderPane();
 		border.setStyle("-fx-background-color: #336699;");
 
 		border.setCenter(addGridPaneCenter());
@@ -124,8 +128,11 @@ public class AnimalDetails extends Application {
 		
 		Button b;
 		
+		this.currentAnimal = dataService.getDataRepository().GetAnimal(currentAnimalId);
+		
 		for (Action i : dataService.getDataRepository().GetActionsByAnimal(currentAnimalId)) {
 
+			
 			if (i.getDictionaryStaff().getType().matches("Food")) {
 				b = new Button(i.getDictionaryStaff().getName());
 				b.setPrefSize(sizeX / 2, 20);
@@ -186,97 +193,97 @@ public class AnimalDetails extends Application {
 	}
 
 	public GridPane addGridPaneCenter() {
-		GridPane grid = new GridPane();
-		grid.setHgap(10);
-		grid.setVgap(10);
-		grid.setPadding(new Insets(0, 10, 0, 10));
-		grid.setStyle("-fx-background-color: #336699;");
+		GridPane gridCenter = new GridPane();
+		gridCenter.setHgap(10);
+		gridCenter.setVgap(10);
+		gridCenter.setPadding(new Insets(0, 10, 0, 10));
+		gridCenter.setStyle("-fx-background-color: #336699;");
 
 		Text scenetitle = new Text("Details about your pet");
 		scenetitle.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		scenetitle.setFill(Color.WHITE);
-		grid.add(scenetitle, 0, 0, 2, 1);
+		gridCenter.add(scenetitle, 0, 0, 2, 1);
 
 		Label petName = new Label("Name:");
 		petName.setPrefSize(sizeX, 20);
 		petName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petName.setTextFill(Color.WHITE);
-		grid.add(petName, 0, 1);
+		gridCenter.add(petName, 0, 1);
 
 		Label petN = new Label(dataService.getDataRepository().GetAnimal(currentAnimalId).getName());
 		petN.setPrefSize(sizeX, 20);
 		petN.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petN.setTextFill(Color.WHITE);
-		grid.add(petN, 2, 1);
+		gridCenter.add(petN, 2, 1);
 
 		Label petSpecies = new Label("Species:");
 		petSpecies.setPrefSize(sizeX, 20);
 		petSpecies.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petSpecies.setTextFill(Color.WHITE);
-		grid.add(petSpecies, 0, 2);
+		gridCenter.add(petSpecies, 0, 2);
 
 		Label petS = new Label(dataService.getDataRepository().GetAnimal(currentAnimalId).getType().getName());
 		petS.setPrefSize(sizeX, 20);
 		petS.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petS.setTextFill(Color.WHITE);
-		grid.add(petS, 2, 2);
+		gridCenter.add(petS, 2, 2);
 
 		Label petDateAdded = new Label("Date of born:");
 		petDateAdded.setPrefSize(sizeX, 20);
 		petDateAdded.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petDateAdded.setTextFill(Color.WHITE);
-		grid.add(petDateAdded, 0, 3);
+		gridCenter.add(petDateAdded, 0, 3);
 
 		Label petD = new Label(dataService.getDataRepository().GetAnimal(currentAnimalId).getDateAdded().toString());
 		petD.setPrefSize(sizeX, 20);
 		petD.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petD.setTextFill(Color.WHITE);
-		grid.add(petD, 2, 3);
+		gridCenter.add(petD, 2, 3);
 
 		Label petHp = new Label("HP:");
 		petHp.setPrefSize(sizeX, 20);
 		petHp.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petHp.setTextFill(Color.WHITE);
-		grid.add(petHp, 0, 4);
+		gridCenter.add(petHp, 0, 4);
 
 		Label petH = new Label(Float.toString(dataService.getDataRepository().GetAnimal(currentAnimalId).getHp()));
 		petH.setPrefSize(sizeX, 20);
 		petH.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petH.setTextFill(Color.WHITE);
-		grid.add(petH, 2, 4);
+		gridCenter.add(petH, 2, 4);
 
 		Label petFun = new Label("Level of fun needed:");
 		petFun.setPrefSize(sizeX, 20);
 		petFun.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petFun.setTextFill(Color.WHITE);
-		grid.add(petFun, 0, 5);
+		gridCenter.add(petFun, 0, 5);
 
 		Label petF = new Label(
 				Float.toString(dataService.getDataRepository().GetAnimal(currentAnimalId).getLevelOfFunNeeded()));
 		petF.setPrefSize(sizeX, 20);
 		petF.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petF.setTextFill(Color.WHITE);
-		grid.add(petF, 2, 5);
+		gridCenter.add(petF, 2, 5);
 
 		Label petHunger = new Label("Level of hunger:");
 		petHunger.setPrefSize(sizeX, 20);
 		petHunger.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petHunger.setTextFill(Color.WHITE);
-		grid.add(petHunger, 0, 6);
+		gridCenter.add(petHunger, 0, 6);
 
 		Label petHgry = new Label(
 				Float.toString(dataService.getDataRepository().GetAnimal(currentAnimalId).getLevelOfHunger()));
 		petHgry.setPrefSize(sizeX, 20);
 		petHgry.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 15));
 		petHgry.setTextFill(Color.WHITE);
-		grid.add(petHgry, 2, 6);
+		gridCenter.add(petHgry, 2, 6);
 
 		Button picture = new Button();
 		picture.setPrefSize(150, 150);
 		picture.setStyle("-fx-background-color: transparent;" + "-fx-border: false;" + "-fx-background-image: url('"
 				+ dataService.ShowImageByAnimalID(String.valueOf(currentAnimalId)) + "');"
 				+ "-fx-background-size: cover;");
-		grid.add(picture, 0, 9);
+		gridCenter.add(picture, 0, 9);
 
 		TranslateTransition t1 = new TranslateTransition();
 		t1.setDuration(Duration.seconds(1));
@@ -333,7 +340,7 @@ public class AnimalDetails extends Application {
 		ParallelTransition p = new ParallelTransition(t1, f1, t2, f2, t3, f3, t4, f4, t5, f5, t6, f6, f7);
 		p.play();
 
-		return grid;
+		return gridCenter;
 	}
 
 	public DataService getDataService() {
@@ -384,7 +391,7 @@ public class AnimalDetails extends Application {
 		this.animalList = animalList;
 		this.currentAnimalBtn = currentAnimalBtn;
 		this.currentAnimalId = currentAnimalId;
-		this.currentAnimal = dataService.getDataRepository().GetAnimal(currentAnimalId);
+		this.currentAnimal = null;
 	}
 
 	public int getButtonsSize() {
@@ -395,12 +402,44 @@ public class AnimalDetails extends Application {
 		this.sizeX = buttonsSize;
 	}
 
+	public BorderPane getBorder() {
+		return border;
+	}
+
+	public void setBorder(BorderPane border) {
+		this.border = border;
+	}
+	
 	public Animal getCurrentAnimal() {
 		return currentAnimal;
 	}
 
 	public void setCurrentAnimal(Animal currentAnimal) {
 		this.currentAnimal = currentAnimal;
+	}
+
+	public Label getPetH() {
+		return petH;
+	}
+
+	public void setPetH(String name) {
+		this.petH.setText(name);
+	}
+
+	public Label getPetF() {
+		return petF;
+	}
+
+	public void setPetF(String name) {
+		this.petF.setText(name);
+	}
+
+	public Label getPetHgry() {
+		return petHgry;
+	}
+
+	public void setPetHgry(String name) {
+		this.petHgry.setText(name);
 	}
 
 }
