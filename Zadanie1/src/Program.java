@@ -14,10 +14,10 @@ public class Program  {
 
 	public static void main(String[] args) {
 		SQL sql = new SQL();
-		sql.dbConnect(
-				 "jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
 		//sql.dbConnect(
-				//"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
+				 //"jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
+		sql.dbConnect(
+				 "jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
 		DataRepository dataRepository = new DataRepository(sql);
 		DataService dataService = new DataService(dataRepository);
 		List<String> list1 = new ArrayList<String>();

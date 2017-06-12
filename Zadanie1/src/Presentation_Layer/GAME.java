@@ -66,7 +66,7 @@ public class GAME extends Application {
 		this.dataService = dataService;
 		this.currentUser = user;
 		this.animalList = dataService.GetAnimalsByUser(user);
-		Thread t1 = new Thread(new Timer(this.dataService,this.currentUser,this.animalList));
+		Thread t1 = new Thread(new Timer(this.dataService, this.currentUser, this.animalList));
 		t1.start();
 	}
 
@@ -79,15 +79,15 @@ public class GAME extends Application {
 		// HBox hbox = addHBox();
 		// border.setTop(hbox);
 
-		border.setCenter(addBorderPaneCenter());
-		border.setRight(addGridPaneRight());
+		border.setCenter(addBorderPaneCenter(primaryStage));
+		border.setRight(addGridPaneRight(primaryStage));
 
 		scene = new Scene(border, 900, 552);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 
-	public HBox addAnimals() {
+	public HBox addAnimals(Stage primaryStage) {
 		HBox hbox = new HBox();
 		hbox.setPadding(new Insets(15, 12, 15, 12));
 		hbox.setSpacing(10);
@@ -100,19 +100,22 @@ public class GAME extends Application {
 		for (Button i : animalsBtn) {
 			i.setPrefSize(150, 150);
 
-			i.setStyle(
-					"-fx-background-color: transparent;"
-					+ "-fx-border: false;"
-					+ "-fx-background-image: url('"+dataService.ShowImageByAnimalID(i.getText())+"');"
-					+ "-fx-background-size: cover;");
-			
-			
+			i.setStyle("-fx-background-color: transparent;" + "-fx-border: false;" + "-fx-background-image: url('"
+					+ dataService.ShowImageByAnimalID(i.getText()) + "');" + "-fx-background-size: cover;");
+
 			i.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
 					setCurrentAnimalBtn(i);
 					setCurrentAnimalId(i.getText());
 					gridCenter.setCenter(addAnimalsTools());
+					AnimalDetails animalDetails = new AnimalDetails(dataService, currentUser, animalList,
+							currentAnimalBtn, currentAnimalId);
+					try {
+						animalDetails.start(primaryStage);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
 				}
 			});
 		}
@@ -190,17 +193,17 @@ public class GAME extends Application {
 		return flow;
 	}
 
-	public BorderPane addBorderPaneCenter() {
+	public BorderPane addBorderPaneCenter(Stage primaryStage) {
 		gridCenter = new BorderPane();
 		gridCenter.setStyle(
 				"-fx-background-image: url('https://s-media-cache-ak0.pinimg.com/736x/5f/74/e6/5f74e63976b7657a209488ee7a200ded.jpg')");
 
-		gridCenter.setBottom(addAnimals());
+		gridCenter.setBottom(addAnimals(primaryStage));
 
 		return gridCenter;
 	}
 
-	public GridPane addGridPaneRight() {
+	public GridPane addGridPaneRight(Stage primaryStage) {
 		gridRight = new GridPane();
 		gridRight.setHgap(10);
 		gridRight.setVgap(10);
@@ -247,10 +250,9 @@ public class GAME extends Application {
 
 					dataService.getDataRepository().AddAnimal(newAnimal);
 					animalList.add(newAnimal);
-					border.setCenter(addBorderPaneCenter());
-				}
-				else{
-					
+					border.setCenter(addBorderPaneCenter(primaryStage));
+				} else {
+
 				}
 			}
 		});

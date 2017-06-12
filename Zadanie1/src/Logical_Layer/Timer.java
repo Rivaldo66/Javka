@@ -13,13 +13,13 @@ public class Timer extends Thread {
 	private List<Animal> animalList = new ArrayList<Animal>();
 
 	public void run() {
-		while(true){
+		while (true) {
 			try {
-				for(Animal i : animalList){
+				for (Animal i : animalList) {
 					i.setHp(-5);
 					i.setLevelOfFunNeeded(5);
 					i.setLevelOfHunger(5);
-					System.out.println("zmnniejszylem staty dla:"+i.getAnimalID());
+					dataService.getDataRepository().UpdateAnimal(i);
 				}
 				Timer.sleep(5000l);
 			} catch (InterruptedException e) {
@@ -27,7 +27,7 @@ public class Timer extends Thread {
 			}
 		}
 	}
-	
+
 	public Timer(DataService dataService, User currentUser, List<Animal> animalList) {
 		super();
 		this.dataService = dataService;
