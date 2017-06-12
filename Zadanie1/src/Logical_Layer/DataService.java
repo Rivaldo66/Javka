@@ -84,10 +84,17 @@ public class DataService {
 		return list1;	
 	}
 	
-	// ------------------------------------------ShowImage------------------------------------------//
+	// ------------------------------------------ShowImage-------------------------------------------//
 	
 	public String ShowImageByAnimalID(String animal_txt){
 		
 		return dataRepository.GetDictionary(dataRepository.GetAnimal(Integer.valueOf(animal_txt)).getType().getName()).getImage();
+	}
+	
+	// --------------------------------------------Eating--------------------------------------------//
+	
+	public void Eating(Animal animal){
+		
+		
 	}
 }

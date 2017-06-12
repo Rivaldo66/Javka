@@ -98,7 +98,10 @@ public class GAME extends Application {
 			i.setPrefSize(150, 150);
 
 			i.setStyle(
-					"-fx-background-image: url('"+dataService.ShowImageByAnimalID(i.getText())+"');-fx-background-size: cover;");
+					"-fx-background-color: transparent;"
+					+ "-fx-border: false;"
+					+ "-fx-background-image: url('"+dataService.ShowImageByAnimalID(i.getText())+"');"
+					+ "-fx-background-size: cover;");
 			
 			
 			i.setOnAction(new EventHandler<ActionEvent>() {
