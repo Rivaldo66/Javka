@@ -49,10 +49,10 @@ public class LOG extends Application {
 
 	public LOG() {
 		SQL sql = new SQL();
-		sql.dbConnect(
-				 "jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
 		//sql.dbConnect(
-				//"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
+				 //"jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
+		sql.dbConnect(
+				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
 		DataRepository dataRepository = new DataRepository(sql);
 		dataService = new DataService(dataRepository);
 	}
@@ -99,19 +99,29 @@ public class LOG extends Application {
 			public void handle(ActionEvent e) {
 
 				if (dataService.CheckSignIn(userTextField.getText(), pwBox.getText())) {
-					actiontarget.setFill(Color.WHITE);
-					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
-					actiontarget.setText("Witaj " + userTextField.getText());
-					
-					GAME game = new GAME(dataService, dataService.Login(userTextField.getText()));
-					game.start(primaryStage);
+					if(dataService.getDataRepository().GetUser(userTextField.getText()).getAdmin()==true){
+						actiontarget.setFill(Color.WHITE);
+						actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
+						actiontarget.setText("Witaj " + userTextField.getText());
+						
+						AdminView adminView = new AdminView(dataService);
+						adminView.start(primaryStage);
+					}
+					else{
+						actiontarget.setFill(Color.WHITE);
+						actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
+						actiontarget.setText("Witaj " + userTextField.getText());
+						
+						GAME game = new GAME(dataService, dataService.Login(userTextField.getText()));
+						game.start(primaryStage);
+					}
 
 				} else {
 					actiontarget.setFill(Color.WHITE);
 					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
 					userTextField.setText(null);
 					pwBox.setText(null);
-					actiontarget.setText("Poda³eœ niepoprawny login lub has³o :/");
+					actiontarget.setText("Wrong passes");
 				}
 			}
 		});
