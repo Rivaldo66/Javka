@@ -249,7 +249,7 @@ public class AdminView extends Application {
 		gridTop.add(addNewPlay, 4, 1);
 		
 		gridBorderCenter.setTop(scenetitle);
-		gridBorderCenter.setAlignment(scenetitle, Pos.CENTER);
+		BorderPane.setAlignment(scenetitle, Pos.CENTER);
 		gridBorderCenter.setCenter(gridTop);
 		
 		return gridBorderCenter;
