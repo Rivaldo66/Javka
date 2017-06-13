@@ -118,7 +118,7 @@ public class GAME extends Application {
 		List<Button> animalsBtn = new ArrayList<Button>();
 
 		for (Animal i : animalList) {
-			if (i.getStatus()) {
+			if (i.getStatus() && animalsBtn.size()<4) {
 				animalsBtn.add(new Button(Integer.toString(i.getAnimalID())));
 			}
 		}
@@ -127,11 +127,12 @@ public class GAME extends Application {
 
 			i.setStyle("-fx-background-color: transparent;" + "-fx-border: false;" + "-fx-background-image: url('"
 					+ dataService.ShowImageByAnimalID(i.getText()) + "');" + "-fx-background-size: cover;");
-
+			i.setFont(new Font(0));
 			i.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
 					setCurrentAnimalBtn(i);
+					
 					setCurrentAnimalId(i.getText());
 					gridCenter.setCenter(addAnimalsTools());
 					AnimalDetails animalDetails = new AnimalDetails(dataService, currentUser, animalList,
