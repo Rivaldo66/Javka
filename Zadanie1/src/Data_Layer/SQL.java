@@ -90,9 +90,9 @@ public class SQL {
 		}
 		try {
 			dictionary1.setImage("https://www.cbdzoe.pl/img/artykuly/mowa-ciala-pies.png");
-			dictionary2.setImage("http://skr.org.pl/UserFiles/site/kotek.png");
+			dictionary2.setImage("http://2.bp.blogspot.com/-mXYoQvnmJog/UcFoFjUMwnI/AAAAAAAABPw/wSDQEeU9oQg/s250/nadrapaku-kot-2.png");
 			dictionary3.setImage("http://lh4.ggpht.com/hwM2DwntUQX6Zq2hxNA1ts_YAoVNvQpnbs3q-odjYxQ-v_Mc4h1slGgyLULdeEmeTqc=w300");
-			dictionary4.setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_MsuP7Rz_YgF78ij-eJY5DmnhpKKs-JSfqp8wJm2K3VBFP9Jk");
+			dictionary4.setImage("https://kochamzwierzta.files.wordpress.com/2016/11/chomik.png?w=660&h=495");
 			dictionaryDao.create(dictionary1);
 			dictionaryDao.create(dictionary2);
 			dictionaryDao.create(dictionary3);

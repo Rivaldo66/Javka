@@ -50,7 +50,7 @@ public class AdminView extends Application {
 		border.setTop(addGridPaneTop(primaryStage));
 		border.setCenter(addBorderPaneCenter(primaryStage));
 		border.setRight(addGridPaneRight(primaryStage));
-		border.setRight(addGridPaneLeft(primaryStage));
+		border.setLeft(addGridPaneLeft(primaryStage));
 
 		Scene scene = new Scene(border, 900, 552);
 		primaryStage.setScene(scene);

@@ -380,14 +380,6 @@ public class GAME extends Application {
 		flow.setPrefWrapLength(200); // preferred width allows for two columns
 		flow.setStyle("-fx-background-color: DAE6F3;");
 
-		// ImageView pages[] = new ImageView[8];
-		// for (int i=0; i<8; i++) {
-		// pages[i] = new ImageView(
-		// new Image(LayoutPath.class.getResourceAsStream(
-		// "graphics/chart_"+(i+1)+".png")));
-		// flow.getChildren().add(pages[i]);
-		// }
-
 		return flow;
 	}
 

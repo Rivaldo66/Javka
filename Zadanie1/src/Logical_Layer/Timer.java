@@ -20,24 +20,26 @@ public class Timer extends Thread {
 	private int currentAnimalId;
 	private int licznik;
 	private GAME game;
-	private AnimalDetails animalDetails;
 
 	public void run() {
 		while (true) {
 			try {
 				for (Animal i : animalList) {
 					if ((i.getHp()) >= 5)
-						i.setHp(-5);
+						i.addHp(-5);
 					if ((i.getLevelOfFunNeeded()) >= 5)
-						i.setLevelOfFunNeeded(-5);
+						i.addLevelOfFunNeeded(-5);
 					if ((i.getLevelOfHunger()) >= 5)
-						i.setLevelOfHunger(-5);
-					if ((licznik % 5) == 0) {
+						i.addLevelOfHunger(-5);
+					if ((licznik % 5) == 0)
 						i.setAge(1);
-					}
+					if ((i.getHp()) == 0 || (i.getLevelOfFunNeeded()) == 0 || (i.getLevelOfHunger()) == 0)
+						i.setStatus(false);
+
 					dataService.getDataRepository().UpdateAnimal(i);
 					licznik = licznik + 1;
 				}
+
 				Timer.sleep(5000l);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -54,7 +56,6 @@ public class Timer extends Thread {
 		this.currentAnimalBtn = currentAnimalBtn;
 		this.currentAnimalId = currentAnimalId;
 		this.game = game;
-		this.animalDetails = animalDetails;
 		this.licznik = 0;
 	}
 

@@ -98,72 +98,77 @@ public class DataService {
 				.getImage();
 	}
 
-	public void Eating(Animal animal, DictionaryStaff dictionaryStaff) {
-
-		float hunger = animal.getLevelOfHunger();
-
-		if (hunger <= 75) {
-			animal.setLevelOfHunger(25);
-			animal.setExperience(animal.getExperience() + 50);
-			dataRepository.AddAction(new Action(animal, dictionaryStaff));
-		} else {
-			if (hunger <= 100) {
-				animal.setLevelOfHunger(100);
-				animal.setExperience(animal.getExperience() + 50);
+	// ------------------------------------------Eating-------------------------------------------//
+	
+		public void Eating(Animal animal, DictionaryStaff dictionaryStaff){
+			
+			float hunger=animal.getLevelOfHunger();
+			
+			if(hunger<=75){
+				animal.addLevelOfHunger(25);
+				animal.setExperience(animal.getExperience()+50);
 				dataRepository.AddAction(new Action(animal, dictionaryStaff));
-			} else {
-				System.out.println("Twój zwiekrzak jest ju¿ wybawiony");
+			}else{
+				if(hunger<=100){
+					animal.setLevelOfHunger(100);
+					animal.setExperience(animal.getExperience()+50);
+					dataRepository.AddAction(new Action(animal, dictionaryStaff));
+				}
+				else{
+					System.out.println("Twój zwiekrzak jest ju¿ wybawiony");
+				}
 			}
+			
+			dataRepository.UpdateAnimal(animal);
 		}
-
-		dataRepository.UpdateAnimal(animal);
-	}
-
-	// -------------------------------------------Playing--------------------------------------------//
-
-	public void Playing(Animal animal, DictionaryStaff dictionaryStaff) {
-
-		float play = animal.getLevelOfFunNeeded();
-
-		if (play <= 75) {
-			animal.setLevelOfFunNeeded(25);
-			animal.setExperience(animal.getExperience() + 50);
-			dataRepository.AddAction(new Action(animal, dictionaryStaff));
-		} else {
-			if (play <= 100) {
-				animal.setLevelOfFunNeeded(100);
-				animal.setExperience(animal.getExperience() + 50);
+		
+		// -------------------------------------------Playing--------------------------------------------//
+		
+		public void Playing(Animal animal, DictionaryStaff dictionaryStaff){
+			
+			float play=animal.getLevelOfFunNeeded();
+			
+			if(play<=75){
+				animal.addLevelOfFunNeeded(25);
+				animal.setExperience(animal.getExperience()+50);
 				dataRepository.AddAction(new Action(animal, dictionaryStaff));
-			} else {
-				System.out.println("Twój zwiekrzak jest ju¿ najedzony");
+			}else{
+				if(play<=100){
+					animal.setLevelOfFunNeeded(100);
+					animal.setExperience(animal.getExperience()+50);
+					dataRepository.AddAction(new Action(animal, dictionaryStaff));
+				}
+				else{
+					System.out.println("Twój zwiekrzak jest ju¿ najedzony");
+				}
 			}
+			
+			dataRepository.UpdateAnimal(animal);
 		}
-
-		dataRepository.UpdateAnimal(animal);
-	}
-
-	// --------------------------------------------Curing--------------------------------------------//
-
-	public void Curing(Animal animal, DictionaryStaff dictionaryStaff) {
-
-		float hp = animal.getHp();
-
-		if (hp <= 75) {
-			animal.setHp(25);
-			animal.setExperience(animal.getExperience() + 50);
-			dataRepository.AddAction(new Action(animal, dictionaryStaff));
-		} else {
-			if (hp <= 100) {
-				animal.setHp(100);
-				animal.setExperience(animal.getExperience() + 50);
-				dataRepository.AddAction(new Action(animal, dictionaryStaff));
-			} else {
-				System.out.println("Twój zwiekrzak jest ju¿ zdrowy");
+		
+		// --------------------------------------------Curing--------------------------------------------//
+		
+		public void Curing(Animal animal, DictionaryStaff dictionaryStaff){
+				
+				float hp=animal.getHp();
+				
+				if(hp<=75){
+					animal.addHp(25);
+					animal.setExperience(animal.getExperience()+50);
+					dataRepository.AddAction(new Action(animal, dictionaryStaff));
+				}else{
+					if(hp<=100){
+						animal.setHp(100);
+						animal.setExperience(animal.getExperience()+50);
+						dataRepository.AddAction(new Action(animal, dictionaryStaff));
+					}
+					else{
+						System.out.println("Twój zwiekrzak jest ju¿ zdrowy");
+					}
+				}
+				
+				dataRepository.UpdateAnimal(animal);
 			}
-		}
-
-		dataRepository.UpdateAnimal(animal);
-	}
 
 	// -------------
 

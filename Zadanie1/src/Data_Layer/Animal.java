@@ -100,15 +100,22 @@ public class Animal {
 		return hp;
 	}
 
-	public void setHp(float hp) {
+	public void addHp(float hp) {
 		this.hp = this.hp + hp;
 	}
 
+	public void setHp(float hp) {
+		this.hp = hp;
+	}
 	public float getLevelOfHunger() {
 		return levelOfHunger;
 	}
 
 	public void setLevelOfHunger(float levelOfHunger) {
+		this.levelOfHunger = levelOfHunger;
+	}
+	
+	public void addLevelOfHunger(float levelOfHunger) {
 		this.levelOfHunger = this.levelOfHunger + levelOfHunger;
 	}
 
@@ -117,6 +124,10 @@ public class Animal {
 	}
 
 	public void setLevelOfFunNeeded(float levelOfFunNeeded) {
+		this.levelOfFunNeeded = levelOfFunNeeded;
+	}
+	
+	public void addLevelOfFunNeeded(float levelOfFunNeeded) {
 		this.levelOfFunNeeded = this.levelOfFunNeeded + levelOfFunNeeded;
 	}
 
