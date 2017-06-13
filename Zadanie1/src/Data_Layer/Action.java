@@ -55,7 +55,7 @@ public class Action {
 
 	@Override
 	public String toString() {
-		return dictionaryStaff.getName() + " - " + dateAdded;
+		return dictionaryStaff.name + " - " + dateAdded;
 	}
 
 }

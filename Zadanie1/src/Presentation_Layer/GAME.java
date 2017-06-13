@@ -1,5 +1,6 @@
 package Presentation_Layer;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -55,6 +56,14 @@ public class GAME extends Application {
 	private TextField userTextField;
 	@FXML
 	private Button btn;
+	@FXML
+	private Button btn1;
+	@FXML
+	private Button btn2;
+	@FXML
+	private Button btn3;
+	@FXML
+	private Button btn4;
 	@FXML
 	private Button food;
 	@FXML
@@ -446,7 +455,65 @@ public class GAME extends Application {
 				}
 			}
 		});
+		
+		btn1 = new Button("Log out");
+		btn1.setPrefSize(100, 20);
+		gridRight.add(btn1, 0, 6);
 
+		btn1.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+
+				LOG log = new LOG();
+				log.start(primaryStage);
+			}
+		});
+		
+		btn2 = new Button("Turn off");
+		btn2.setPrefSize(100, 20);
+		gridRight.add(btn2, 0, 8);
+
+		btn2.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+
+				primaryStage.close();
+			}
+		});
+
+		btn3 = new Button("Serialization");
+		btn3.setPrefSize(100, 20);
+		gridRight.add(btn3, 0, 10);
+
+		btn3.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+
+				try {
+					dataService.Serialization();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		btn4 = new Button("Deserialization");
+		btn4.setPrefSize(100, 20);
+		gridRight.add(btn4, 0, 12);
+
+		btn4.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+
+				try {
+					dataService.Deserialization();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		return gridRight;
 	}
 

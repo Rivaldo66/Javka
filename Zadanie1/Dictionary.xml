@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_131" class="java.beans.XMLDecoder">
+ <object class="Data_Layer.Dictionary">
+  <void property="image">
+   <string>http://skr.org.pl/UserFiles/site/kotek.png</string>
+  </void>
+  <void property="name">
+   <string>Kot</string>
+  </void>
+ </object>
+ <object class="Data_Layer.Dictionary">
+  <void property="image">
+   <string>http://lh4.ggpht.com/hwM2DwntUQX6Zq2hxNA1ts_YAoVNvQpnbs3q-odjYxQ-v_Mc4h1slGgyLULdeEmeTqc=w300</string>
+  </void>
+  <void property="name">
+   <string>Krolik</string>
+  </void>
+ </object>
+ <object class="Data_Layer.Dictionary">
+  <void property="image">
+   <string>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_MsuP7Rz_YgF78ij-eJY5DmnhpKKs-JSfqp8wJm2K3VBFP9Jk</string>
+  </void>
+  <void property="name">
+   <string>Mysz</string>
+  </void>
+ </object>
+ <object class="Data_Layer.Dictionary">
+  <void property="image">
+   <string>https://www.cbdzoe.pl/img/artykuly/mowa-ciala-pies.png</string>
+  </void>
+  <void property="name">
+   <string>Pies</string>
+  </void>
+ </object>
+</java>

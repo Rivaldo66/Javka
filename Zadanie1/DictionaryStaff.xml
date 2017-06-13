@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_131" class="java.beans.XMLDecoder">
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>czesanie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>drapak</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>glaskanie</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>karma</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>lapanie myszy</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>mleko</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>odrobaczanie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>ryba</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>szczepenie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>czesanie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>glaskanie</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>karma</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>marchewka</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>mycie zebow</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>siano</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>szczepenie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>zabawa w chowanego</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>zabawa w ogrodku</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>czesanie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>glaskanie</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>karma</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>kolowrotek</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>mycie zebow</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>ser</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>siano</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>szczepenie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>zabawa w chowanego</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>aportowanie</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>czesanie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>guma kość</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>karma</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>kielbasa</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>mieso</string>
+  </void>
+  <void property="type">
+   <string>Food</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>odrobaczanie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>spacer</string>
+  </void>
+  <void property="type">
+   <string>Play</string>
+  </void>
+ </object>
+ <object class="Data_Layer.DictionaryStaff">
+  <void property="dictionary">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="name">
+   <string>szczepenie</string>
+  </void>
+  <void property="type">
+   <string>Treatment</string>
+  </void>
+ </object>
+</java>

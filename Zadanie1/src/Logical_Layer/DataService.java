@@ -239,35 +239,35 @@ public class DataService {
 		XMLDecoder user = new XMLDecoder(new BufferedInputStream(new FileInputStream(nazwaPliku)));
 
 		for (User u : (List<User>) user.readObject()) {
-			dataRepository.AddUser(u);
+			dataRepository.UpdateUser(u);
 		}
 		user.close();
 
 		XMLDecoder dictionary = new XMLDecoder(new BufferedInputStream(new FileInputStream(nazwaPliku)));
 
 		for (User u : (List<User>) dictionary.readObject()) {
-			dataRepository.AddUser(u);
+			dataRepository.UpdateUser(u);
 		}
 		dictionary.close();
 
 		XMLDecoder dictionaryStaff = new XMLDecoder(new BufferedInputStream(new FileInputStream(nazwaPliku)));
 
 		for (User u : (List<User>) dictionaryStaff.readObject()) {
-			dataRepository.AddUser(u);
+			dataRepository.UpdateUser(u);
 		}
 		dictionaryStaff.close();
 
 		XMLDecoder animal = new XMLDecoder(new BufferedInputStream(new FileInputStream(nazwaPliku)));
 
 		for (User u : (List<User>) animal.readObject()) {
-			dataRepository.AddUser(u);
+			dataRepository.UpdateUser(u);
 		}
 		animal.close();
 
 		XMLDecoder action = new XMLDecoder(new BufferedInputStream(new FileInputStream(nazwaPliku)));
 
 		for (User u : (List<User>) action.readObject()) {
-			dataRepository.AddUser(u);
+			dataRepository.UpdateUser(u);
 		}
 		action.close();
 	}

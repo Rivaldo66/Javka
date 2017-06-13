@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_131" class="java.beans.XMLDecoder">
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>28.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497313993063</long>
+   </object>
+  </void>
+  <void property="experience">
+   <float>50.0</float>
+  </void>
+  <void property="name">
+   <string>aa</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>mama</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>5.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497313995877</long>
+   </object>
+  </void>
+  <void property="experience">
+   <float>50.0</float>
+  </void>
+  <void property="name">
+   <string>aaa</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>mama</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>12.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497313997417</long>
+   </object>
+  </void>
+  <void property="experience">
+   <float>50.0</float>
+  </void>
+  <void property="name">
+   <string>aaaa</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>mama</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
