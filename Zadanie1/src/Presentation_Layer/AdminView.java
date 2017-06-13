@@ -135,6 +135,17 @@ public class AdminView extends Application {
 
 			Button btn = new Button("Confrim");
 			gridCenter.add(btn, 0, 3);
+			
+			Button back = new Button("Back");
+			gridCenter.add(back, 0, 4);
+			
+			back.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					type = "start";
+					start(primaryStage);
+				}
+			});
 
 			btn.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -168,6 +179,151 @@ public class AdminView extends Application {
 
 			Button btn = new Button("Confrim");
 			gridCenter.add(btn, 0, 3);
+			
+			Button back = new Button("Back");
+			gridCenter.add(back, 0, 4);
+			
+			back.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					type = "start";
+					start(primaryStage);
+				}
+			});
+
+			btn.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					Dictionary dic = new Dictionary();
+					dic.setName(speciesNamef.getText());
+					dic.setImage(link.getText());
+					dataService.getDataRepository().AddNewAnimal(dic);
+					DictionaryStaff dicS = new DictionaryStaff();
+					dicS.setDictionary(dic);
+					type = "start";
+					start(primaryStage);
+				}
+			});
+		}
+		
+		if (type.matches("addfood")) {
+			Label speciesName = new Label("Species name:");
+			speciesName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
+			speciesName.setTextFill(Color.WHITE);
+			gridCenter.add(speciesName, 0, 1);
+
+			TextField speciesNamef = new TextField();
+			gridCenter.add(speciesNamef, 1, 1);
+
+			Label pw = new Label("Food name:");
+			pw.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
+			pw.setTextFill(Color.WHITE);
+			gridCenter.add(pw, 0, 2);
+
+			TextField foodN = new TextField();
+			gridCenter.add(foodN, 1, 2);
+
+			Button btn = new Button("Confrim");
+			gridCenter.add(btn, 0, 3);
+			
+			Button back = new Button("Back");
+			gridCenter.add(back, 0, 4);
+			
+			back.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					type = "start";
+					start(primaryStage);
+				}
+			});
+
+			btn.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					
+					//dataService.getDataRepository().GetDictionaryStaffByDictionary(dataService.getDataRepository().GetDictionary(speciesName.getText())).add(arg0);
+					type = "start";
+					start(primaryStage);
+				}
+			});
+		}
+		
+		if (type.matches("addplay")) {
+			Label speciesName = new Label("Species name:");
+			speciesName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
+			speciesName.setTextFill(Color.WHITE);
+			gridCenter.add(speciesName, 0, 1);
+
+			TextField speciesNamef = new TextField();
+			gridCenter.add(speciesNamef, 1, 1);
+
+			Label pw = new Label("Link to photo:");
+			pw.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
+			pw.setTextFill(Color.WHITE);
+			gridCenter.add(pw, 0, 2);
+
+			TextField link = new TextField();
+			gridCenter.add(link, 1, 2);
+
+			Button btn = new Button("Confrim");
+			gridCenter.add(btn, 0, 3);
+			
+			Button back = new Button("Back");
+			gridCenter.add(back, 0, 4);
+			
+			back.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					type = "start";
+					start(primaryStage);
+				}
+			});
+
+			btn.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					Dictionary dic = new Dictionary();
+					dic.setName(speciesNamef.getText());
+					dic.setImage(link.getText());
+					dataService.getDataRepository().AddNewAnimal(dic);
+					DictionaryStaff dicS = new DictionaryStaff();
+					dicS.setDictionary(dic);
+					type = "start";
+					start(primaryStage);
+				}
+			});
+		}
+		
+		if (type.matches("addtreat")) {
+			Label speciesName = new Label("Species name:");
+			speciesName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
+			speciesName.setTextFill(Color.WHITE);
+			gridCenter.add(speciesName, 0, 1);
+
+			TextField speciesNamef = new TextField();
+			gridCenter.add(speciesNamef, 1, 1);
+
+			Label pw = new Label("Link to photo:");
+			pw.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
+			pw.setTextFill(Color.WHITE);
+			gridCenter.add(pw, 0, 2);
+
+			TextField link = new TextField();
+			gridCenter.add(link, 1, 2);
+
+			Button btn = new Button("Confrim");
+			gridCenter.add(btn, 0, 3);
+			
+			Button back = new Button("Back");
+			gridCenter.add(back, 0, 4);
+			
+			back.setOnAction(new EventHandler<ActionEvent>() {
+
+				public void handle(ActionEvent e) {
+					type = "start";
+					start(primaryStage);
+				}
+			});
 
 			btn.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -184,6 +340,7 @@ public class AdminView extends Application {
 			});
 		}
 
+		gridCenter.setAlignment(Pos.CENTER);
 		gridBorderCenter.setCenter(gridCenter);
 		return gridBorderCenter;
 	}
