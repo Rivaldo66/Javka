@@ -382,9 +382,9 @@ public class GAME extends Application {
 	}
 
 	public BorderPane addGridPaneRight(Stage primaryStage) {
-		BorderPane border = new BorderPane();
-		border.setPadding(new Insets(0, 10, 0, 10));
-		border.setStyle("-fx-background-color: #336699;");
+		BorderPane border2 = new BorderPane();
+		border2.setPadding(new Insets(0, 10, 0, 10));
+		border2.setStyle("-fx-background-color: #336699;");
 		
 		gridRight = new GridPane();
 		gridRight.setHgap(10);
@@ -503,10 +503,10 @@ public class GAME extends Application {
 				}
 			}
 		});
-		border.setTop(gridRight);
+		border2.setTop(gridRight);
 		gridC.setAlignment(Pos.CENTER);
-		border.setCenter(gridC);
-		return border;
+		border2.setCenter(gridC);
+		return border2;
 	}
 
 	public Text getScenetitle() {
