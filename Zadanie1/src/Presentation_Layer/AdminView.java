@@ -241,7 +241,9 @@ public class AdminView extends Application {
 
 				public void handle(ActionEvent e) {
 					
-					//dataService.getDataRepository().GetDictionaryStaffByDictionary(dataService.getDataRepository().GetDictionary(speciesName.getText())).add(arg0);
+					Dictionary dic = dataService.getDataRepository().GetDictionary(speciesNamef.getText());
+					DictionaryStaff dictionaryS = new DictionaryStaff(dic,"Food",foodN.getText());
+					dataService.getDataRepository().AddDictionaryStaff(dictionaryS);
 					type = "start";
 					start(primaryStage);
 				}
@@ -257,7 +259,7 @@ public class AdminView extends Application {
 			TextField speciesNamef = new TextField();
 			gridCenter.add(speciesNamef, 1, 1);
 
-			Label pw = new Label("Link to photo:");
+			Label pw = new Label("Play name:");
 			pw.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
 			pw.setTextFill(Color.WHITE);
 			gridCenter.add(pw, 0, 2);
@@ -282,12 +284,9 @@ public class AdminView extends Application {
 			btn.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
-					Dictionary dic = new Dictionary();
-					dic.setName(speciesNamef.getText());
-					dic.setImage(link.getText());
-					dataService.getDataRepository().AddNewAnimal(dic);
-					DictionaryStaff dicS = new DictionaryStaff();
-					dicS.setDictionary(dic);
+					Dictionary dic = dataService.getDataRepository().GetDictionary(speciesNamef.getText());
+					DictionaryStaff dictionaryS = new DictionaryStaff(dic,"Play",link.getText());
+					dataService.getDataRepository().AddDictionaryStaff(dictionaryS);
 					type = "start";
 					start(primaryStage);
 				}
@@ -303,7 +302,7 @@ public class AdminView extends Application {
 			TextField speciesNamef = new TextField();
 			gridCenter.add(speciesNamef, 1, 1);
 
-			Label pw = new Label("Link to photo:");
+			Label pw = new Label("Treat name:");
 			pw.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
 			pw.setTextFill(Color.WHITE);
 			gridCenter.add(pw, 0, 2);
@@ -320,6 +319,9 @@ public class AdminView extends Application {
 			back.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
+					Dictionary dic = dataService.getDataRepository().GetDictionary(speciesNamef.getText());
+					DictionaryStaff dictionaryS = new DictionaryStaff(dic,"Food",link.getText());
+					dataService.getDataRepository().AddDictionaryStaff(dictionaryS);
 					type = "start";
 					start(primaryStage);
 				}
