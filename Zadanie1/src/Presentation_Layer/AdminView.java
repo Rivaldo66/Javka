@@ -1,5 +1,8 @@
 package Presentation_Layer;
 
+import Data_Layer.Action;
+import Data_Layer.Dictionary;
+import Data_Layer.DictionaryStaff;
 import Data_Layer.User;
 import Logical_Layer.DataService;
 import javafx.application.Application;
@@ -8,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -53,7 +57,10 @@ public class AdminView extends Application {
 		primaryStage.show();
 	}
 
-	public GridPane addBorderPaneCenter(Stage primaryStage) {
+	public BorderPane addBorderPaneCenter(Stage primaryStage) {
+		BorderPane gridBorderCenter = new BorderPane();
+		gridBorderCenter.setStyle("-fx-background-color: #336699;");
+
 		gridCenter = new GridPane();
 		gridCenter.setStyle("-fx-background-color: #336699;");
 
@@ -68,7 +75,32 @@ public class AdminView extends Application {
 			}
 
 			list.setItems(usersNames);
-			gridCenter.add(list, 0, 1);
+			gridCenter.add(list, 0, 2);
+			
+			ListView<String> list1 = new ListView<String>();
+			ObservableList<Dictionary> dic = FXCollections
+					.observableArrayList(dataService.getDataRepository().GetAllDictionaries());
+			ObservableList<String> dictionary = FXCollections.observableArrayList();
+
+			for (Dictionary i : dic) {
+				dictionary.add(i.getName());
+			}
+
+			list1.setItems(dictionary);
+			gridCenter.add(list1, 1, 2);
+			
+			ListView<String> list2 = new ListView<String>();
+			ObservableList<Action> act = FXCollections
+					.observableArrayList(dataService.getDataRepository().GetAllActions());
+			ObservableList<String> action = FXCollections.observableArrayList();
+
+			for (Action i : act) {
+				action.add(i.toString());
+			}
+
+			list2.setItems(action);
+			gridCenter.add(list2, 2, 2);
+			gridCenter.setAlignment(Pos.CENTER);
 		}
 
 		if (type.matches("adduser")) {
@@ -127,13 +159,20 @@ public class AdminView extends Application {
 			btn.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
+					Dictionary dic = new Dictionary();
+					dic.setName(speciesNamef.getText());
+					dic.setImage(link.getText());
+					dataService.getDataRepository().AddNewAnimal(dic);
+					DictionaryStaff dicS = new DictionaryStaff();
+					dicS.setDictionary(dic);
 					type = "start";
 					start(primaryStage);
 				}
 			});
 		}
 
-		return gridCenter;
+		gridBorderCenter.setCenter(gridCenter);
+		return gridBorderCenter;
 	}
 
 	public GridPane addGridPaneTop(Stage primaryStage) {
@@ -164,7 +203,37 @@ public class AdminView extends Application {
 			}
 		});
 		gridTop.add(addNewSpecies, 1, 1);
+		
+		Button addNewFood = new Button("Add new food");
+		addNewFood.setOnAction(new EventHandler<ActionEvent>() {
 
+			public void handle(ActionEvent e) {
+				type = "addfood";
+				start(primaryStage);
+			}
+		});
+		gridTop.add(addNewFood, 2, 1);
+		
+		Button addNewTreat = new Button("Add new treatment");
+		addNewTreat.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				type = "addtreat";
+				start(primaryStage);
+			}
+		});
+		gridTop.add(addNewTreat, 3, 1);
+
+		Button addNewPlay = new Button("Add new play");
+		addNewPlay.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent e) {
+				type = "addplay";
+				start(primaryStage);
+			}
+		});
+		gridTop.add(addNewPlay, 4, 1);
+		
 		return gridTop;
 	}
 

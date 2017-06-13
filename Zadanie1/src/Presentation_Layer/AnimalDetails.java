@@ -62,7 +62,7 @@ public class AnimalDetails extends Application {
 		gridRight.setVgap(10);
 		gridRight.setPadding(new Insets(0, 10, 0, 10));
 		gridRight.setStyle("-fx-background-color: #336699;");
-		gridRight.setPrefSize(450, 30);
+		gridRight.setPrefSize(350, 30);
 
 		Text scenetitle = new Text("Recent actions");
 		scenetitle.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
@@ -71,8 +71,7 @@ public class AnimalDetails extends Application {
 
 		List<String> actionList = new ArrayList<String>();
 		for (Action i : dataService.getDataRepository().GetActionsByAnimal(currentAnimalId)) {
-			actionList.add(i.getDictionaryStaff().getName()+" - "+i.getDateAdded());
-			System.out.println(i.getDictionaryStaff().getType());
+			actionList.add(i.toString());
 		}
 
 		if ((actionList.size()) >= 1) {

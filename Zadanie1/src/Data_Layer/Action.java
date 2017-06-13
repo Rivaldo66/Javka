@@ -9,13 +9,13 @@ public class Action {
 
 	@DatabaseField(generatedId = true)
 	int actionID;
-	
+
 	@DatabaseField(canBeNull = false, foreign = true)
 	Animal animal;
-	
+
 	@DatabaseField(canBeNull = false, foreign = true)
 	DictionaryStaff dictionaryStaff;
-	
+
 	@DatabaseField(canBeNull = false)
 	Date dateAdded = new Date();
 
@@ -25,8 +25,8 @@ public class Action {
 		this.dictionaryStaff = dictionaryStaff;
 	}
 
-	public Action(){
-		
+	public Action() {
+
 	}
 
 	public Animal getAnimal() {
@@ -36,7 +36,6 @@ public class Action {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
-	
 
 	public DictionaryStaff getDictionaryStaff() {
 		return dictionaryStaff;
@@ -56,8 +55,7 @@ public class Action {
 
 	@Override
 	public String toString() {
-		return "[" + dateAdded + "  " + dictionaryStaff.getName()+"]";
+		return dictionaryStaff.getName() + " - " + dateAdded;
 	}
-	
-	
+
 }
