@@ -49,10 +49,10 @@ public class LOG extends Application {
 
 	public LOG() {
 		SQL sql = new SQL();
-		//sql.dbConnect(
-				 //"jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
 		sql.dbConnect(
-				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
+				 "jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
+		//sql.dbConnect(
+				//"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
 		DataRepository dataRepository = new DataRepository(sql);
 		dataService = new DataService(dataRepository);
 	}

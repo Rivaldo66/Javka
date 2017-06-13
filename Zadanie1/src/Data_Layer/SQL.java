@@ -142,6 +142,11 @@ public class SQL {
 		} catch (Exception e) {
 
 		}
+		try {
+			userDao.create(new User("admin", "admin", true));
+		} catch (Exception e) {
+
+		}
 	}
 
 	public ConnectionSource getConn() {

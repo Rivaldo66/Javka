@@ -1,41 +1,341 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="1.8.0_131" class="java.beans.XMLDecoder">
  <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>1</int>
+  </void>
   <void property="animal">
    <object class="Data_Layer.Animal">
     <void property="dateAdded">
      <object class="java.util.Date">
-      <long>1497338945318</long>
+      <long>1497342085231</long>
      </object>
     </void>
    </object>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497338912407</long>
+    <long>1497314004300</long>
    </object>
   </void>
   <void property="dictionaryStaff">
-   <object class="Data_Layer.DictionaryStaff"/>
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Krolik_marchewka</string>
+    </void>
+   </object>
   </void>
  </object>
  <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>2</int>
+  </void>
   <void property="animal">
    <object class="Data_Layer.Animal">
     <void property="dateAdded">
      <object class="java.util.Date">
-      <long>1497338945318</long>
+      <long>1497342085231</long>
      </object>
     </void>
    </object>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497338915803</long>
+    <long>1497314004307</long>
    </object>
   </void>
   <void property="dictionaryStaff">
-   <object class="Data_Layer.DictionaryStaff"/>
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Krolik_marchewka</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>3</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497314004307</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Krolik_marchewka</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>4</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497314007430</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Krolik_czesanie</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>5</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497314008553</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Krolik_zabawa w chowanego</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>6</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497314009103</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Krolik_glaskanie</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>7</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497341363150</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Kot_drapak</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>8</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497341844453</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Kot_glaskanie</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>9</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497341846720</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Kot_mleko</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>10</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497342039953</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Mysz_kolowrotek</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>11</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085231</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497342044313</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Mysz_czesanie</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>12</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085232</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497342065347</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Mysz_ser</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Action">
+  <void property="actionID">
+   <int>13</int>
+  </void>
+  <void property="animal">
+   <object class="Data_Layer.Animal">
+    <void property="dateAdded">
+     <object class="java.util.Date">
+      <long>1497342085232</long>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497342065820</long>
+   </object>
+  </void>
+  <void property="dictionaryStaff">
+   <object class="Data_Layer.DictionaryStaff">
+    <void property="dictionaryStaffID">
+     <string>Mysz_ser</string>
+    </void>
+   </object>
   </void>
  </object>
 </java>

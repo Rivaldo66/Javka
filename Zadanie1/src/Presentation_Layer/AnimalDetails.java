@@ -71,7 +71,7 @@ public class AnimalDetails extends Application {
 
 		List<String> actionList = new ArrayList<String>();
 		for (Action i : dataService.getDataRepository().GetActionsByAnimal(currentAnimalId)) {
-			actionList.add(i.toString());
+			actionList.add(dataService.getDataRepository().GetDictionaryStaff(i.getDictionaryStaff().getDictionaryStaffID()).getName()+i.toString());
 		}
 
 		if ((actionList.size()) >= 1) {

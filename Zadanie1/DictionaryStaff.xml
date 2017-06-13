@@ -8,6 +8,9 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_czesanie</string>
+  </void>
   <void property="name">
    <string>czesanie</string>
   </void>
@@ -22,6 +25,9 @@
      <string>Kot</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_drapak</string>
   </void>
   <void property="name">
    <string>drapak</string>
@@ -38,8 +44,11 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_glaskanie</string>
+  </void>
   <void property="name">
-   <string>głaskanie</string>
+   <string>glaskanie</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -52,6 +61,9 @@
      <string>Kot</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_karma</string>
   </void>
   <void property="name">
    <string>karma</string>
@@ -68,8 +80,11 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_lapanie myszy</string>
+  </void>
   <void property="name">
-   <string>łapanie myszy</string>
+   <string>lapanie myszy</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -82,6 +97,9 @@
      <string>Kot</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_mleko</string>
   </void>
   <void property="name">
    <string>mleko</string>
@@ -98,6 +116,9 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_odrobaczanie</string>
+  </void>
   <void property="name">
    <string>odrobaczanie</string>
   </void>
@@ -112,6 +133,9 @@
      <string>Kot</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_ryba</string>
   </void>
   <void property="name">
    <string>ryba</string>
@@ -128,6 +152,9 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Kot_szczepenie</string>
+  </void>
   <void property="name">
    <string>szczepenie</string>
   </void>
@@ -139,9 +166,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_czesanie</string>
   </void>
   <void property="name">
    <string>czesanie</string>
@@ -154,12 +184,15 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_glaskanie</string>
+  </void>
   <void property="name">
-   <string>głaskanie</string>
+   <string>glaskanie</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -169,9 +202,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_karma</string>
   </void>
   <void property="name">
    <string>karma</string>
@@ -184,9 +220,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_marchewka</string>
   </void>
   <void property="name">
    <string>marchewka</string>
@@ -199,12 +238,15 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_mycie zebow</string>
+  </void>
   <void property="name">
-   <string>mycie zębów</string>
+   <string>mycie zebow</string>
   </void>
   <void property="type">
    <string>Treatment</string>
@@ -214,9 +256,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_siano</string>
   </void>
   <void property="name">
    <string>siano</string>
@@ -229,9 +274,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_szczepenie</string>
   </void>
   <void property="name">
    <string>szczepenie</string>
@@ -244,9 +292,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_zabawa w chowanego</string>
   </void>
   <void property="name">
    <string>zabawa w chowanego</string>
@@ -259,12 +310,15 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Królik</string>
+     <string>Krolik</string>
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Krolik_zabawa w ogrodku</string>
+  </void>
   <void property="name">
-   <string>zabawa w ogródku</string>
+   <string>zabawa w ogrodku</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -277,6 +331,9 @@
      <string>Mysz</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_czesanie</string>
   </void>
   <void property="name">
    <string>czesanie</string>
@@ -293,8 +350,11 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_glaskanie</string>
+  </void>
   <void property="name">
-   <string>głaskanie</string>
+   <string>glaskanie</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -307,6 +367,9 @@
      <string>Mysz</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_karma</string>
   </void>
   <void property="name">
    <string>karma</string>
@@ -323,8 +386,11 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_kolowrotek</string>
+  </void>
   <void property="name">
-   <string>kołowrotek</string>
+   <string>kolowrotek</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -338,8 +404,11 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_mycie zebow</string>
+  </void>
   <void property="name">
-   <string>mycie zębów</string>
+   <string>mycie zebow</string>
   </void>
   <void property="type">
    <string>Treatment</string>
@@ -352,6 +421,9 @@
      <string>Mysz</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_ser</string>
   </void>
   <void property="name">
    <string>ser</string>
@@ -368,6 +440,9 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_siano</string>
+  </void>
   <void property="name">
    <string>siano</string>
   </void>
@@ -382,6 +457,9 @@
      <string>Mysz</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_szczepenie</string>
   </void>
   <void property="name">
    <string>szczepenie</string>
@@ -398,6 +476,9 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Mysz_zabawa w chowanego</string>
+  </void>
   <void property="name">
    <string>zabawa w chowanego</string>
   </void>
@@ -412,6 +493,9 @@
      <string>Pies</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_aportowanie</string>
   </void>
   <void property="name">
    <string>aportowanie</string>
@@ -428,6 +512,9 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_czesanie</string>
+  </void>
   <void property="name">
    <string>czesanie</string>
   </void>
@@ -442,6 +529,9 @@
      <string>Pies</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_guma kość</string>
   </void>
   <void property="name">
    <string>guma kość</string>
@@ -458,6 +548,9 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_karma</string>
+  </void>
   <void property="name">
    <string>karma</string>
   </void>
@@ -473,8 +566,11 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_kielbasa</string>
+  </void>
   <void property="name">
-   <string>kiełbasa</string>
+   <string>kielbasa</string>
   </void>
   <void property="type">
    <string>Food</string>
@@ -488,8 +584,11 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_mieso</string>
+  </void>
   <void property="name">
-   <string>mięso</string>
+   <string>mieso</string>
   </void>
   <void property="type">
    <string>Food</string>
@@ -502,6 +601,9 @@
      <string>Pies</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_odrobaczanie</string>
   </void>
   <void property="name">
    <string>odrobaczanie</string>
@@ -518,6 +620,9 @@
     </void>
    </object>
   </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_spacer</string>
+  </void>
   <void property="name">
    <string>spacer</string>
   </void>
@@ -532,6 +637,9 @@
      <string>Pies</string>
     </void>
    </object>
+  </void>
+  <void property="dictionaryStaffID">
+   <string>Pies_szczepenie</string>
   </void>
   <void property="name">
    <string>szczepenie</string>

@@ -340,7 +340,7 @@ public class DataRepository {
 		}
 	}
 
-	public DictionaryStaff GetDictionaryStaff(int dictionaryStaffID) {
+	public DictionaryStaff GetDictionaryStaff(String dictionaryStaffID) {
 
 		DictionaryStaff dictionaryStaff = null;
 

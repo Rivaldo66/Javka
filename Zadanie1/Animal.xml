@@ -2,21 +2,126 @@
 <java version="1.8.0_131" class="java.beans.XMLDecoder">
  <object class="Data_Layer.Animal">
   <void property="age">
-   <float>6.0</float>
+   <float>33.0</float>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497322984250</long>
+    <long>1497313993063</long>
    </object>
   </void>
   <void property="experience">
-   <float>100.0</float>
-  </void>
-  <void property="hp">
-   <float>20.0</float>
+   <float>50.0</float>
   </void>
   <void property="name">
    <string>aa</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>mama</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>7.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497313995877</long>
+   </object>
+  </void>
+  <void property="experience">
+   <float>50.0</float>
+  </void>
+  <void property="name">
+   <string>aaa</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>mama</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>15.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497313997417</long>
+   </object>
+  </void>
+  <void property="experience">
+   <float>50.0</float>
+  </void>
+  <void property="name">
+   <string>aaaa</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Krolik</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>mama</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>1.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497322042780</long>
+   </object>
+  </void>
+  <void property="hp">
+   <float>70.0</float>
+  </void>
+  <void property="levelOfFunNeeded">
+   <float>20.0</float>
+  </void>
+  <void property="levelOfHunger">
+   <float>20.0</float>
+  </void>
+  <void property="name">
+   <string>df</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
   </void>
   <void property="type">
    <object class="Data_Layer.Dictionary">
@@ -28,55 +133,34 @@
   <void property="user">
    <object class="Data_Layer.User">
     <void property="login">
-     <string>Damian</string>
+     <string>mama</string>
     </void>
    </object>
   </void>
  </object>
  <object class="Data_Layer.Animal">
   <void property="age">
-   <float>5.0</float>
+   <float>1.0</float>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497322985760</long>
+    <long>1497322058057</long>
    </object>
   </void>
   <void property="hp">
-   <float>10.0</float>
+   <float>85.0</float>
+  </void>
+  <void property="levelOfFunNeeded">
+   <float>35.0</float>
+  </void>
+  <void property="levelOfHunger">
+   <float>35.0</float>
   </void>
   <void property="name">
-   <string>aa</string>
+   <string></string>
   </void>
-  <void property="type">
-   <object class="Data_Layer.Dictionary">
-    <void property="name">
-     <string>Królik</string>
-    </void>
-   </object>
-  </void>
-  <void property="user">
-   <object class="Data_Layer.User">
-    <void property="login">
-     <string>Damian</string>
-    </void>
-   </object>
-  </void>
- </object>
- <object class="Data_Layer.Animal">
-  <void property="age">
-   <float>5.0</float>
-  </void>
-  <void property="dateAdded">
-   <object class="java.util.Date">
-    <long>1497322987230</long>
-   </object>
-  </void>
-  <void property="hp">
-   <float>15.0</float>
-  </void>
-  <void property="name">
-   <string>aa</string>
+  <void property="status">
+   <boolean>true</boolean>
   </void>
   <void property="type">
    <object class="Data_Layer.Dictionary">
@@ -88,37 +172,172 @@
   <void property="user">
    <object class="Data_Layer.User">
     <void property="login">
-     <string>Damian</string>
+     <string>mama</string>
     </void>
    </object>
   </void>
  </object>
  <object class="Data_Layer.Animal">
   <void property="age">
-   <float>4.0</float>
+   <float>5.0</float>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497322988967</long>
+    <long>1497322376547</long>
    </object>
   </void>
   <void property="hp">
+   <float>65.0</float>
+  </void>
+  <void property="levelOfFunNeeded">
+   <float>15.0</float>
+  </void>
+  <void property="levelOfHunger">
    <float>15.0</float>
   </void>
   <void property="name">
-   <string>aa</string>
+   <string>a</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
   </void>
   <void property="type">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Pies</string>
+     <string>Mysz</string>
     </void>
    </object>
   </void>
   <void property="user">
    <object class="Data_Layer.User">
     <void property="login">
-     <string>Damian</string>
+     <string>aa</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>1.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497322443110</long>
+   </object>
+  </void>
+  <void property="experience">
+   <float>100.0</float>
+  </void>
+  <void property="hp">
+   <float>85.0</float>
+  </void>
+  <void property="levelOfFunNeeded">
+   <float>60.0</float>
+  </void>
+  <void property="levelOfHunger">
+   <float>60.0</float>
+  </void>
+  <void property="name">
+   <string>as</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>aa</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>3.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497342028143</long>
+   </object>
+  </void>
+  <void property="experience">
+   <float>150.0</float>
+  </void>
+  <void property="hp">
+   <float>85.0</float>
+  </void>
+  <void property="levelOfFunNeeded">
+   <float>60.0</float>
+  </void>
+  <void property="levelOfHunger">
+   <float>60.0</float>
+  </void>
+  <void property="name">
+   <string>asd</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>bb</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>1.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497342056247</long>
+   </object>
+  </void>
+  <void property="experience">
+   <float>50.0</float>
+  </void>
+  <void property="hp">
+   <float>90.0</float>
+  </void>
+  <void property="levelOfFunNeeded">
+   <float>40.0</float>
+  </void>
+  <void property="levelOfHunger">
+   <float>65.0</float>
+  </void>
+  <void property="name">
+   <string>sdf</string>
+  </void>
+  <void property="status">
+   <boolean>true</boolean>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Mysz</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>bb</string>
     </void>
    </object>
   </void>

@@ -7,10 +7,49 @@
      <boolean>false</boolean>
     </void>
     <void property="login">
-     <string>Damian</string>
+     <string>aa</string>
     </void>
     <void property="password">
-     <string>Damian</string>
+     <string>aa</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Data_Layer.User">
+    <void property="admin">
+     <boolean>false</boolean>
+    </void>
+    <void property="login">
+     <string>bb</string>
+    </void>
+    <void property="password">
+     <string>bb</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Data_Layer.User">
+    <void property="admin">
+     <boolean>false</boolean>
+    </void>
+    <void property="login">
+     <string>dupa</string>
+    </void>
+    <void property="password">
+     <string>kasztan</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Data_Layer.User">
+    <void property="admin">
+     <boolean>false</boolean>
+    </void>
+    <void property="login">
+     <string>mama</string>
+    </void>
+    <void property="password">
+     <string>tata</string>
     </void>
    </object>
   </void>

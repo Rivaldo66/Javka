@@ -53,9 +53,17 @@ public class Action {
 		this.dateAdded = dateAdded;
 	}
 
+	public int getActionID() {
+		return actionID;
+	}
+
+	public void setActionID(int actionID) {
+		this.actionID = actionID;
+	}
+
 	@Override
 	public String toString() {
-		return dictionaryStaff.name + " - " + dateAdded;
+		return " - " + dateAdded;
 	}
 
 }

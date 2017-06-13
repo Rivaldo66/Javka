@@ -52,4 +52,12 @@ public class DictionaryStaff {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	public String getDictionaryStaffID() {
+		return dictionaryStaffID;
+	}
+
+	public void setDictionaryStaffID(String dictionaryStaffID) {
+		this.dictionaryStaffID = dictionaryStaffID;
+	}
 }

@@ -95,7 +95,7 @@ public class AdminView extends Application {
 			ObservableList<String> action = FXCollections.observableArrayList();
 
 			for (Action i : act) {
-				action.add(i.toString());
+				action.add(dataService.getDataRepository().GetDictionaryStaff(i.getDictionaryStaff().getDictionaryStaffID()).getName()+i.toString());
 			}
 
 			list2.setItems(action);
