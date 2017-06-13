@@ -101,6 +101,19 @@ public class AdminView extends Application {
 			list2.setItems(action);
 			gridCenter.add(list2, 2, 2);
 			gridCenter.setAlignment(Pos.CENTER);
+			
+			ListView<String> list3 = new ListView<String>();
+			ObservableList<DictionaryStaff> dicS = FXCollections
+					.observableArrayList(dataService.getDataRepository().GetAllDictionaryStaffs());
+			ObservableList<String> dictionaryS = FXCollections.observableArrayList();
+
+			for (DictionaryStaff i : dicS) {
+				dictionaryS.add(i.getDictionary().getName()+"- "+i.getType()+": "+i.getName());
+			}
+
+			list3.setItems(dictionaryS);
+			gridCenter.add(list3, 3, 2);
+			gridCenter.setAlignment(Pos.CENTER);
 		}
 
 		if (type.matches("adduser")) {
@@ -175,14 +188,14 @@ public class AdminView extends Application {
 		return gridBorderCenter;
 	}
 
-	public GridPane addGridPaneTop(Stage primaryStage) {
+	public BorderPane addGridPaneTop(Stage primaryStage) {
+		BorderPane gridBorderCenter = new BorderPane();
 		gridTop = new GridPane();
 		gridTop.setStyle("-fx-background-color: #336699;");
 
 		Text scenetitle = new Text("Admin view");
 		scenetitle.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
 		scenetitle.setFill(Color.WHITE);
-		gridTop.add(scenetitle, 0, 0);
 
 		Button addNewUser = new Button("Add new user");
 		addNewUser.setOnAction(new EventHandler<ActionEvent>() {
@@ -193,6 +206,7 @@ public class AdminView extends Application {
 			}
 		});
 		gridTop.add(addNewUser, 0, 1);
+		gridTop.setAlignment(Pos.CENTER);
 
 		Button addNewSpecies = new Button("Add new species");
 		addNewSpecies.setOnAction(new EventHandler<ActionEvent>() {
@@ -234,7 +248,11 @@ public class AdminView extends Application {
 		});
 		gridTop.add(addNewPlay, 4, 1);
 		
-		return gridTop;
+		gridBorderCenter.setTop(scenetitle);
+		gridBorderCenter.setAlignment(scenetitle, Pos.CENTER);
+		gridBorderCenter.setCenter(gridTop);
+		
+		return gridBorderCenter;
 	}
 
 	public GridPane addGridPaneRight(Stage primaryStage) {
