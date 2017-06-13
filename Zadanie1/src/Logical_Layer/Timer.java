@@ -40,7 +40,7 @@ public class Timer extends Thread {
 					licznik = licznik + 1;
 				}
 
-				Timer.sleep(5000l);
+				Timer.sleep(25000l);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
