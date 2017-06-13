@@ -2,7 +2,7 @@
 <java version="1.8.0_131" class="java.beans.XMLDecoder">
  <object class="Data_Layer.Dictionary">
   <void property="image">
-   <string>http://skr.org.pl/UserFiles/site/kotek.png</string>
+   <string>http://2.bp.blogspot.com/-mXYoQvnmJog/UcFoFjUMwnI/AAAAAAAABPw/wSDQEeU9oQg/s250/nadrapaku-kot-2.png</string>
   </void>
   <void property="name">
    <string>Kot</string>
@@ -13,12 +13,12 @@
    <string>http://lh4.ggpht.com/hwM2DwntUQX6Zq2hxNA1ts_YAoVNvQpnbs3q-odjYxQ-v_Mc4h1slGgyLULdeEmeTqc=w300</string>
   </void>
   <void property="name">
-   <string>Krolik</string>
+   <string>Królik</string>
   </void>
  </object>
  <object class="Data_Layer.Dictionary">
   <void property="image">
-   <string>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_MsuP7Rz_YgF78ij-eJY5DmnhpKKs-JSfqp8wJm2K3VBFP9Jk</string>
+   <string>https://kochamzwierzta.files.wordpress.com/2016/11/chomik.png?w=660&amp;h=495</string>
   </void>
   <void property="name">
    <string>Mysz</string>

@@ -2,33 +2,33 @@
 <java version="1.8.0_131" class="java.beans.XMLDecoder">
  <object class="Data_Layer.Animal">
   <void property="age">
-   <float>28.0</float>
+   <float>6.0</float>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497313993063</long>
+    <long>1497322984250</long>
    </object>
   </void>
   <void property="experience">
-   <float>50.0</float>
+   <float>100.0</float>
+  </void>
+  <void property="hp">
+   <float>20.0</float>
   </void>
   <void property="name">
    <string>aa</string>
   </void>
-  <void property="status">
-   <boolean>true</boolean>
-  </void>
   <void property="type">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Kot</string>
     </void>
    </object>
   </void>
   <void property="user">
    <object class="Data_Layer.User">
     <void property="login">
-     <string>mama</string>
+     <string>Damian</string>
     </void>
    </object>
   </void>
@@ -39,62 +39,86 @@
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497313995877</long>
+    <long>1497322985760</long>
    </object>
   </void>
-  <void property="experience">
-   <float>50.0</float>
+  <void property="hp">
+   <float>10.0</float>
   </void>
   <void property="name">
-   <string>aaa</string>
-  </void>
-  <void property="status">
-   <boolean>true</boolean>
+   <string>aa</string>
   </void>
   <void property="type">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
   <void property="user">
    <object class="Data_Layer.User">
     <void property="login">
-     <string>mama</string>
+     <string>Damian</string>
     </void>
    </object>
   </void>
  </object>
  <object class="Data_Layer.Animal">
   <void property="age">
-   <float>12.0</float>
+   <float>5.0</float>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497313997417</long>
+    <long>1497322987230</long>
    </object>
   </void>
-  <void property="experience">
-   <float>50.0</float>
+  <void property="hp">
+   <float>15.0</float>
   </void>
   <void property="name">
-   <string>aaaa</string>
-  </void>
-  <void property="status">
-   <boolean>true</boolean>
+   <string>aa</string>
   </void>
   <void property="type">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Mysz</string>
     </void>
    </object>
   </void>
   <void property="user">
    <object class="Data_Layer.User">
     <void property="login">
-     <string>mama</string>
+     <string>Damian</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="Data_Layer.Animal">
+  <void property="age">
+   <float>4.0</float>
+  </void>
+  <void property="dateAdded">
+   <object class="java.util.Date">
+    <long>1497322988967</long>
+   </object>
+  </void>
+  <void property="hp">
+   <float>15.0</float>
+  </void>
+  <void property="name">
+   <string>aa</string>
+  </void>
+  <void property="type">
+   <object class="Data_Layer.Dictionary">
+    <void property="name">
+     <string>Pies</string>
+    </void>
+   </object>
+  </void>
+  <void property="user">
+   <object class="Data_Layer.User">
+    <void property="login">
+     <string>Damian</string>
     </void>
    </object>
   </void>

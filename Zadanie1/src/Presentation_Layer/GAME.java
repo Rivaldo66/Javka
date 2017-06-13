@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -87,9 +88,6 @@ public class GAME extends Application {
 		primaryStage.setTitle("GAME PANEL");
 		border = new BorderPane();
 		border.setStyle("-fx-background-color: #336699;");
-
-		// HBox hbox = addHBox();
-		// border.setTop(hbox);
 
 		border.setCenter(addBorderPaneCenter(primaryStage));
 		border.setRight(addGridPaneRight(primaryStage));
@@ -372,17 +370,6 @@ public class GAME extends Application {
 		return hbox;
 	}
 
-	public FlowPane addFlowPane() {
-		FlowPane flow = new FlowPane();
-		flow.setPadding(new Insets(5, 0, 5, 0));
-		flow.setVgap(4);
-		flow.setHgap(4);
-		flow.setPrefWrapLength(200); // preferred width allows for two columns
-		flow.setStyle("-fx-background-color: DAE6F3;");
-
-		return flow;
-	}
-
 	public BorderPane addBorderPaneCenter(Stage primaryStage) {
 		gridCenter = new BorderPane();
 		gridCenter.setStyle(
@@ -394,12 +381,22 @@ public class GAME extends Application {
 		return gridCenter;
 	}
 
-	public GridPane addGridPaneRight(Stage primaryStage) {
+	public BorderPane addGridPaneRight(Stage primaryStage) {
+		BorderPane border = new BorderPane();
+		border.setPadding(new Insets(0, 10, 0, 10));
+		border.setStyle("-fx-background-color: #336699;");
+		
 		gridRight = new GridPane();
 		gridRight.setHgap(10);
 		gridRight.setVgap(10);
 		gridRight.setPadding(new Insets(0, 10, 0, 10));
 		gridRight.setStyle("-fx-background-color: #336699;");
+		
+		GridPane gridC = new GridPane();
+		gridC.setHgap(10);
+		gridC.setVgap(10);
+		gridC.setPadding(new Insets(0, 10, 0, 10));
+		gridC.setStyle("-fx-background-color: #336699;");
 
 		scenetitle = new Text("Add new pet");
 		scenetitle.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 25));
@@ -450,7 +447,7 @@ public class GAME extends Application {
 		
 		btn1 = new Button("Log out");
 		btn1.setPrefSize(100, 20);
-		gridRight.add(btn1, 0, 6);
+		gridC.add(btn1, 0, 0);
 
 		btn1.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -463,7 +460,7 @@ public class GAME extends Application {
 		
 		btn2 = new Button("Turn off");
 		btn2.setPrefSize(100, 20);
-		gridRight.add(btn2, 0, 8);
+		gridC.add(btn2, 0, 1);
 
 		btn2.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -475,7 +472,7 @@ public class GAME extends Application {
 
 		btn3 = new Button("Serialization");
 		btn3.setPrefSize(100, 20);
-		gridRight.add(btn3, 0, 10);
+		gridC.add(btn3, 0, 2);
 
 		btn3.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -492,7 +489,7 @@ public class GAME extends Application {
 		
 		btn4 = new Button("Deserialization");
 		btn4.setPrefSize(100, 20);
-		gridRight.add(btn4, 0, 12);
+		gridC.add(btn4, 0, 3);
 
 		btn4.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -506,7 +503,10 @@ public class GAME extends Application {
 				}
 			}
 		});
-		return gridRight;
+		border.setTop(gridRight);
+		gridC.setAlignment(Pos.CENTER);
+		border.setCenter(gridC);
+		return border;
 	}
 
 	public Text getScenetitle() {

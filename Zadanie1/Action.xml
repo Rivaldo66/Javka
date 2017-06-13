@@ -5,14 +5,14 @@
    <object class="Data_Layer.Animal">
     <void property="dateAdded">
      <object class="java.util.Date">
-      <long>1497321757607</long>
+      <long>1497338945318</long>
      </object>
     </void>
    </object>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497314004300</long>
+    <long>1497338912407</long>
    </object>
   </void>
   <void property="dictionaryStaff">
@@ -24,90 +24,14 @@
    <object class="Data_Layer.Animal">
     <void property="dateAdded">
      <object class="java.util.Date">
-      <long>1497321757607</long>
+      <long>1497338945318</long>
      </object>
     </void>
    </object>
   </void>
   <void property="dateAdded">
    <object class="java.util.Date">
-    <long>1497314004307</long>
-   </object>
-  </void>
-  <void property="dictionaryStaff">
-   <object class="Data_Layer.DictionaryStaff"/>
-  </void>
- </object>
- <object class="Data_Layer.Action">
-  <void property="animal">
-   <object class="Data_Layer.Animal">
-    <void property="dateAdded">
-     <object class="java.util.Date">
-      <long>1497321757607</long>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void property="dateAdded">
-   <object class="java.util.Date">
-    <long>1497314004307</long>
-   </object>
-  </void>
-  <void property="dictionaryStaff">
-   <object class="Data_Layer.DictionaryStaff"/>
-  </void>
- </object>
- <object class="Data_Layer.Action">
-  <void property="animal">
-   <object class="Data_Layer.Animal">
-    <void property="dateAdded">
-     <object class="java.util.Date">
-      <long>1497321757608</long>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void property="dateAdded">
-   <object class="java.util.Date">
-    <long>1497314007430</long>
-   </object>
-  </void>
-  <void property="dictionaryStaff">
-   <object class="Data_Layer.DictionaryStaff"/>
-  </void>
- </object>
- <object class="Data_Layer.Action">
-  <void property="animal">
-   <object class="Data_Layer.Animal">
-    <void property="dateAdded">
-     <object class="java.util.Date">
-      <long>1497321757608</long>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void property="dateAdded">
-   <object class="java.util.Date">
-    <long>1497314008553</long>
-   </object>
-  </void>
-  <void property="dictionaryStaff">
-   <object class="Data_Layer.DictionaryStaff"/>
-  </void>
- </object>
- <object class="Data_Layer.Action">
-  <void property="animal">
-   <object class="Data_Layer.Animal">
-    <void property="dateAdded">
-     <object class="java.util.Date">
-      <long>1497321757608</long>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void property="dateAdded">
-   <object class="java.util.Date">
-    <long>1497314009103</long>
+    <long>1497338915803</long>
    </object>
   </void>
   <void property="dictionaryStaff">

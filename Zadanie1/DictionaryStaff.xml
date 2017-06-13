@@ -39,7 +39,7 @@
    </object>
   </void>
   <void property="name">
-   <string>glaskanie</string>
+   <string>głaskanie</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -69,7 +69,7 @@
    </object>
   </void>
   <void property="name">
-   <string>lapanie myszy</string>
+   <string>łapanie myszy</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -139,7 +139,7 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
@@ -154,12 +154,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
   <void property="name">
-   <string>glaskanie</string>
+   <string>głaskanie</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -169,7 +169,7 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
@@ -184,7 +184,7 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
@@ -199,12 +199,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
   <void property="name">
-   <string>mycie zebow</string>
+   <string>mycie zębów</string>
   </void>
   <void property="type">
    <string>Treatment</string>
@@ -214,7 +214,7 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
@@ -229,7 +229,7 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
@@ -244,7 +244,7 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
@@ -259,12 +259,12 @@
   <void property="dictionary">
    <object class="Data_Layer.Dictionary">
     <void property="name">
-     <string>Krolik</string>
+     <string>Królik</string>
     </void>
    </object>
   </void>
   <void property="name">
-   <string>zabawa w ogrodku</string>
+   <string>zabawa w ogródku</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -294,7 +294,7 @@
    </object>
   </void>
   <void property="name">
-   <string>glaskanie</string>
+   <string>głaskanie</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -324,7 +324,7 @@
    </object>
   </void>
   <void property="name">
-   <string>kolowrotek</string>
+   <string>kołowrotek</string>
   </void>
   <void property="type">
    <string>Play</string>
@@ -339,7 +339,7 @@
    </object>
   </void>
   <void property="name">
-   <string>mycie zebow</string>
+   <string>mycie zębów</string>
   </void>
   <void property="type">
    <string>Treatment</string>
@@ -474,7 +474,7 @@
    </object>
   </void>
   <void property="name">
-   <string>kielbasa</string>
+   <string>kiełbasa</string>
   </void>
   <void property="type">
    <string>Food</string>
@@ -489,7 +489,7 @@
    </object>
   </void>
   <void property="name">
-   <string>mieso</string>
+   <string>mięso</string>
   </void>
   <void property="type">
    <string>Food</string>
