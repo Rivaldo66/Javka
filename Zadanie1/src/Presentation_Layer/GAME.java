@@ -335,7 +335,7 @@ public class GAME extends Application {
 
 			public void handle(ActionEvent e) {
 				Animal current = dataService.getDataRepository().GetAnimal(currentAnimalId);
-				current.setLevelOfFunNeeded(-10);
+				current.setLevelOfFunNeeded(10);
 				dataService.getDataRepository().UpdateAnimal(current);
 			}
 		});
@@ -361,7 +361,7 @@ public class GAME extends Application {
 
 			public void handle(ActionEvent e) {
 				Animal current = dataService.getDataRepository().GetAnimal(currentAnimalId);
-				current.setLevelOfHunger(-10);
+				current.setLevelOfHunger(10);
 				dataService.getDataRepository().UpdateAnimal(current);
 			}
 		});
