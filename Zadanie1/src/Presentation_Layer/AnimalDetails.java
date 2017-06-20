@@ -67,13 +67,12 @@ public class AnimalDetails extends Application {
 	}
 
 	/**
-	 * Tworzenie prawego panelu widoku szczegó³ów zaznaczonego 
-	 * pupila. Tu znajduj¹ siê informacje o maksymalnie 5ciu
-	 * ostatnio wykonywanych operacjach ze zwierzakiem 
-	 * (zabaw, karmienia, leczenia)
+	 * Tworzenie prawego panelu widoku szczegó³ów zaznaczonego pupila. Tu
+	 * znajduj¹ siê informacje o maksymalnie 5ciu ostatnio wykonywanych
+	 * operacjach ze zwierzakiem (zabaw, karmienia, leczenia)
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 */
 	public GridPane addGridPaneRight(Stage primaryStage) {
 		GridPane gridRight = new GridPane();

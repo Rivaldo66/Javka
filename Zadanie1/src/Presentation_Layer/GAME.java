@@ -35,7 +35,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * Klasa odpowiedzialna za wyœwietlanie widoku g³ównego gry 
+ * Klasa odpowiedzialna za wyœwietlanie widoku g³ównego gry
  *
  * @author Damian Rudnicki i Pawe³ Tomaszewski
  *
@@ -92,9 +92,9 @@ public class GAME extends Application {
 	}
 
 	/**
-	 * Tworzenie widoku okna g³ównego gry, gdzie mamy podgl¹d do 
-	 * wszystkich zwierzaków zalogowanego u¿ytkownika,
-	 * tu wywo³ywane s¹ metody tworz¹ce poszczególne panele widoku
+	 * Tworzenie widoku okna g³ównego gry, gdzie mamy podgl¹d do wszystkich
+	 * zwierzaków zalogowanego u¿ytkownika, tu wywo³ywane s¹ metody tworz¹ce
+	 * poszczególne panele widoku
 	 */
 	@Override
 	public void start(Stage primaryStage) {
@@ -125,11 +125,10 @@ public class GAME extends Application {
 	}
 
 	/**
-	 * Metoda odpowiedzialna za dynamiczne dodawanie zwierzaków
-	 * na polanê.
+	 * Metoda odpowiedzialna za dynamiczne dodawanie zwierzaków na polanê.
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 */
 	public HBox addAnimals(Stage primaryStage) {
 		HBox hbox = new HBox();
@@ -139,7 +138,7 @@ public class GAME extends Application {
 		List<Button> animalsBtn = new ArrayList<Button>();
 
 		for (Animal i : animalList) {
-			if (i.getStatus() && animalsBtn.size()<4) {
+			if (i.getStatus() && animalsBtn.size() < 4) {
 				animalsBtn.add(new Button(Integer.toString(i.getAnimalID())));
 			}
 		}
@@ -153,7 +152,7 @@ public class GAME extends Application {
 
 				public void handle(ActionEvent e) {
 					setCurrentAnimalBtn(i);
-					
+
 					setCurrentAnimalId(i.getText());
 					gridCenter.setCenter(addAnimalsTools());
 					AnimalDetails animalDetails = new AnimalDetails(dataService, currentUser, animalList,
@@ -170,13 +169,13 @@ public class GAME extends Application {
 
 		return hbox;
 	}
-	
+
 	/**
-	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
-	 * umo¿liwiaj¹cych akcje dla wszystkich zwierzaków danego gatunku
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów umo¿liwiaj¹cych
+	 * akcje dla wszystkich zwierzaków danego gatunku
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 */
 	public HBox addAnimalButtons(Stage primaryStage) {
 		HBox hbox = new HBox();
@@ -184,7 +183,7 @@ public class GAME extends Application {
 		hbox.setSpacing(10);
 
 		List<Button> animalsBtn = new ArrayList<Button>();
-		
+
 		for (Dictionary i : dataService.GetAllDictionaries()) {
 
 			animalsBtn.add(new Button(i.getName()));
@@ -197,9 +196,10 @@ public class GAME extends Application {
 			i.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
-					for(Animal a : animalList){
-						if(a.getType().getName().matches(i.getText())){
-							gridCenter.setCenter(addDictionaryStaffButtons(dataService.getDataRepository().GetDictionary(i.getText())));
+					for (Animal a : animalList) {
+						if (a.getType().getName().matches(i.getText())) {
+							gridCenter.setCenter(addDictionaryStaffButtons(
+									dataService.getDataRepository().GetDictionary(i.getText())));
 						}
 					}
 				}
@@ -209,10 +209,10 @@ public class GAME extends Application {
 
 		return hbox;
 	}
-	
+
 	/**
-	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
-	 * umo¿liwiaj¹cych akcje dla wszystkich zwierzaków danego gatunku
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów umo¿liwiaj¹cych
+	 * akcje dla wszystkich zwierzaków danego gatunku
 	 * 
 	 * @param dictionary
 	 */
@@ -228,7 +228,8 @@ public class GAME extends Application {
 		play.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent e) {
-				gridCenter.setCenter(addFoodButton(dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Play"), dictionary));
+				gridCenter.setCenter(addFoodButton(dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Play"),
+						dictionary));
 			}
 		});
 
@@ -239,7 +240,8 @@ public class GAME extends Application {
 		treatment.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent e) {
-				gridCenter.setCenter(addFoodButton(dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Treatment"), dictionary));
+				gridCenter.setCenter(addFoodButton(
+						dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Treatment"), dictionary));
 			}
 		});
 
@@ -250,21 +252,24 @@ public class GAME extends Application {
 		food.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent e) {
-				gridCenter.setCenter(addFoodButton(dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Food"), dictionary));
+				gridCenter.setCenter(addFoodButton(dataService.GetTypeOfDictionaryStaffByDictionary(dictionary, "Food"),
+						dictionary));
 			}
 		});
 
 		hbox.getChildren().addAll(play, food, treatment);
-		
+
 		return hbox;
 	}
 
 	/**
-	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
-	 * umo¿liwiaj¹cych akcje karmienia dla wszystkich zwierzaków danego gatunku
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów umo¿liwiaj¹cych
+	 * akcje karmienia dla wszystkich zwierzaków danego gatunku
 	 * 
-	 * @param list - lista akcji typu karmienie
-	 * @param dictionary - udostêpnia metodê getName()
+	 * @param list
+	 *            - lista akcji typu karmienie
+	 * @param dictionary
+	 *            - udostêpnia metodê getName()
 	 */
 	public HBox addFoodButton(List<DictionaryStaff> list, Dictionary dictionary) {
 		HBox hbox = new HBox();
@@ -272,7 +277,7 @@ public class GAME extends Application {
 		hbox.setSpacing(10);
 
 		List<Button> animalsBtn = new ArrayList<Button>();
-		
+
 		for (DictionaryStaff i : list) {
 
 			animalsBtn.add(new Button(i.getName()));
@@ -285,8 +290,8 @@ public class GAME extends Application {
 			i.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
-					for(Animal a : animalList){
-						if(a.getType().getName().matches(dictionary.getName())){
+					for (Animal a : animalList) {
+						if (a.getType().getName().matches(dictionary.getName())) {
 							dataService.Eating(a, dataService.GetDictionaryStaffByName(i.getText(), list));
 						}
 					}
@@ -297,13 +302,15 @@ public class GAME extends Application {
 
 		return hbox;
 	}
-	
+
 	/**
-	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
-	 * umo¿liwiaj¹cych akcje zabawy dla wszystkich zwierzaków danego gatunku
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów umo¿liwiaj¹cych
+	 * akcje zabawy dla wszystkich zwierzaków danego gatunku
 	 * 
-	 * @param list - lista akcji typu zabawy
-	 * @param dictionary - udostêpnia metodê getName()
+	 * @param list
+	 *            - lista akcji typu zabawy
+	 * @param dictionary
+	 *            - udostêpnia metodê getName()
 	 */
 	public HBox addPlayButton(List<DictionaryStaff> list, Dictionary dictionary) {
 		HBox hbox = new HBox();
@@ -311,7 +318,7 @@ public class GAME extends Application {
 		hbox.setSpacing(10);
 
 		List<Button> animalsBtn = new ArrayList<Button>();
-		
+
 		for (DictionaryStaff i : list) {
 
 			animalsBtn.add(new Button(i.getName()));
@@ -324,8 +331,8 @@ public class GAME extends Application {
 			i.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
-					for(Animal a : animalList){
-						if(a.getType().getName().matches(dictionary.getName())){
+					for (Animal a : animalList) {
+						if (a.getType().getName().matches(dictionary.getName())) {
 							dataService.Playing(a, dataService.GetDictionaryStaffByName(i.getText(), list));
 						}
 					}
@@ -336,13 +343,15 @@ public class GAME extends Application {
 
 		return hbox;
 	}
-	
+
 	/**
-	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
-	 * umo¿liwiaj¹cych akcje leczenie dla wszystkich zwierzaków danego gatunku
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów umo¿liwiaj¹cych
+	 * akcje leczenie dla wszystkich zwierzaków danego gatunku
 	 * 
-	 * @param list - lista akcji typu leczenie
-	 * @param dictionary - udostêpnia metodê getName()
+	 * @param list
+	 *            - lista akcji typu leczenie
+	 * @param dictionary
+	 *            - udostêpnia metodê getName()
 	 */
 	public HBox addTreatmentButton(List<DictionaryStaff> list, Dictionary dictionary) {
 		HBox hbox = new HBox();
@@ -350,7 +359,7 @@ public class GAME extends Application {
 		hbox.setSpacing(10);
 
 		List<Button> animalsBtn = new ArrayList<Button>();
-		
+
 		for (DictionaryStaff i : list) {
 
 			animalsBtn.add(new Button(i.getName()));
@@ -363,8 +372,8 @@ public class GAME extends Application {
 			i.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
-					for(Animal a : animalList){
-						if(a.getType().getName().matches(dictionary.getName())){
+					for (Animal a : animalList) {
+						if (a.getType().getName().matches(dictionary.getName())) {
 							dataService.Curing(a, dataService.GetDictionaryStaffByName(i.getText(), list));
 						}
 					}
@@ -375,10 +384,10 @@ public class GAME extends Application {
 
 		return hbox;
 	}
-	
+
 	/**
-	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
-	 * umo¿liwiaj¹cych akcje dla wszystkich zwierzaków danego gatunku
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów umo¿liwiaj¹cych
+	 * akcje dla wszystkich zwierzaków danego gatunku
 	 * 
 	 */
 	public HBox addAnimalsTools() {
@@ -430,12 +439,12 @@ public class GAME extends Application {
 
 		return hbox;
 	}
-	
+
 	/**
 	 * Metoda tworz¹ca œrodkowy panel okna g³ównego gry
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 */
 	public BorderPane addBorderPaneCenter(Stage primaryStage) {
 		gridCenter = new BorderPane();
@@ -449,25 +458,24 @@ public class GAME extends Application {
 	}
 
 	/**
-	 * Metoda tworz¹ca prawy panel okna g³ównego gry,
-	 * gdzie znajduj¹ siê komponenty potrzebne to 
-	 * wprowadzania do gry kolejnych zwierzaków, a tak¿e przyciski
-	 * odpowiedzialne za serializacjê, deserializacjê,oraz wylogowanie
+	 * Metoda tworz¹ca prawy panel okna g³ównego gry, gdzie znajduj¹ siê
+	 * komponenty potrzebne to wprowadzania do gry kolejnych zwierzaków, a tak¿e
+	 * przyciski odpowiedzialne za serializacjê, deserializacjê,oraz wylogowanie
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 */
 	public BorderPane addGridPaneRight(Stage primaryStage) {
 		BorderPane border2 = new BorderPane();
 		border2.setPadding(new Insets(0, 10, 0, 10));
 		border2.setStyle("-fx-background-color: #336699;");
-		
+
 		gridRight = new GridPane();
 		gridRight.setHgap(10);
 		gridRight.setVgap(10);
 		gridRight.setPadding(new Insets(0, 10, 0, 10));
 		gridRight.setStyle("-fx-background-color: #336699;");
-		
+
 		GridPane gridC = new GridPane();
 		gridC.setHgap(10);
 		gridC.setVgap(10);
@@ -520,7 +528,7 @@ public class GAME extends Application {
 				}
 			}
 		});
-		
+
 		btn1 = new Button("Log out");
 		btn1.setPrefSize(100, 20);
 		gridC.add(btn1, 0, 0);
@@ -533,7 +541,7 @@ public class GAME extends Application {
 				log.start(primaryStage);
 			}
 		});
-		
+
 		btn2 = new Button("Turn off");
 		btn2.setPrefSize(100, 20);
 		gridC.add(btn2, 0, 1);
@@ -562,7 +570,7 @@ public class GAME extends Application {
 				}
 			}
 		});
-		
+
 		btn4 = new Button("Deserialization");
 		btn4.setPrefSize(100, 20);
 		gridC.add(btn4, 0, 3);

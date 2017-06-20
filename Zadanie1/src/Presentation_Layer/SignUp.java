@@ -25,14 +25,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * Klasa odpowiedzialna za wyœwietlanie widoku rejestracji
- * nowych u¿ytkowników 
+ * Klasa odpowiedzialna za wyœwietlanie widoku rejestracji nowych u¿ytkowników
  *
  * @author Damian Rudnicki i Pawe³ Tomaszewski
  *
  */
 public class SignUp {
-	
+
 	private DataService dataService;
 	@FXML
 	private Text scenetitle;
@@ -51,24 +50,23 @@ public class SignUp {
 	@FXML
 	private Scene scene;
 
-	
-	SignUp(DataService dataService){
+	SignUp(DataService dataService) {
 		this.dataService = dataService;
 
 	}
-	
+
 	/**
 	 * Tworzenie widoku okna rejestracji, tu tworzone s¹ komponenty
-	 * umo¿liwiaj¹ce wprowadzanie loginu oraz has³a  nowego u¿ytkownika
+	 * umo¿liwiaj¹ce wprowadzanie loginu oraz has³a nowego u¿ytkownika
 	 */
-	public void SignUpWindow(Stage stage){
-		
+	public void SignUpWindow(Stage stage) {
+
 		stage.setTitle("Sign up panel");
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
 		grid.setStyle(
 				"-fx-background-image: url('https://s-media-cache-ak0.pinimg.com/736x/78/b1/96/78b1965dbb8d754bbeb6f9a1addf0d4f.jpg')");
-		
+
 		grid.setHgap(10);
 		grid.setVgap(10);
 
@@ -109,7 +107,7 @@ public class SignUp {
 					userTextField.setText(null);
 					pwBox.setText(null);
 					actiontarget.setText("Ten login jest ju¿ zajêty");
-					
+
 				} else {
 					actiontarget.setFill(Color.WHITE);
 					actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
@@ -119,7 +117,7 @@ public class SignUp {
 				}
 			}
 		});
-		
+
 		backButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent e) {
@@ -199,7 +197,7 @@ public class SignUp {
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();
-		
+
 	}
 
 	public Text getScenetitle() {

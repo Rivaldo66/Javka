@@ -4,28 +4,29 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Klasa odpowiedzialna za przetrzymywanie i organizacje danych zwi¹zanych z rodzajami gatunków naszych zwierzaków 
+ * Klasa odpowiedzialna za przetrzymywanie i organizacje danych zwi¹zanych z
+ * rodzajami gatunków naszych zwierzaków
  *
  * @author Damian Rudnicki i Pawe³ Tomaszewski
  *
  */
 @DatabaseTable(tableName = "Dictionary")
 public class Dictionary {
-	
+
 	@DatabaseField(id = true)
 	String name;
-	
+
 	@DatabaseField(canBeNull = false)
 	String image;
 
 	public Dictionary(String name) {
 		super();
 		this.name = name;
-		this.image="https://www.cbdzoe.pl/img/artykuly/mowa-ciala-pies.png";
+		this.image = "https://www.cbdzoe.pl/img/artykuly/mowa-ciala-pies.png";
 	}
-	
-	public Dictionary(){
-		
+
+	public Dictionary() {
+
 	}
 
 	public String getName() {

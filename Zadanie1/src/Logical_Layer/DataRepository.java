@@ -14,7 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * Klasa odpowiedzialna za operacje typu CRUD na bazie danych 
+ * Klasa odpowiedzialna za operacje typu CRUD na bazie danych
  *
  * @author Damian Rudnicki i Pawe³ Tomaszewski
  *
@@ -31,9 +31,11 @@ public class DataRepository {
 	// ---------------------------------------------User---------------------------------------------//
 
 	/**
-	 * Metoda odpowiedzialna za dodanie nowego u¿ytkownika do bazy danych 
+	 * Metoda odpowiedzialna za dodanie nowego u¿ytkownika do bazy danych
 	 * 
-	 * @param user - objekt przechowywuj¹cy u¿ytkownika który ma zostaæ dodany do bazy danych
+	 * @param user
+	 *            - objekt przechowywuj¹cy u¿ytkownika który ma zostaæ dodany do
+	 *            bazy danych
 	 */
 	public void AddUser(User user) {
 
@@ -48,7 +50,8 @@ public class DataRepository {
 	/**
 	 * Metoda odpowiedzialna za uaktualnienie obecnie istniej¹cego u¿ytkownika
 	 * 
-	 * @param user - objekt przechowywuj¹cy zaktualizowanego u¿ytkownika
+	 * @param user
+	 *            - objekt przechowywuj¹cy zaktualizowanego u¿ytkownika
 	 */
 	public void UpdateUser(User user) {
 
@@ -63,7 +66,7 @@ public class DataRepository {
 	/**
 	 * Metoda zwracaj¹ca wszystkich u¿ytkowników znajduj¹cych siê w bazie danych
 	 * 
-	 * @return - zwraca wszystkich u¿ytkowników 
+	 * @return - zwraca wszystkich u¿ytkowników
 	 */
 	public List<User> GetAllUsers() {
 
@@ -81,7 +84,8 @@ public class DataRepository {
 	/**
 	 * Metoda usuwaj¹ca u¿ytkownika z bazy danych
 	 * 
-	 * @param user - u¿ytkownik który ma zostac usuniêty
+	 * @param user
+	 *            - u¿ytkownik który ma zostac usuniêty
 	 */
 	public void DeleteUser(User user) {
 
@@ -92,11 +96,12 @@ public class DataRepository {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Metoda zwracaj¹cym obiekt u¿ytkownika o odpowiednim loginie
 	 * 
-	 * @param login - login szukanego u¿ytkownika
+	 * @param login
+	 *            - login szukanego u¿ytkownika
 	 * 
 	 * @return - zwraca szukanego u¿ytkownika
 	 */
@@ -118,9 +123,10 @@ public class DataRepository {
 	// --------------------------------------------Animal--------------------------------------------//
 
 	/**
-	 * Metoda odpowiedzialna za dodanie nowego zwierzaka do bazy danych 
+	 * Metoda odpowiedzialna za dodanie nowego zwierzaka do bazy danych
 	 * 
-	 * @param animal - obiket pupila który ma zostac dodany 
+	 * @param animal
+	 *            - obiket pupila który ma zostac dodany
 	 */
 	public void AddAnimal(Animal animal) {
 
@@ -135,7 +141,8 @@ public class DataRepository {
 	/**
 	 * Metoda odpowiedzialna za uaktualnienie obecnie istniej¹cego zwierzaka
 	 * 
-	 * @param animal - objekt przechowywuj¹cy zaktualizowanego zwierzaka
+	 * @param animal
+	 *            - objekt przechowywuj¹cy zaktualizowanego zwierzaka
 	 */
 	public void UpdateAnimal(Animal animal) {
 
@@ -168,7 +175,8 @@ public class DataRepository {
 	/**
 	 * Metoda usuwaj¹ca zwierzaka z bazy danych
 	 * 
-	 * @param animal - zwierzak który ma zostaæ usuniêty
+	 * @param animal
+	 *            - zwierzak który ma zostaæ usuniêty
 	 */
 	public void DeleteAnimal(Animal animal) {
 
@@ -183,7 +191,8 @@ public class DataRepository {
 	/**
 	 * Metoda zwracaj¹cym obiekt zwierzaka o odpowiednim numerze ID
 	 * 
-	 * @param animalID - unikalny numer poszukiwanego zwierzaka
+	 * @param animalID
+	 *            - unikalny numer poszukiwanego zwierzaka
 	 * 
 	 * @return - zwraca szukanego zwierzaka
 	 */
@@ -204,7 +213,8 @@ public class DataRepository {
 	/**
 	 * Metoda zwracaj¹ca wszystkie zwierzaki nale¿¹ce do danego u¿ytkownika
 	 * 
-	 * @param user - obiekt u¿ytkownika którego s¹ dane zwierzêta
+	 * @param user
+	 *            - obiekt u¿ytkownika którego s¹ dane zwierzêta
 	 * 
 	 * @return - zwraca liste zwierzaków które nale¿¹ do danego u¿ytkownika
 	 */
@@ -225,9 +235,10 @@ public class DataRepository {
 	// ------------------------------------------Dictionary------------------------------------------//
 
 	/**
-	 * Metoda odpowiedzialna za dodanie nowego gatunku do bazy danych 
+	 * Metoda odpowiedzialna za dodanie nowego gatunku do bazy danych
 	 * 
-	 * @param dictionary - obiekt gatunku który ma zostac dodany
+	 * @param dictionary
+	 *            - obiekt gatunku który ma zostac dodany
 	 */
 	public void AddNewAnimal(Dictionary dictionary) {
 
@@ -240,7 +251,8 @@ public class DataRepository {
 	}
 
 	/**
-	 * Metoda zwracaj¹ca wszystkie nazwy gatunków znajduj¹cych siê w bazie danych
+	 * Metoda zwracaj¹ca wszystkie nazwy gatunków znajduj¹cych siê w bazie
+	 * danych
 	 * 
 	 * @return - zwraca liste wszystkich nazw gatunków
 	 */
@@ -249,23 +261,24 @@ public class DataRepository {
 		List<String> list = new ArrayList<String>();
 
 		try {
-			for(Dictionary i : database.getDictionaryDao().queryForAll()){
+			for (Dictionary i : database.getDictionaryDao().queryForAll()) {
 				list.add(i.getName());
 			}
 			return list;
-				
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			list = null;
 			return list;
-		} 
+		}
 	}
 
 	/**
 	 * Metoda odpowiedzialna za uaktualnienie obecnie istniej¹cego gatunku
 	 * 
-	 * @param dictionary - obiekt przechowywuj¹cy uaktualniony gatunek
+	 * @param dictionary
+	 *            - obiekt przechowywuj¹cy uaktualniony gatunek
 	 */
 	public void UpdateDictionary(Dictionary dictionary) {
 
@@ -298,7 +311,8 @@ public class DataRepository {
 	/**
 	 * Metoda usuwaj¹ca gatunek z bazy danych
 	 * 
-	 * @param dictionary - gatunek który ma zostac usuniêty
+	 * @param dictionary
+	 *            - gatunek który ma zostac usuniêty
 	 */
 	public void DeleteDictionary(Dictionary dictionary) {
 
@@ -313,7 +327,8 @@ public class DataRepository {
 	/**
 	 * Metoda zwracaj¹ca gatunek o odpowiedniej nazwie
 	 * 
-	 * @param name - nazwa gatunku
+	 * @param name
+	 *            - nazwa gatunku
 	 * 
 	 * @return - zwraca szukany gatunek
 	 */
@@ -334,9 +349,10 @@ public class DataRepository {
 	// --------------------------------------------Action--------------------------------------------//
 
 	/**
-	 * Metoda odpowiedzialna za dodanie nowej akcji do bazy danych 
+	 * Metoda odpowiedzialna za dodanie nowej akcji do bazy danych
 	 * 
-	 * @param action - obiekt akcji która ma zostaæ dodana
+	 * @param action
+	 *            - obiekt akcji która ma zostaæ dodana
 	 */
 	public void AddAction(Action action) {
 
@@ -369,7 +385,8 @@ public class DataRepository {
 	/**
 	 * Metoda zwracaj¹ca akcje o odpowiednim ID
 	 * 
-	 * @param actionID - unikalne ID akcji
+	 * @param actionID
+	 *            - unikalne ID akcji
 	 * 
 	 * @return - zwraca szukan¹ akcje
 	 */
@@ -390,7 +407,8 @@ public class DataRepository {
 	/**
 	 * Metoda zwracaj¹ca wszystkie akcje dla danego zwierzaka
 	 * 
-	 * @param animalId - unikalne ID zwierzaka dla którego szukamy akcji
+	 * @param animalId
+	 *            - unikalne ID zwierzaka dla którego szukamy akcji
 	 * 
 	 * @return - zwraca liste szukanych akcji
 	 */
@@ -411,9 +429,10 @@ public class DataRepository {
 	// ----------------------------------------DictionaryStaff-----------------------------------------//
 
 	/**
-	 * Metoda odpowiedzialna za dodanie nowej akcji dla zwierzaka do bazy danych 
+	 * Metoda odpowiedzialna za dodanie nowej akcji dla zwierzaka do bazy danych
 	 * 
-	 * @param dictionaryStaff - objekt akcji dla zwierzaka która ma zostaæ dodana
+	 * @param dictionaryStaff
+	 *            - objekt akcji dla zwierzaka która ma zostaæ dodana
 	 */
 	public void AddDictionaryStaff(DictionaryStaff dictionaryStaff) {
 
@@ -426,9 +445,11 @@ public class DataRepository {
 	}
 
 	/**
-	 * Metoda odpowiedzialna za uaktualnienie obecnie istniej¹cej akcji zwierzaka
+	 * Metoda odpowiedzialna za uaktualnienie obecnie istniej¹cej akcji
+	 * zwierzaka
 	 * 
-	 * @param dictionaryStaff - objekt przechowywuj¹cy uaktualnion¹ akcje dla zwierzaka
+	 * @param dictionaryStaff
+	 *            - objekt przechowywuj¹cy uaktualnion¹ akcje dla zwierzaka
 	 */
 	public void UpdateDictionaryStaff(DictionaryStaff dictionaryStaff) {
 
@@ -461,7 +482,8 @@ public class DataRepository {
 	/**
 	 * Metoda usuwaj¹ca akcje z bazy danych
 	 * 
-	 * @param dictionaryStaff - akcja zwierzaka która ma zostaæ usuniêta
+	 * @param dictionaryStaff
+	 *            - akcja zwierzaka która ma zostaæ usuniêta
 	 */
 	public void DeleteDictionaryStaff(DictionaryStaff dictionaryStaff) {
 
@@ -476,7 +498,8 @@ public class DataRepository {
 	/**
 	 * Metoda zwracaj¹ca akcje dla zwierzaka o odpowiednim ID
 	 * 
-	 * @param dictionaryStaffID - unikalne ID akcji zwierzaka
+	 * @param dictionaryStaffID
+	 *            - unikalne ID akcji zwierzaka
 	 * 
 	 * @return - zwraca szukan¹ akcje zwierzaka
 	 */
@@ -499,7 +522,8 @@ public class DataRepository {
 	/**
 	 * Metoda zwracaj¹ca liste akcji dla danego gatunku
 	 * 
-	 * @param dictionary - unikalna nazwa gatunku dla którego poszukujemy akcji
+	 * @param dictionary
+	 *            - unikalna nazwa gatunku dla którego poszukujemy akcji
 	 * 
 	 * @return - zwraca liste odpowiednich akcji zwierzaka
 	 */

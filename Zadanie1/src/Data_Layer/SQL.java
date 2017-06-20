@@ -14,7 +14,7 @@ import com.j256.ormlite.table.TableUtils;
  *
  */
 public class SQL {
-	
+
 	ConnectionSource conn = null;
 	Dao<User, String> userDao = null;
 	Dao<Animal, String> animalDao = null;
@@ -26,24 +26,25 @@ public class SQL {
 	QueryBuilder<Dictionary, String> dictionaryBuilder = null;
 	QueryBuilder<Action, String> actionBuilder = null;
 	QueryBuilder<DictionaryStaff, String> dictionaryStaffBuilder = null;
-	
+
 	Dictionary dictionary1 = new Dictionary("Pies");
 	Dictionary dictionary2 = new Dictionary("Kot");
 	Dictionary dictionary3 = new Dictionary("Królik");
 	Dictionary dictionary4 = new Dictionary("Mysz");
 
 	/**
-	 * Po³¹czenie z baz¹ danych oraz zapisanie podstawowych 
-	 * gatunków oraz ich akcji do bazy danych 
+	 * Po³¹czenie z baz¹ danych oraz zapisanie podstawowych gatunków oraz ich
+	 * akcji do bazy danych
 	 * 
-	 * @param connection - parametr potrzebny do po³aczenia z baz¹ danych  
+	 * @param connection
+	 *            - parametr potrzebny do po³aczenia z baz¹ danych
 	 */
 	public void dbConnect(String connection) {
-		
+
 		try {
 			conn = new JdbcConnectionSource(connection);
-		} catch (Exception e) {	
-			
+		} catch (Exception e) {
+
 		}
 		try {
 			userDao = DaoManager.createDao(conn, User.class);
@@ -102,8 +103,10 @@ public class SQL {
 		}
 		try {
 			dictionary1.setImage("https://www.cbdzoe.pl/img/artykuly/mowa-ciala-pies.png");
-			dictionary2.setImage("http://2.bp.blogspot.com/-mXYoQvnmJog/UcFoFjUMwnI/AAAAAAAABPw/wSDQEeU9oQg/s250/nadrapaku-kot-2.png");
-			dictionary3.setImage("http://lh4.ggpht.com/hwM2DwntUQX6Zq2hxNA1ts_YAoVNvQpnbs3q-odjYxQ-v_Mc4h1slGgyLULdeEmeTqc=w300");
+			dictionary2.setImage(
+					"http://2.bp.blogspot.com/-mXYoQvnmJog/UcFoFjUMwnI/AAAAAAAABPw/wSDQEeU9oQg/s250/nadrapaku-kot-2.png");
+			dictionary3.setImage(
+					"http://lh4.ggpht.com/hwM2DwntUQX6Zq2hxNA1ts_YAoVNvQpnbs3q-odjYxQ-v_Mc4h1slGgyLULdeEmeTqc=w300");
 			dictionary4.setImage("https://kochamzwierzta.files.wordpress.com/2016/11/chomik.png?w=660&h=495");
 			dictionaryDao.create(dictionary1);
 			dictionaryDao.create(dictionary2);
@@ -125,7 +128,7 @@ public class SQL {
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Food", "karma"));
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Food", "siano"));
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Food", "ser"));
-			
+
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Play", "spacer"));
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Play", "aportowanie"));
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Play", "guma koœæ"));
@@ -138,7 +141,7 @@ public class SQL {
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Play", "g³askanie"));
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Play", "ko³owrotek"));
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary4, "Play", "zabawa w chowanego"));
-			
+
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Treatment", "szczepenie"));
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Treatment", "odrobaczanie"));
 			dictionaryStaffDao.create(new DictionaryStaff(dictionary1, "Treatment", "czesanie"));
@@ -248,5 +251,5 @@ public class SQL {
 	public void setDictionaryStaffBuilder(QueryBuilder<DictionaryStaff, String> dictionaryStaffBuilder) {
 		this.dictionaryStaffBuilder = dictionaryStaffBuilder;
 	}
-		
+
 }

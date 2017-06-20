@@ -4,7 +4,8 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Klasa odpowiedzialna za przetrzymywanie i organizacje danych zwi¹zanych z u¿ytkownikiem 
+ * Klasa odpowiedzialna za przetrzymywanie i organizacje danych zwi¹zanych z
+ * u¿ytkownikiem
  *
  * @author Damian Rudnicki i Pawe³ Tomaszewski
  *
@@ -14,10 +15,10 @@ public class User {
 
 	@DatabaseField(id = true)
 	String login;
-	
+
 	@DatabaseField(canBeNull = false)
 	String password;
-	
+
 	@DatabaseField(canBeNull = false)
 	Boolean admin;
 
@@ -27,10 +28,10 @@ public class User {
 		this.admin = admin;
 	}
 
-	public User(){
-	
+	public User() {
+
 	}
-	
+
 	public String getLogin() {
 		return login;
 	}

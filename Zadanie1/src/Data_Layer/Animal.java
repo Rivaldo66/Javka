@@ -5,7 +5,8 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Klasa odpowiedzialna za przetrzymywanie i organizacje danych zwi¹zanych ze zwierzakiem 
+ * Klasa odpowiedzialna za przetrzymywanie i organizacje danych zwi¹zanych ze
+ * zwierzakiem
  *
  * @author Damian Rudnicki i Pawe³ Tomaszewski
  *
@@ -21,7 +22,7 @@ public class Animal {
 
 	@DatabaseField(canBeNull = false, foreign = true)
 	Dictionary type;
-	
+
 	@DatabaseField(canBeNull = false, foreign = true)
 	User user;
 
@@ -33,16 +34,16 @@ public class Animal {
 
 	@DatabaseField(canBeNull = false)
 	Date dateAdded = new Date();
-	
+
 	@DatabaseField(canBeNull = false)
 	float hp;
-	
+
 	@DatabaseField(canBeNull = false)
 	float levelOfHunger;
-	
+
 	@DatabaseField(canBeNull = false)
 	float levelOfFunNeeded;
-	
+
 	@DatabaseField(canBeNull = false)
 	boolean status;
 
@@ -57,8 +58,8 @@ public class Animal {
 		this.age = 1;
 		this.experience = 0;
 		this.hp = 100;
-		this.levelOfHunger = 50;			
-		this.levelOfFunNeeded = 50;	
+		this.levelOfHunger = 50;
+		this.levelOfFunNeeded = 50;
 		this.status = true;
 	}
 
@@ -113,6 +114,7 @@ public class Animal {
 	public void setHp(float hp) {
 		this.hp = hp;
 	}
+
 	public float getLevelOfHunger() {
 		return levelOfHunger;
 	}
@@ -120,7 +122,7 @@ public class Animal {
 	public void setLevelOfHunger(float levelOfHunger) {
 		this.levelOfHunger = levelOfHunger;
 	}
-	
+
 	public void addLevelOfHunger(float levelOfHunger) {
 		this.levelOfHunger = this.levelOfHunger + levelOfHunger;
 	}
@@ -132,7 +134,7 @@ public class Animal {
 	public void setLevelOfFunNeeded(float levelOfFunNeeded) {
 		this.levelOfFunNeeded = levelOfFunNeeded;
 	}
-	
+
 	public void addLevelOfFunNeeded(float levelOfFunNeeded) {
 		this.levelOfFunNeeded = this.levelOfFunNeeded + levelOfFunNeeded;
 	}
@@ -156,5 +158,5 @@ public class Animal {
 	public int getAnimalID() {
 		return animalID;
 	}
-	
+
 }

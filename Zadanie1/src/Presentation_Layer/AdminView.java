@@ -26,7 +26,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * Klasa odpowiedzialna za wyœwietlanie widoku administratora 
+ * Klasa odpowiedzialna za wyœwietlanie widoku administratora
  *
  * @author Damian Rudnicki i Pawe³ Tomaszewski
  *
@@ -46,10 +46,10 @@ public class AdminView extends Application {
 		this.dataService = dataService;
 		this.type = "start";
 	}
-	
+
 	/**
-	 * Tworzenie widoku okna administratora, tu wywo³ywane s¹ 
-	 * metody tworz¹ce poszczególne panele widoku
+	 * Tworzenie widoku okna administratora, tu wywo³ywane s¹ metody tworz¹ce
+	 * poszczególne panele widoku
 	 */
 	@Override
 	public void start(Stage primaryStage) {
@@ -69,15 +69,15 @@ public class AdminView extends Application {
 	}
 
 	/**
-	 * Dynamiczne tworzenie panelu œrodkowego widoku administratora, 
-	 * w zale¿noœci od akcji u¿ytkownika. Pocz¹tkowo tworzony jest widok
-	 * wszystkich wa¿nych danych z bazy: historii akcji, u¿ytkowników,
-	 * gatunków oraz typów akcji dla poszczególnych gatunków. 
-	 * Po nacisniêciu jednego z Buttonów na górnym panelu wyœwietlane 
-	 * s¹ odpowiednie pola do wprowadzenia odpowiednich danych.
+	 * Dynamiczne tworzenie panelu œrodkowego widoku administratora, w
+	 * zale¿noœci od akcji u¿ytkownika. Pocz¹tkowo tworzony jest widok
+	 * wszystkich wa¿nych danych z bazy: historii akcji, u¿ytkowników, gatunków
+	 * oraz typów akcji dla poszczególnych gatunków. Po nacisniêciu jednego z
+	 * Buttonów na górnym panelu wyœwietlane s¹ odpowiednie pola do wprowadzenia
+	 * odpowiednich danych.
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 * 
 	 * @return BorderPane czyli panel œrodkowy widoku administratora
 	 */
@@ -100,7 +100,7 @@ public class AdminView extends Application {
 
 			list.setItems(usersNames);
 			gridCenter.add(list, 0, 2);
-			
+
 			ListView<String> list1 = new ListView<String>();
 			ObservableList<Dictionary> dic = FXCollections
 					.observableArrayList(dataService.getDataRepository().GetAllDictionaries());
@@ -112,27 +112,28 @@ public class AdminView extends Application {
 
 			list1.setItems(dictionary);
 			gridCenter.add(list1, 1, 2);
-			
+
 			ListView<String> list2 = new ListView<String>();
 			ObservableList<Action> act = FXCollections
 					.observableArrayList(dataService.getDataRepository().GetAllActions());
 			ObservableList<String> action = FXCollections.observableArrayList();
 
 			for (Action i : act) {
-				action.add(dataService.getDataRepository().GetDictionaryStaff(i.getDictionaryStaff().getDictionaryStaffID()).getName()+i.toString());
+				action.add(dataService.getDataRepository()
+						.GetDictionaryStaff(i.getDictionaryStaff().getDictionaryStaffID()).getName() + i.toString());
 			}
 
 			list2.setItems(action);
 			gridCenter.add(list2, 2, 2);
 			gridCenter.setAlignment(Pos.CENTER);
-			
+
 			ListView<String> list3 = new ListView<String>();
 			ObservableList<DictionaryStaff> dicS = FXCollections
 					.observableArrayList(dataService.getDataRepository().GetAllDictionaryStaffs());
 			ObservableList<String> dictionaryS = FXCollections.observableArrayList();
 
 			for (DictionaryStaff i : dicS) {
-				dictionaryS.add(i.getDictionary().getName()+"- "+i.getType()+": "+i.getName());
+				dictionaryS.add(i.getDictionary().getName() + "- " + i.getType() + ": " + i.getName());
 			}
 
 			list3.setItems(dictionaryS);
@@ -159,10 +160,10 @@ public class AdminView extends Application {
 
 			Button btn = new Button("Confrim");
 			gridCenter.add(btn, 0, 3);
-			
+
 			Button back = new Button("Back");
 			gridCenter.add(back, 0, 4);
-			
+
 			back.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
@@ -203,10 +204,10 @@ public class AdminView extends Application {
 
 			Button btn = new Button("Confrim");
 			gridCenter.add(btn, 0, 3);
-			
+
 			Button back = new Button("Back");
 			gridCenter.add(back, 0, 4);
-			
+
 			back.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
@@ -229,7 +230,7 @@ public class AdminView extends Application {
 				}
 			});
 		}
-		
+
 		if (type.matches("addfood")) {
 			Label speciesName = new Label("Species name:");
 			speciesName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
@@ -249,10 +250,10 @@ public class AdminView extends Application {
 
 			Button btn = new Button("Confrim");
 			gridCenter.add(btn, 0, 3);
-			
+
 			Button back = new Button("Back");
 			gridCenter.add(back, 0, 4);
-			
+
 			back.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
@@ -264,16 +265,16 @@ public class AdminView extends Application {
 			btn.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
-					
+
 					Dictionary dic = dataService.getDataRepository().GetDictionary(speciesNamef.getText());
-					DictionaryStaff dictionaryS = new DictionaryStaff(dic,"Food",foodN.getText());
+					DictionaryStaff dictionaryS = new DictionaryStaff(dic, "Food", foodN.getText());
 					dataService.getDataRepository().AddDictionaryStaff(dictionaryS);
 					type = "start";
 					start(primaryStage);
 				}
 			});
 		}
-		
+
 		if (type.matches("addplay")) {
 			Label speciesName = new Label("Species name:");
 			speciesName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
@@ -293,10 +294,10 @@ public class AdminView extends Application {
 
 			Button btn = new Button("Confrim");
 			gridCenter.add(btn, 0, 3);
-			
+
 			Button back = new Button("Back");
 			gridCenter.add(back, 0, 4);
-			
+
 			back.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
@@ -309,14 +310,14 @@ public class AdminView extends Application {
 
 				public void handle(ActionEvent e) {
 					Dictionary dic = dataService.getDataRepository().GetDictionary(speciesNamef.getText());
-					DictionaryStaff dictionaryS = new DictionaryStaff(dic,"Play",link.getText());
+					DictionaryStaff dictionaryS = new DictionaryStaff(dic, "Play", link.getText());
 					dataService.getDataRepository().AddDictionaryStaff(dictionaryS);
 					type = "start";
 					start(primaryStage);
 				}
 			});
 		}
-		
+
 		if (type.matches("addtreat")) {
 			Label speciesName = new Label("Species name:");
 			speciesName.setFont(Font.font("Tahoma", FontWeight.MEDIUM, 30));
@@ -336,15 +337,15 @@ public class AdminView extends Application {
 
 			Button btn = new Button("Confrim");
 			gridCenter.add(btn, 0, 3);
-			
+
 			Button back = new Button("Back");
 			gridCenter.add(back, 0, 4);
-			
+
 			back.setOnAction(new EventHandler<ActionEvent>() {
 
 				public void handle(ActionEvent e) {
 					Dictionary dic = dataService.getDataRepository().GetDictionary(speciesNamef.getText());
-					DictionaryStaff dictionaryS = new DictionaryStaff(dic,"Food",link.getText());
+					DictionaryStaff dictionaryS = new DictionaryStaff(dic, "Food", link.getText());
 					dataService.getDataRepository().AddDictionaryStaff(dictionaryS);
 					type = "start";
 					start(primaryStage);
@@ -375,8 +376,8 @@ public class AdminView extends Application {
 	 * Tworzenie górnego panelu widoku administratora, zawieraj¹cego Buttony
 	 * konkretnych akcji.
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 */
 	public BorderPane addGridPaneTop(Stage primaryStage) {
 		BorderPane gridBorderCenter = new BorderPane();
@@ -407,7 +408,7 @@ public class AdminView extends Application {
 			}
 		});
 		gridTop.add(addNewSpecies, 1, 1);
-		
+
 		Button addNewFood = new Button("Add new food");
 		addNewFood.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -417,7 +418,7 @@ public class AdminView extends Application {
 			}
 		});
 		gridTop.add(addNewFood, 2, 1);
-		
+
 		Button addNewTreat = new Button("Add new treatment");
 		addNewTreat.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -437,20 +438,20 @@ public class AdminView extends Application {
 			}
 		});
 		gridTop.add(addNewPlay, 4, 1);
-		
+
 		gridBorderCenter.setTop(scenetitle);
 		BorderPane.setAlignment(scenetitle, Pos.CENTER);
 		gridBorderCenter.setCenter(gridTop);
-		
+
 		return gridBorderCenter;
 	}
 
 	/**
-	 * Tworzenie prawego panelu widoku, mo¿liwoœæ rozwoju programu, 
-	 * brak implementacji na dzieñ dzisiejszy
+	 * Tworzenie prawego panelu widoku, mo¿liwoœæ rozwoju programu, brak
+	 * implementacji na dzieñ dzisiejszy
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 */
 	public GridPane addGridPaneRight(Stage primaryStage) {
 		gridRight = new GridPane();
@@ -463,11 +464,11 @@ public class AdminView extends Application {
 	}
 
 	/**
-	 * Tworzenie lewego panelu widoku, mo¿liwoœæ rozwoju programu, 
-	 * brak implementacji na dzieñ dzisiejszy
+	 * Tworzenie lewego panelu widoku, mo¿liwoœæ rozwoju programu, brak
+	 * implementacji na dzieñ dzisiejszy
 	 * 
-	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
-	 * 						 start(primaryStage)
+	 * @param primaryStage
+	 *            - potrzebny do odœwie¿ania widoku metod¹ start(primaryStage)
 	 */
 	public GridPane addGridPaneLeft(Stage primaryStage) {
 		gridLeft = new GridPane();

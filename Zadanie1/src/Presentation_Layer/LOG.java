@@ -28,9 +28,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * Klasa odpowiedzialna za wyœwietlanie widoku logowania
- * wyswietlanego jako widok startowy po uruchomieniu 
- * programu 
+ * Klasa odpowiedzialna za wyœwietlanie widoku logowania wyswietlanego jako
+ * widok startowy po uruchomieniu programu
  *
  * @author Damian Rudnicki i Pawe³ Tomaszewski
  *
@@ -56,13 +55,14 @@ public class LOG extends Application {
 	private Scene scene;
 
 	/**
-	 * Jako ¿e klasa ta jest pierwszym wyœwietlanym widokiem programu
-	 * w konstruktorze odbywa siê ³¹czenie z baz¹ sql.dbConnect()
+	 * Jako ¿e klasa ta jest pierwszym wyœwietlanym widokiem programu w
+	 * konstruktorze odbywa siê ³¹czenie z baz¹ sql.dbConnect()
 	 */
 	public LOG() {
 		SQL sql = new SQL();
-		//sql.dbConnect(
-				 //"jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi; user=Pawel; password=mama");
+		// sql.dbConnect(
+		// "jdbc:sqlserver://localhost\\sqlexpress:1433;database=Tamagotchi;
+		// user=Pawel; password=mama");
 		sql.dbConnect(
 				"jdbc:sqlserver://localhost\\sqlexpress:1433; database=Tamagotchi; user=Damian; password=Worrior");
 		DataRepository dataRepository = new DataRepository(sql);
@@ -70,8 +70,8 @@ public class LOG extends Application {
 	}
 
 	/**
-	 * Tworzenie widoku okna logowania, tu tworzone s¹ komponenty
-	 * umo¿liwiaj¹ce wprowadzanie loginu oraz has³a 
+	 * Tworzenie widoku okna logowania, tu tworzone s¹ komponenty umo¿liwiaj¹ce
+	 * wprowadzanie loginu oraz has³a
 	 */
 	@Override
 	public void start(Stage primaryStage) {
@@ -115,19 +115,18 @@ public class LOG extends Application {
 			public void handle(ActionEvent e) {
 
 				if (dataService.CheckSignIn(userTextField.getText(), pwBox.getText())) {
-					if(dataService.getDataRepository().GetUser(userTextField.getText()).getAdmin()==true){
+					if (dataService.getDataRepository().GetUser(userTextField.getText()).getAdmin() == true) {
 						actiontarget.setFill(Color.WHITE);
 						actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
 						actiontarget.setText("Witaj " + userTextField.getText());
-						
+
 						AdminView adminView = new AdminView(dataService);
 						adminView.start(primaryStage);
-					}
-					else{
+					} else {
 						actiontarget.setFill(Color.WHITE);
 						actiontarget.setFont(Font.font("Tahoma", FontWeight.EXTRA_BOLD, 12));
 						actiontarget.setText("Witaj " + userTextField.getText());
-						
+
 						GAME game = new GAME(dataService, dataService.Login(userTextField.getText()));
 						game.start(primaryStage);
 					}
