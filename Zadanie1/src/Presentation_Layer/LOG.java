@@ -27,6 +27,14 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * Klasa odpowiedzialna za wyœwietlanie widoku logowania
+ * wyswietlanego jako widok startowy po uruchomieniu 
+ * programu 
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 public class LOG extends Application {
 
 	private DataService dataService;
@@ -47,6 +55,10 @@ public class LOG extends Application {
 	@FXML
 	private Scene scene;
 
+	/**
+	 * Jako ¿e klasa ta jest pierwszym wyœwietlanym widokiem programu
+	 * w konstruktorze odbywa siê ³¹czenie z baz¹ sql.dbConnect()
+	 */
 	public LOG() {
 		SQL sql = new SQL();
 		//sql.dbConnect(
@@ -57,6 +69,10 @@ public class LOG extends Application {
 		dataService = new DataService(dataRepository);
 	}
 
+	/**
+	 * Tworzenie widoku okna logowania, tu tworzone s¹ komponenty
+	 * umo¿liwiaj¹ce wprowadzanie loginu oraz has³a 
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("LOGIN PANEL");
@@ -203,6 +219,7 @@ public class LOG extends Application {
 
 		scene = new Scene(grid, 500, 733);
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 

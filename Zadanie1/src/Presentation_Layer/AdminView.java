@@ -25,6 +25,12 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Klasa odpowiedzialna za wyœwietlanie widoku administratora 
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 public class AdminView extends Application {
 
 	private DataService dataService;
@@ -40,7 +46,11 @@ public class AdminView extends Application {
 		this.dataService = dataService;
 		this.type = "start";
 	}
-
+	
+	/**
+	 * Tworzenie widoku okna administratora, tu wywo³ywane s¹ 
+	 * metody tworz¹ce poszczególne panele widoku
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("ADMIN PANEL");
@@ -54,9 +64,23 @@ public class AdminView extends Application {
 
 		Scene scene = new Scene(border, 900, 552);
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 
+	/**
+	 * Dynamiczne tworzenie panelu œrodkowego widoku administratora, 
+	 * w zale¿noœci od akcji u¿ytkownika. Pocz¹tkowo tworzony jest widok
+	 * wszystkich wa¿nych danych z bazy: historii akcji, u¿ytkowników,
+	 * gatunków oraz typów akcji dla poszczególnych gatunków. 
+	 * Po nacisniêciu jednego z Buttonów na górnym panelu wyœwietlane 
+	 * s¹ odpowiednie pola do wprowadzenia odpowiednich danych.
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 * 
+	 * @return BorderPane czyli panel œrodkowy widoku administratora
+	 */
 	public BorderPane addBorderPaneCenter(Stage primaryStage) {
 		BorderPane gridBorderCenter = new BorderPane();
 		gridBorderCenter.setStyle("-fx-background-color: #336699;");
@@ -347,6 +371,13 @@ public class AdminView extends Application {
 		return gridBorderCenter;
 	}
 
+	/**
+	 * Tworzenie górnego panelu widoku administratora, zawieraj¹cego Buttony
+	 * konkretnych akcji.
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public BorderPane addGridPaneTop(Stage primaryStage) {
 		BorderPane gridBorderCenter = new BorderPane();
 		gridTop = new GridPane();
@@ -414,6 +445,13 @@ public class AdminView extends Application {
 		return gridBorderCenter;
 	}
 
+	/**
+	 * Tworzenie prawego panelu widoku, mo¿liwoœæ rozwoju programu, 
+	 * brak implementacji na dzieñ dzisiejszy
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public GridPane addGridPaneRight(Stage primaryStage) {
 		gridRight = new GridPane();
 		gridRight.setHgap(10);
@@ -424,6 +462,13 @@ public class AdminView extends Application {
 		return gridRight;
 	}
 
+	/**
+	 * Tworzenie lewego panelu widoku, mo¿liwoœæ rozwoju programu, 
+	 * brak implementacji na dzieñ dzisiejszy
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public GridPane addGridPaneLeft(Stage primaryStage) {
 		gridLeft = new GridPane();
 		gridLeft.setHgap(10);

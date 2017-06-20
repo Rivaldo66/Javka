@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.sun.scenario.effect.Effect;
+
 import Data_Layer.Animal;
 import Data_Layer.Dictionary;
 import Data_Layer.DictionaryStaff;
@@ -32,6 +34,12 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Klasa odpowiedzialna za wyœwietlanie widoku g³ównego gry 
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 public class GAME extends Application {
 
 	private DataService dataService;
@@ -83,6 +91,11 @@ public class GAME extends Application {
 		this.animalDetails = new AnimalDetails(dataService, currentUser, animalList, currentAnimalBtn, currentAnimalId);
 	}
 
+	/**
+	 * Tworzenie widoku okna g³ównego gry, gdzie mamy podgl¹d do 
+	 * wszystkich zwierzaków zalogowanego u¿ytkownika,
+	 * tu wywo³ywane s¹ metody tworz¹ce poszczególne panele widoku
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("GAME PANEL");
@@ -99,6 +112,7 @@ public class GAME extends Application {
 
 		scene = new Scene(border, 900, 552);
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 
@@ -110,6 +124,13 @@ public class GAME extends Application {
 		this.gridCenter = gridCenter;
 	}
 
+	/**
+	 * Metoda odpowiedzialna za dynamiczne dodawanie zwierzaków
+	 * na polanê.
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public HBox addAnimals(Stage primaryStage) {
 		HBox hbox = new HBox();
 		hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -150,6 +171,13 @@ public class GAME extends Application {
 		return hbox;
 	}
 	
+	/**
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
+	 * umo¿liwiaj¹cych akcje dla wszystkich zwierzaków danego gatunku
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public HBox addAnimalButtons(Stage primaryStage) {
 		HBox hbox = new HBox();
 		hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -182,6 +210,12 @@ public class GAME extends Application {
 		return hbox;
 	}
 	
+	/**
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
+	 * umo¿liwiaj¹cych akcje dla wszystkich zwierzaków danego gatunku
+	 * 
+	 * @param dictionary
+	 */
 	public HBox addDictionaryStaffButtons(Dictionary dictionary) {
 		HBox hbox = new HBox();
 		hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -225,6 +259,13 @@ public class GAME extends Application {
 		return hbox;
 	}
 
+	/**
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
+	 * umo¿liwiaj¹cych akcje karmienia dla wszystkich zwierzaków danego gatunku
+	 * 
+	 * @param list - lista akcji typu karmienie
+	 * @param dictionary - udostêpnia metodê getName()
+	 */
 	public HBox addFoodButton(List<DictionaryStaff> list, Dictionary dictionary) {
 		HBox hbox = new HBox();
 		hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -257,6 +298,13 @@ public class GAME extends Application {
 		return hbox;
 	}
 	
+	/**
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
+	 * umo¿liwiaj¹cych akcje zabawy dla wszystkich zwierzaków danego gatunku
+	 * 
+	 * @param list - lista akcji typu zabawy
+	 * @param dictionary - udostêpnia metodê getName()
+	 */
 	public HBox addPlayButton(List<DictionaryStaff> list, Dictionary dictionary) {
 		HBox hbox = new HBox();
 		hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -289,6 +337,13 @@ public class GAME extends Application {
 		return hbox;
 	}
 	
+	/**
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
+	 * umo¿liwiaj¹cych akcje leczenie dla wszystkich zwierzaków danego gatunku
+	 * 
+	 * @param list - lista akcji typu leczenie
+	 * @param dictionary - udostêpnia metodê getName()
+	 */
 	public HBox addTreatmentButton(List<DictionaryStaff> list, Dictionary dictionary) {
 		HBox hbox = new HBox();
 		hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -321,6 +376,11 @@ public class GAME extends Application {
 		return hbox;
 	}
 	
+	/**
+	 * Metoda odpowiedzialna za dynamiczne dodawanie Buttonów
+	 * umo¿liwiaj¹cych akcje dla wszystkich zwierzaków danego gatunku
+	 * 
+	 */
 	public HBox addAnimalsTools() {
 
 		HBox hbox = new HBox();
@@ -370,7 +430,13 @@ public class GAME extends Application {
 
 		return hbox;
 	}
-
+	
+	/**
+	 * Metoda tworz¹ca œrodkowy panel okna g³ównego gry
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public BorderPane addBorderPaneCenter(Stage primaryStage) {
 		gridCenter = new BorderPane();
 		gridCenter.setStyle(
@@ -382,6 +448,15 @@ public class GAME extends Application {
 		return gridCenter;
 	}
 
+	/**
+	 * Metoda tworz¹ca prawy panel okna g³ównego gry,
+	 * gdzie znajduj¹ siê komponenty potrzebne to 
+	 * wprowadzania do gry kolejnych zwierzaków, a tak¿e przyciski
+	 * odpowiedzialne za serializacjê, deserializacjê,oraz wylogowanie
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public BorderPane addGridPaneRight(Stage primaryStage) {
 		BorderPane border2 = new BorderPane();
 		border2.setPadding(new Insets(0, 10, 0, 10));

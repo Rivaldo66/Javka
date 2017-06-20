@@ -28,6 +28,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * Klasa odpowiedzialna za wyœwietlanie widoku ze szczegó³ami o zaznaczonym pupilu 
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 public class AnimalDetails extends Application {
 
 	private DataService dataService;
@@ -39,6 +45,10 @@ public class AnimalDetails extends Application {
 	private BorderPane border;
 	private int sizeX = 170;
 
+	/**
+	 * Tworzenie widoku okna szczegó³ów zaznaczonego pupila,
+	 * tu wywo³ywane s¹ metody tworz¹ce poszczególne panele widoku
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
@@ -56,6 +66,15 @@ public class AnimalDetails extends Application {
 
 	}
 
+	/**
+	 * Tworzenie prawego panelu widoku szczegó³ów zaznaczonego 
+	 * pupila. Tu znajduj¹ siê informacje o maksymalnie 5ciu
+	 * ostatnio wykonywanych operacjach ze zwierzakiem 
+	 * (zabaw, karmienia, leczenia)
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public GridPane addGridPaneRight(Stage primaryStage) {
 		GridPane gridRight = new GridPane();
 		gridRight.setHgap(10);
@@ -114,6 +133,15 @@ public class AnimalDetails extends Application {
 		return gridRight;
 	}
 
+	/**
+	 * Tworzenie dolnego panelu widoku szczegó³ów zaznaczonego 
+	 * pupila. Tu znajduj¹ siê dynamicznie tworzone na podstawie 
+	 * bazy danych Buttony dla ka¿dej dostêpnej dla zaznaczonego 
+	 * pupila aktywnoœci (zabaw, karmienia, leczenia)
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public GridPane addGridPaneBottom(Stage primaryStage) {
 		GridPane grid = new GridPane();
 		grid.setHgap(10);
@@ -208,6 +236,14 @@ public class AnimalDetails extends Application {
 		return grid;
 	}
 
+	/**
+	 * Tworzenie œrodkowego panelu widoku szczegó³ów zaznaczonego 
+	 * pupila. Tu znajduj¹ siê informacje o naszym zwierzaku, jego imie,
+	 * gatunek, poziom ¿ycia, poziom potrzeby zabawy oraz poziom g³odu.
+	 * 
+	 * @param primaryStage - potrzebny do odœwie¿ania widoku metod¹ 
+	 * 						 start(primaryStage)
+	 */
 	public GridPane addGridPaneCenter() {
 		GridPane gridCenter = new GridPane();
 		gridCenter.setHgap(10);

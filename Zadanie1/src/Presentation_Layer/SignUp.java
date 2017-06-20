@@ -24,6 +24,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * Klasa odpowiedzialna za wyœwietlanie widoku rejestracji
+ * nowych u¿ytkowników 
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 public class SignUp {
 	
 	private DataService dataService;
@@ -50,6 +57,10 @@ public class SignUp {
 
 	}
 	
+	/**
+	 * Tworzenie widoku okna rejestracji, tu tworzone s¹ komponenty
+	 * umo¿liwiaj¹ce wprowadzanie loginu oraz has³a  nowego u¿ytkownika
+	 */
 	public void SignUpWindow(Stage stage){
 		
 		stage.setTitle("Sign up panel");
@@ -186,6 +197,7 @@ public class SignUp {
 
 		scene = new Scene(grid, 500, 733);
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 		
 	}
