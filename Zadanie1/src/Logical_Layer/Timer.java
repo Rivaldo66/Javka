@@ -11,6 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * Klasa odpowiedzialna za wykonywanie operacji cyklicznych,
+ * zabieranie zwierzakom ¿ycia, levelu g³odu oraz levelu potrzeby zabawy 
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 public class Timer extends Thread {
 
 	private DataService dataService;
@@ -21,6 +28,12 @@ public class Timer extends Thread {
 	private int licznik;
 	private GAME game;
 
+	/**
+	 * Metoda run() wymagaj¹ca zaimplementowania w przypadku 
+	 * klasy dziedzicz¹cej po klasie Thread, w nieskoñczonej pêli while
+	 * zabiera poziom statystyk zwierzakom, po czym w¹tek jest 
+	 * usypiany na 30 sekund metod¹ Timer.sleep()
+	 */
 	public void run() {
 		while (true) {
 			try {
