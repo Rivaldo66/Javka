@@ -4,6 +4,12 @@ import java.util.Date;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+/**
+ * Klasa odpowiedzialna za przetrzymywanie i organizacje danych zwi¹zanych z akcjami wykonanymi na zwierzaku 
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 @DatabaseTable(tableName = "Action")
 public class Action {
 

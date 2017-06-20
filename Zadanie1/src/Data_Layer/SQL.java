@@ -7,6 +7,12 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+/**
+ * Klasa odpowiedzialna za inicjalizacje bazy danych
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 public class SQL {
 	
 	ConnectionSource conn = null;
@@ -26,6 +32,12 @@ public class SQL {
 	Dictionary dictionary3 = new Dictionary("Królik");
 	Dictionary dictionary4 = new Dictionary("Mysz");
 
+	/**
+	 * Po³¹czenie z baz¹ danych oraz zapisanie podstawowych 
+	 * gatunków oraz ich akcji do bazy danych 
+	 * 
+	 * @param connection - parametr potrzebny do po³aczenia z baz¹ danych  
+	 */
 	public void dbConnect(String connection) {
 		
 		try {

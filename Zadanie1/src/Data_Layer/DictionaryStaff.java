@@ -3,6 +3,12 @@ package Data_Layer;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+/**
+ * Klasa odpowiedzialna za przetrzymywanie i organizacje danych zwi¹zanych z mo¿liwymi do wykonania akcjami na zierzaku danego gatunku
+ *
+ * @author Damian Rudnicki i Pawe³ Tomaszewski
+ *
+ */
 @DatabaseTable(tableName = "DictionaryStaff")
 public class DictionaryStaff {
 	@DatabaseField(id = true)
